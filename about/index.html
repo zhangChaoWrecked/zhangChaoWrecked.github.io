@@ -121,6 +121,8 @@
 <meta name="twitter:description" content="Create At: 2018.11.30Author:    Wrecked">
 
 
+  
+
 
   <link rel="alternate" href="/atom.xml" title="Wrecked" type="application/atom+xml">
 
@@ -458,9 +460,9 @@
 
   
     <div class="comments" id="comments">
-      
-        <div id="gitment-container"></div>
-      
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
     </div>
 
   
@@ -821,8 +823,27 @@
 
   
 
+  
+    <script id="dsq-count-scr" src="https://Wrecked.disqus.com/count.js" async></script>
+  
 
-
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/about/index.html';
+        this.page.identifier = 'about/index.html';
+        this.page.title = 'about';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://Wrecked.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
   
 
 
@@ -830,46 +851,6 @@
 
 
 
-<!-- LOCAL: You can save these files to your site and update links -->
-    
-        
-        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
-        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
-    
-<!-- END LOCAL -->
-
-    
-      <style>
-        a.gitment-editor-footer-tip { display: none; }
-        .gitment-container.gitment-footer-container { display: none; }
-      </style>
-    
-
-    
-      <script type="text/javascript">
-      function renderGitment(){
-        var gitment = new Gitmint({
-            id: decodeURI(window.location.pathname),
-            owner: 'zhangChaoWrecked',
-            repo: 'zhangChaoWrecked.github.io',
-            
-            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
-            
-            oauth: {
-            
-            
-                client_secret: 'a76598efcd70dade8503377026ea399e91ff73b3',
-            
-                client_id: '2d63f79ed0c7eb42519d'
-            }});
-        gitment.render('gitment-container');
-      }
-
-      
-      renderGitment();
-      
-      </script>
-    
 
 
 
