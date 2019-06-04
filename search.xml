@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[博客基本配置]]></title>
+    <url>%2F2019%2F06%2F04%2F%E5%8D%9A%E5%AE%A2%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[环境初始化1234567891011121314151617npm install hexo-cli -g //安装hexo modulesmkdir WreckedBolg //创建目录 cd WreckedBolg //进入目录 hexo init //初始化目录npm install hexo-deployer-git --save 安装部署gitHub依赖git clone https://github.com/theme-next/hexo-theme-next themes/next //主题文件地址npm install hexo-generator-searchdb --save //搜素引擎依赖包 npm install hexo-related-popular-posts --save //相关文章包 Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server //生成本地Service http://localhost:4000/ 访问地址 hexo s 简写 More info: Server Generate static files1$ hexo generate //生成静态HTML hexo g 简写 More info: Generating Deploy to remote sites1$ hexo deploy //部署到GitHub hexo d 简写 More info: Deployment 配置文件 _config.yml1234deploy: type: git repo: https://github.com/***/***.github.io.git branch: master 常用命令1234567891011hexo g #完整命令为hexo generate,用于生成静态文件hexo s #完整命令为hexo server,用于启动服务器，主要用来本地预览hexo d #完整命令为hexo deploy,用于将本地文件发布到github等git仓库上hexo n “my article” #完整命令为hexo new,用于新建一篇名为“my article”的文章hexo n “我的第一篇文章”hexo list page / post / route / tag / category(参数) 查看博客对应信息 背景图设置123..\themes\next\layout\_layout.swig 目录 找到&lt;Body&gt;标签 设置背景图片 style=&quot;background: url(https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/Background.jpg) no-repeat fixed ;&quot; 点击跳转配置教程链接]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[并发编程-volatile]]></title>
+    <url>%2F2019%2F02%2F22%2F%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-volatile%2F</url>
+    <content type="text"><![CDATA[上下文切换 阐述：CPU通过时间片分配算法来循环执行任务，当前任务执行一个时间片后会切换到下一个任务。但是，在切换前会保存上一个任务的状态，以便下次切换回这个任务时，可以再加载这个任务的状态。所以任务从保存到再加载的过程就是一次上下文切换 如何减少上下文切换 方案 无锁并发编程 将数据的ID按照Hash算法取模分段，不同的线程处理不同段的数据 CAS算法 Java的Atomic包使用CAS算法来更新数据，而不需要加锁 使用最少线程 避免创建不需要的线程 volatile 描述 特点 1.使用volatile关键字会强制将修改的值立即写入主存 1.保证有序性、可见性 2.导致其他线程的工作内存中缓存变量的缓存行无效 2.不保证原子性 1应用场景：状态标志]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[RabbitMQ安装]]></title>
+    <url>%2F2019%2F01%2F19%2FRabbitMQ%E5%AE%89%E8%A3%85%2F</url>
+    <content type="text"><![CDATA[erlang下载 rabbit下载 cmd命令行12345&quot;E:\rabbitMq\rabbitmq_server-3.7.10\sbin\rabbitmq-plugins.bat&quot; enable rabbitmq_management 开启web管理接口 net stop RabbitMQ &amp;&amp; net start RabbitMQ 重启rabbitMQrabbitmqctl.bat list_users 列出当前用户列表 账号 密码 guest(默认) guest(默认) 本地浏览器打开]]></content>
+      <categories>
+        <category>MQ</category>
+      </categories>
+      <tags>
+        <tag>rabbitmq</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Java DES(对称加密)]]></title>
+    <url>%2F2019%2F01%2F16%2FJava%20Crypto(%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86)%2F</url>
+    <content type="text"><![CDATA[简单一种对称加密与解密123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104import javax.crypto.Cipher;import javax.crypto.KeyGenerator;import javax.crypto.SecretKey;import javax.crypto.spec.SecretKeySpec;public class DESUtils &#123; /* * 生成密钥 */ public static byte[] initKey() throws Exception &#123; KeyGenerator keyGen = KeyGenerator.getInstance("DES"); keyGen.init(56); SecretKey secretKey = keyGen.generateKey(); return secretKey.getEncoded(); &#125; /* * DES 加密 */ public static String encrypt(byte[] data, byte[] key) throws Exception &#123; SecretKey secretKey = new SecretKeySpec(key, "DES"); Cipher cipher = Cipher.getInstance("DES"); cipher.init(Cipher.ENCRYPT_MODE, secretKey); byte[] cipherBytes = cipher.doFinal(data); String result = byte2Hex(cipherBytes); return result; &#125; /* * DES 解密 */ public static String decrypt(byte[] data, byte[] key) throws Exception &#123; SecretKey secretKey = new SecretKeySpec(key, "DES"); Cipher cipher = Cipher.getInstance("DES"); cipher.init(Cipher.DECRYPT_MODE, secretKey); byte[] plainBytes = cipher.doFinal(data); String result = new String(plainBytes); return result; &#125; private static int toByte(char c) &#123; byte b = (byte) "0123456789ABCDEF".indexOf(c); return b; &#125; public static byte[] hexToByte(String hex) &#123; int len = (hex.length() / 2); byte[] result = new byte[len]; char[] achar = hex.toCharArray(); for (int i = 0; i &lt; len; i++) &#123; int pos = i * 2; result[i] = (byte) (toByte(achar[pos]) &lt;&lt; 4 | toByte(achar[pos + 1])); &#125; return result; &#125; public static String byte2Hex(byte[] b) &#123; String stmp = ""; StringBuilder sb = new StringBuilder(""); for (int n = 0; n &lt; b.length; n++) &#123; stmp = Integer.toHexString(b[n] &amp; 0xFF); sb.append((stmp.length() == 1) ? "0" + stmp : stmp); &#125; return sb.toString().toUpperCase().trim(); &#125; //加密 public static String encryptStr(String str, String secreytKey) throws Exception &#123; String enResult = encrypt(str.getBytes(), hexToByte(secreytKey)); return enResult; &#125; //解密 public static String decryptStr(String str, String secreytKey) throws Exception &#123; String deResult = decrypt(hexToByte(str), hexToByte(secreytKey)); return deResult; &#125; /*** * 秘钥769bfbae9d20100d 加密结果e3f6b60180661bb0d541de00260afb10 解密结果hello_world * * @param args * @throws Exception */ public static void main(String[] args) throws Exception &#123; //生成秘钥 byte[] desKey = initKey(); String secreytKey = byte2Hex(desKey); System.out.println("秘钥" + secreytKey.toLowerCase()); //加密 String hello_world = encryptStr("hello_world", secreytKey); System.out.println("加密结果" + hello_world.toLowerCase()); //解密 String deResult = decryptStr(hello_world, secreytKey); System.out.println("解密结果" + deResult); &#125;&#125;]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Crypto</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[ThreadLocal]]></title>
+    <url>%2F2018%2F12%2F04%2FThreadLocal%2F</url>
+    <content type="text"><![CDATA[ThreadLocal 类结构图 get12345678910111213public T get() &#123; Thread t = Thread.currentThread(); ThreadLocalMap map = getMap(t); if (map != null) &#123; ThreadLocalMap.Entry e = map.getEntry(this); if (e != null) &#123; @SuppressWarnings("unchecked") T result = (T)e.value; return result; &#125; &#125; return setInitialValue(); &#125; set12345678public void set(T value) &#123; Thread t = Thread.currentThread(); ThreadLocalMap map = getMap(t); if (map != null) map.set(this, value); else createMap(t, value); &#125; remove12345public void remove() &#123; ThreadLocalMap m = getMap(Thread.currentThread()); if (m != null) m.remove(this);&#125; setInitialValue12345678910private T setInitialValue() &#123; T value = initialValue(); Thread t = Thread.currentThread(); ThreadLocalMap map = getMap(t); if (map != null) map.set(this, value); else createMap(t, value); return value; &#125; initialValue123protected T initialValue() &#123; return null;&#125; getMap123ThreadLocalMap getMap(Thread t) &#123; return t.threadLocals;&#125; createMap123void createMap(Thread t, T firstValue) &#123; t.threadLocals = new ThreadLocalMap(this, firstValue); &#125;]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>ThreadLocal</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Interview knowledge]]></title>
+    <url>%2F2018%2F12%2F03%2FInterview-knowledge%2F</url>
+    <content type="text"><![CDATA[Java多线程1234567891011121314线程池的原理，为什么要创建线程池？创建线程池的方式；线程的生命周期，什么时候会出现僵死进程；说说线程安全问题，什么实现线程安全，如何实现线程安全；创建线程池有哪几个核心参数？ 如何合理配置线程池的大小？volatile、ThreadLocal的使用场景和原理；ThreadLocal什么时候会出现OOM的情况？为什么？synchronized、volatile区别、synchronized锁粒度、模拟死锁场景、原子性与可见性； JVM相关12345678910111213JVM内存模型，GC机制和原理；GC分哪两种，Minor GC 和Full GC有什么区别？什么时候会触发Full GC？分别采用什么算法？JVM里的有几种classloader，为什么会有多种？什么是双亲委派机制？介绍一些运作过程，双亲委派模型的好处；什么情况下我们需要破坏双亲委派模型；常见的JVM调优方法有哪些？可以具体到调整哪个参数，调成什么值？JVM虚拟机内存划分、类加载器、垃圾收集算法、垃圾收集器、class文件结构是如何解析的； Java扩展篇12345678910111213红黑树的实现原理和应用场景；NIO是什么？适用于何种场景？Java9比Java8改进了什么；HashMap内部的数据结构是什么？底层是怎么实现的？（还可能会延伸考察ConcurrentHashMap与HashMap、HashTable等，考察对技术细节的深入了解程度）；说说反射的用途及实现，反射是不是很慢，我们在项目中是否要避免使用反射；说说自定义注解的场景及实现；List 和 Map 区别，Arraylist 与 LinkedList 区别，ArrayList 与 Vector 区别； Spring相关123456789101112Spring AOP的实现原理和场景？Spring bean的作用域和生命周期；Spring Boot比Spring做了哪些改进？ Spring 5比Spring4做了哪些改进；如何自定义一个Spring Boot Starter？Spring IOC是什么？优点是什么？SpringMVC、动态代理、反射、AOP原理、事务隔离级别； 中间件篇123456789101112131415Dubbo完整的一次调用链路介绍；Dubbo支持几种负载均衡策略？Dubbo Provider服务提供者要控制执行并发请求上限，具体怎么做？Dubbo启动的时候支持几种配置方式？了解几种消息中间件产品？各产品的优缺点介绍；消息中间件如何保证消息的一致性和如何进行消息的重试机制？Spring Cloud熔断机制介绍；Spring Cloud对比下Dubbo，什么场景下该使用Spring Cloud？ 数据库篇123456789101112131415161718锁机制介绍：行锁、表锁、排他锁、共享锁；乐观锁的业务场景及实现方式；事务介绍，分布式事物的理解，常见的解决方案有哪些，什么事两阶段提交、三阶段提交；MySQL记录binlog的方式主要包括三种模式？每种模式的优缺点是什么？MySQL锁，悲观锁、乐观锁、排它锁、共享锁、表级锁、行级锁；分布式事务的原理2阶段提交，同步\异步\阻塞\非阻塞；数据库事务隔离级别，MySQL默认的隔离级别、Spring如何实现事务、JDBC如何实现事务、嵌套事务实现、分布式事务实现；SQL的整个解析、执行过程原理、SQL行转列； Redis12345678910111213Redis为什么这么快？redis采用多线程会有哪些问题？Redis支持哪几种数据结构；Redis跳跃表的问题；Redis单进程单线程的Redis如何能够高并发?Redis如何使用Redis实现分布式锁？Redis分布式锁操作的原子性，Redis内部是如何实现的？ 其他1看过哪些源代码？然后会根据你说的源码问一些细节的问题]]></content>
+      <categories>
+        <category>知识点</category>
+      </categories>
+      <tags>
+        <tag>面试</tag>
+        <tag>Redis</tag>
+        <tag>Java</tag>
+        <tag>中间件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux Top命令]]></title>
+    <url>%2F2018%2F11%2F30%2FLinux%20Top%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[uptime / top116:36:50 up 108 days, 7:24, 2 users, load average: 61.27, 61.50, 61.60 Field Desc 16:36:50 时间 up 1:22 系统运行时间 users 当前登录用户数 load average 三个数值分别为 1分钟、5分钟、15分钟前到现在的平均负载 英文文档链接 Understanding-Load-Averages中文文档链接 Understanding-Load-AveragesTasks key value Desc 29 total 进程总数 1 running 正在运行的进程数 28 sleeping 睡眠的进程数 0 stopped 停止的进程数 0 zombie 僵尸进程数 Cpu(s) key value Desc 0.3% us 用户空间占用CPU百分比 1.0% sy 内核空间占用CPU百分比 0.0% ni 用户进程空间内改变过优先级的进程占用CPU百分比 98.7% id 空闲CPU百分比 0.0% wa 等待输入输出的CPU时间百分比 Mem key value Desc 191272k total 物理内存总量 173656k used 使用的物理内存总量 17616k free 空闲内存总量 22052k buffers 用作内核缓存的内存量 Swap key value Desc 192772k total 交换区总量 0k used 使用的交换区总量 192772k free 空闲交换区总量 123988k cached 缓冲的交换区总量。 详细信息 Key Desc PID 进程id PPID 父进程id RUSER Real user name UID 进程所有者的用户id USER 进程所有者的用户名 GROUP 进程所有者的组名 TTY 启动进程的终端名。不是从终端启动的进程则显示为 ? PR 优先级 NI nice值。负值表示高优先级，正值表示低优先级 P 最后使用的CPU，仅在多CPU环境下有意义 %CPU 上次更新到现在的CPU时间占用百分比 TIME 进程使用的CPU时间总计，单位秒 TIME+ 进程使用的CPU时间总计，单位1/100秒 %MEM 进程使用的物理内存百分比 VIRT 进程使用的虚拟内存总量，单位kb。VIRT=SWAP+RES SWAP 进程使用的虚拟内存中，被换出的大小，单位kb。 RES 进程使用的、未被换出的物理内存大小，单位kb。RES=CODE+DATA CODE 可执行代码占用的物理内存大小，单位kb DATA 可执行代码以外的部分(数据段+栈)占用的物理内存大小，单位kb SHR 共享内存大小，单位kb nFLT 页面错误次数 nDRT 最后一次写入到现在，被修改过的页面数。 S 进程状态。 S D=不可中断的睡眠状态 S R=运行 S S=睡眠 S T=跟踪/停止 S Z=僵尸进程 COMMAND 命令名/命令行 WCHAN 若该进程在睡眠，则显示睡眠中的系统函数名 Flags 任务标志，参考 sched.h]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Redis Info命令详解]]></title>
+    <url>%2F2018%2F11%2F29%2FRedis-Info%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3%2F</url>
+    <content type="text"><![CDATA[Redis 内存使用率Memory1info memory //Redis命令 Field Value Description used_memory 3228479928 used_memory_human 3.01G redis已经使用内存 used_memory_rss 5631479808 used_memory_rss_human 5.24G 从操作系统的角度，返回 Redis 已分配的内存总量(俗称常驻集大小) used_memory_peak 10753524688 used_memory_peak_human 10.02G 曾经占用内存的峰值 used_memory_peak_perc 30.02% (used_memory/ used_memory_peak) *100% used_memory_overhead 207532802 Redis为了维护数据集的内部机制所需的内存开销 used_memory_startup 6144240 Redis服务器启动时消耗的内存 used_memory_dataset 3020947126 used_memory—used_memory_overhead used_memory_dataset_perc 93.75% 100%*(used_memory_dataset/(used_memory—used_memory_startup)) total_system_memory 33738252288 total_system_memory_human 31.42G 服务器本身的内存大小 used_memory_lua 51200 used_memory_lua_human 50.00K Lua 引擎所使用的内存大小 maxmemory 10737418240 maxmemory_human 10.00G 服务器设定的redis可以使用的最大内存 maxmemory_policy noeviction 当达到maxmemory时的淘汰策略 mem_fragmentation_ratio 1.74 碎片率意味着74%的内存浪费 mem_allocator jemalloc-4.0.3 内存分配器 active_defrag_running 0 lazyfree_pending_objects 0 maxmemory_policy 选择策略 Fields Description noeviction 默认策略，不淘汰，如果内存已满，添加数据是报错。 allkeys-lru 在所有键中，选取最近最少使用的数据抛弃。 volatile-lru 在设置了过期时间的所有键中，选取最近最少使用的数据抛弃。 allkeys-random 在所有键中，随机抛弃 volatile-random 在设置了过期时间的所有键，随机抛弃 volatile-ttl 在设置了过期时间的所有键，抛弃存活时间最短的数据 Server1info server //Redis 命令 Fiels Value Description redis_version 4.0.9 Redis 服务器版本 redis_git_sha1 00000000 redis_git_dirty 0 redis_build_id 1981f57149260a90 redis_mode standalone 运行模式，单机或者集群 os Linux 4.4.0-105-generic x86_64 Redis 服务器的宿主操作系统 arch_bits 64 架构（32 或 64 位） multiplexing_api epoll Redis 所使用的事件处理机制 atomicvar_api atomic-builtin 原子处理api gcc_version 5.4.0 编译 Redis 时所使用的 GCC 版本 process_id 8004 服务器进程的 PID run_id 6a5182bea61558be39d072ab5fd14579f12fc271 Redis 服务器的随机标识符（用于 Sentinel 和集群） tcp_port 6379 监听端口 uptime_in_seconds 1406431 自 Redis 服务器启动以来，经过的秒数 uptime_in_days 16 自 Redis 服务器启动以来，经过的天数 hz 10 lru_clock 16752391 以分钟为单位进行自增的时钟，用于 LRU 管理 executable /home/lianxiang/redis/redis-4.0.9/src/redis-server 执行文件地址 config_file /home/redis/redis.conf 配置文件地址 Clients1info clients //Redis 命令 Fiels Value Description connected_clients 11721 已连接客户端的数量（不包括通过从属服务器连接的客户端） client_longest_output_list 0 当前连接的客户端当中，最长的输出列表 client_biggest_input_buf 18 当前连接的客户端当中，最大输入缓存 blocked_clients 0 正在等待阻塞命令（BLPOP、BRPOP、BRPOPLPUSH）的客户端的数量 Commandstats1info commandstats //Redis 命令 Fiels Value Description cmdstat_cluster calls=77,usec=117,usec_per_call=1.52 使用次数/总时间(微秒数)/平均时间 cmdstat_zremrangebyscore calls=402280989,usec=3007286205,usec_per_call=7.48 … cmdstat_script calls=31,usec=533,usec_per_call=17.19 … cmdstat_evalsha calls=58716,usec=7416675,usec_per_call=126.31 … cmdstat_smembers calls=1031965,usec=25706632,usec_per_call=24.91 … cmdstat_sscan calls=15,usec=1026,usec_per_call=68.40 … cmdstat_hkeys calls=294,usec=211364,usec_per_call=718.93 … cmdstat_expire calls=124221201,usec=292783944,usec_per_call=2.36 … cmdstat_zrangebyscore calls=37214253,usec=358725386,usec_per_call=9.64 … cmdstat_hmget calls=7,usec=38,usec_per_call=5.43 … cmdstat_zrevrange calls=9772,usec=98592,usec_per_call=10.09 … cmdstat_hget calls=21564966,usec=41137042,usec_per_call=1.91 … cmdstat_scan calls=47381,usec=26088568,usec_per_call=550.61 … … … … 慢查询日志1SlowLog Get 1 //获取一条 1SlowLog Len //慢日志数量 Fiels Value Description 1) “67227” 唯一性(unique)的日志标识符 2) “1543481885” 被记录命令的执行时间点，以 UNIX 时间戳格式表示 3) “10104” 查询执行时间，以微秒为单位 4.1) “ZADD” 执行的命令 4.2) PAIR_MARKET_DEPTH_SELL:4:3115” 完整的命令 4.3) “0.02638215” 参数 4.4) “[0.026382150000000000,101.470000000000000000]” 参数 4.5) “47.91.198.244:43484” IP+端口]]></content>
+      <categories>
+        <category>Redis</category>
+      </categories>
+      <tags>
+        <tag>Redis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux]]></title>
+    <url>%2F2018%2F11%2F29%2FLinux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[Linux 命令查看公网IP123curl cip.cccurl http://ifconfig.me grep(查询 筛选)1-A,-B,-C //分别可以显示匹配行的后,前,后前多少行内容 1&apos;2016-04-13 11:26:00&apos; //关键词,注意是单引号包裹 1catalina.out //检索的文件 可以是目录 1more // 以分页的形式 1grep -C 10 &apos;连接池异常&apos; catalina.out //查找某字段的前后多少行 1tail -500f catalina.out |grep &apos;连接池异常&apos; //查询tomcat 末尾指定行数的过滤日志 find(查找文件)1234567find / -name *sync-huobi* find / -name filename.txt //根据名称查找/目录下的filename.txt文件。find . -name &quot;*.xml&quot; //递归查找所有的xml文件find . -name &quot;*&quot; |xargs grep &quot;hello&quot; //递归查找所有文件内容中包含hello world的xml文件 grep(搜索)1234567891011grep -H &apos;spring&apos; *.xml //查找所以有的包含spring的xml文件find ./ -size 0 | xargs rm -f &amp; //删除文件大小为零的文件ls -l | grep &apos;.jar&apos; //查找当前目录中的所有jar文件grep &apos;test&apos; d* //显示所有以d开头的文件中包含test的行grep &apos;test&apos; aa bb cc //显示在aa，bb，cc文件中匹配test的行grep &apos;[a-z]\&#123;5\&#125;&apos; aa //显示所有包含每个字符串至少有5个连续小写字符的字符串的行 ps (查看一个程序是否运行)12345ps –ef|grep tomcat //查看所有有关tomcat的进程ps -ef|grep --color java //高亮要查询的关键字kill -9 19979 //终止线程号位19979的进程 ls (查看文件，包含隐藏文件)1234567ls -al //当前工作目录pwd //复制文件cp source dest //复制文件cp -r sourceFolder targetFolder //递归复制整个文件夹 mkdir (创建目录件)123456789mkdir newfolder //删除目录rmdir deleteEmptyFolder //删除空目录 rm -rf deleteFile //递归删除目录中所有内容mv /temp/movefile /targetFolder //移动文件mv oldNameFile newNameFile //重命名 切换用户123su -usernamesudo rm a.txt 使用管理员身份删除文件 修改文件权限1chmod 777 file.java file.java的权限-rwxrwxrwx，r表示读、w表示写、x表示可执行 压缩文件12345678910111213141516tar -czf test.tar.gz /test1 /test2 //列出压缩文件列表tar -tzf test.tar.gz //解压文件tar -xvzf test.tar.gz //解压文件head -n 10 example.txt //查看文件前10行tail -n 10 example.txt //查看文件后10行 tail -f exmaple.log //查看日志最近更新netstat -tln | grep 8080 查看端口8080的使用情况 //查看端口占用情况lsof -i :8080 //查看端口属于哪个进程 ps(查看进程)1234567891011ps aux|grep java //查看java进程ps aux //查看所有进程tree a //以树状格式列出目录wget http://file.tgz //文件下载 curl http://file.tgz //请求URLping www.just-ping.com //网络检测 Redis (查看大Key)1redis-cli -h IP -p 6379 -a password --bigkeys 启动SpringBoot Jar123456---nohup java -jar exchange-announcement-0.0.1-SNAPSHOT.jar &amp; //后台启动一个Jar包 tail -500f nohup.out //查看日志 ps -ef|grep exchange-announcement-0.0.1-SNAPSHOT.jar //查看进程ID]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Redis</tag>
+        <tag>SpingBoot</tag>
+      </tags>
+  </entry>
+</search>
