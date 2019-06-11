@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-06-04T08:37:09.905Z</updated>
+  <updated>2019-06-11T10:37:20.280Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux系统配置</title>
+    <link href="http://yoursite.com/2019/06/11/Linux%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/"/>
+    <id>http://yoursite.com/2019/06/11/Linux系统配置/</id>
+    <published>2019-06-11T06:42:18.000Z</published>
+    <updated>2019-06-11T10:37:20.280Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h4><ul><li><p><strong>物理CPU</strong>：物理CPU就是插在主机上的真实的CPU硬件，在Linux下可以数不同的physical id 来确认主机的物理CPU个数。</p></li><li><p><strong>核心数</strong>：物理CPU下一层概念就是核心数，我们常常会听说多核处理器，其中的核指的就是核心数。在Linux下可以通过cores来确认主机的物理CPU的核心数。</p></li><li><strong>逻辑CPU</strong>：核心数下一层的概念是逻辑CPU，逻辑CPU跟超线程技术有联系，假如物理CPU不支持超线程的，那么逻辑CPU的数量等于核心数的数量；<br> 如果物理CPU支持超线程，那么逻辑CPU的数目是核心数数目的两倍。在Linux下可以通过 processors 的数目来确认逻辑CPU的数量。</li><li><strong>超线程</strong>：超线程是英特尔开发出来的一项技术，使得单个处理器可以象两个逻辑处理器那样运行，这样单个处理器以并行执行线程。<br> 这里的单个处理器也可以理解为CPU的一个核心；这样便可以理解为什么开启了超线程技术后，<code>逻辑CPU的数目是核心数的两倍了</code>。</li></ul><h5 id="查看物理CPU数量"><a href="#查看物理CPU数量" class="headerlink" title="查看物理CPU数量"></a>查看物理CPU数量</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/cpuinfo | grep &apos;physical id&apos; | uniq |wc -l</span><br></pre></td></tr></table></figure><h5 id="查看核心数"><a href="#查看核心数" class="headerlink" title="查看核心数"></a>查看核心数</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/cpuinfo | grep &apos;core id&apos; | uniq |wc -l</span><br></pre></td></tr></table></figure><h5 id="查看逻辑CPU数目"><a href="#查看逻辑CPU数目" class="headerlink" title="查看逻辑CPU数目"></a>查看逻辑CPU数目</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">top命令中看到的CPU数目是逻辑CPU（输入top后再按1）。</span><br><span class="line"></span><br><span class="line">cat /proc/cpuinfo | grep &apos;processor&apos; | wc -l</span><br></pre></td></tr></table></figure><p><img src="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/_20190611182743.png" alt="相关截图"></p><h5 id="查看内存大小-硬盘大小"><a href="#查看内存大小-硬盘大小" class="headerlink" title="查看内存大小 硬盘大小"></a>查看内存大小 硬盘大小</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/meminfo |grep MemTotal //内存大小</span><br><span class="line">fdisk -l |grep Disk //硬盘大小</span><br></pre></td></tr></table></figure><p><img src="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/20190611183238.png" alt="相关截图"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;基础概念&quot;&gt;&lt;a href=&quot;#基础概念&quot; class=&quot;headerlink&quot; title=&quot;基础概念&quot;&gt;&lt;/a&gt;基础概念&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;物理CPU&lt;/strong&gt;：物理CPU就是插在主机上的真实的CPU硬件，在Linux下可
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>博客基本配置</title>
@@ -228,11 +254,11 @@
       <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
     
     
-      <category term="Redis" scheme="http://yoursite.com/tags/Redis/"/>
-    
       <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
       <category term="SpingBoot" scheme="http://yoursite.com/tags/SpingBoot/"/>
+    
+      <category term="Redis" scheme="http://yoursite.com/tags/Redis/"/>
     
   </entry>
   

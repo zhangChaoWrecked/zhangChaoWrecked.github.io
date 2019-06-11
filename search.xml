@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Linux系统配置]]></title>
+    <url>%2F2019%2F06%2F11%2FLinux%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[基础概念 物理CPU：物理CPU就是插在主机上的真实的CPU硬件，在Linux下可以数不同的physical id 来确认主机的物理CPU个数。 核心数：物理CPU下一层概念就是核心数，我们常常会听说多核处理器，其中的核指的就是核心数。在Linux下可以通过cores来确认主机的物理CPU的核心数。 逻辑CPU：核心数下一层的概念是逻辑CPU，逻辑CPU跟超线程技术有联系，假如物理CPU不支持超线程的，那么逻辑CPU的数量等于核心数的数量； 如果物理CPU支持超线程，那么逻辑CPU的数目是核心数数目的两倍。在Linux下可以通过 processors 的数目来确认逻辑CPU的数量。 超线程：超线程是英特尔开发出来的一项技术，使得单个处理器可以象两个逻辑处理器那样运行，这样单个处理器以并行执行线程。 这里的单个处理器也可以理解为CPU的一个核心；这样便可以理解为什么开启了超线程技术后，逻辑CPU的数目是核心数的两倍了。 查看物理CPU数量1cat /proc/cpuinfo | grep &apos;physical id&apos; | uniq |wc -l 查看核心数1cat /proc/cpuinfo | grep &apos;core id&apos; | uniq |wc -l 查看逻辑CPU数目123top命令中看到的CPU数目是逻辑CPU（输入top后再按1）。cat /proc/cpuinfo | grep &apos;processor&apos; | wc -l 查看内存大小 硬盘大小12cat /proc/meminfo |grep MemTotal //内存大小fdisk -l |grep Disk //硬盘大小]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[博客基本配置]]></title>
     <url>%2F2019%2F06%2F04%2F%E5%8D%9A%E5%AE%A2%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE%2F</url>
     <content type="text"><![CDATA[环境初始化1234567891011121314151617npm install hexo-cli -g //安装hexo modulesmkdir WreckedBolg //创建目录 cd WreckedBolg //进入目录 hexo init //初始化目录npm install hexo-deployer-git --save 安装部署gitHub依赖git clone https://github.com/theme-next/hexo-theme-next themes/next //主题文件地址npm install hexo-generator-searchdb --save //搜素引擎依赖包 npm install hexo-related-popular-posts --save //相关文章包 Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server //生成本地Service http://localhost:4000/ 访问地址 hexo s 简写 More info: Server Generate static files1$ hexo generate //生成静态HTML hexo g 简写 More info: Generating Deploy to remote sites1$ hexo deploy //部署到GitHub hexo d 简写 More info: Deployment 配置文件 _config.yml1234deploy: type: git repo: https://github.com/***/***.github.io.git branch: master 常用命令1234567891011hexo g #完整命令为hexo generate,用于生成静态文件hexo s #完整命令为hexo server,用于启动服务器，主要用来本地预览hexo d #完整命令为hexo deploy,用于将本地文件发布到github等git仓库上hexo n “my article” #完整命令为hexo new,用于新建一篇名为“my article”的文章hexo n “我的第一篇文章”hexo list page / post / route / tag / category(参数) 查看博客对应信息 背景图设置123..\themes\next\layout\_layout.swig 目录 找到&lt;Body&gt;标签 设置背景图片 style=&quot;background: url(https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/Background.jpg) no-repeat fixed ;&quot; 点击跳转配置教程链接]]></content>
@@ -81,9 +92,9 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Redis</tag>
         <tag>Linux</tag>
         <tag>SpingBoot</tag>
+        <tag>Redis</tag>
       </tags>
   </entry>
 </search>
