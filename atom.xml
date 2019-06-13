@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-06-11T10:37:20.280Z</updated>
+  <updated>2019-06-13T02:26:32.803Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>常见问题汇总</title>
+    <link href="http://yoursite.com/2019/06/13/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/"/>
+    <id>http://yoursite.com/2019/06/13/常见问题汇总/</id>
+    <published>2019-06-13T09:39:31.000Z</published>
+    <updated>2019-06-13T02:26:32.803Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><h5 id="cmmand-redis-cli-not-found"><a href="#cmmand-redis-cli-not-found" class="headerlink" title="cmmand redis-cli  not found"></a>cmmand redis-cli  not found</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root@wrecked:~# redis-cli -h 127.0.0.1 -p 6379 -a 123456</span><br><span class="line">Command &apos;redis-cli&apos; not found</span><br><span class="line"></span><br><span class="line">解决办法：cp /home/redis/redis-2.8.17/src/redis-cli /usr/local/bin/</span><br><span class="line">         拷贝redis-cli 到 /usr/local/bin/</span><br><span class="line">         </span><br><span class="line">         </span><br><span class="line">`/usr/bin`下面的都是系统预装的可执行程序，会随着系统升级而改变。</span><br><span class="line">`/usr/local/bin`目录是给用户放置自己的可执行程序的地方，推荐放在这里，不会被系统升级而覆盖同名文件。</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Linux&quot;&gt;&lt;a href=&quot;#Linux&quot; class=&quot;headerlink&quot; title=&quot;Linux&quot;&gt;&lt;/a&gt;Linux&lt;/h2&gt;&lt;h5 id=&quot;cmmand-redis-cli-not-found&quot;&gt;&lt;a href=&quot;#cmmand-redis-cl
+      
+    
+    </summary>
+    
+      <category term="问题" scheme="http://yoursite.com/categories/%E9%97%AE%E9%A2%98/"/>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux系统配置</title>
@@ -254,11 +279,11 @@
       <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
     
     
+      <category term="Redis" scheme="http://yoursite.com/tags/Redis/"/>
+    
       <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
       <category term="SpingBoot" scheme="http://yoursite.com/tags/SpingBoot/"/>
-    
-      <category term="Redis" scheme="http://yoursite.com/tags/Redis/"/>
     
   </entry>
   
