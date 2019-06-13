@@ -116,14 +116,12 @@
 <meta property="og:site_name" content="Wrecked">
 <meta property="og:description" content="Installation1234567891011121314151617181920212223$ mkdir redis       //创建redis目录$ wget http://download.redis.io/releases/redis-5.0.5.tar.gz  //下载安装包$ tar xzf redis-5.0.5.tar.gz //解压 $ cd redis-5.0.5">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/redisconfig1.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/redisconf2.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/aliyun.png">
-<meta property="og:updated_time" content="2019-06-13T07:01:36.709Z">
+<meta property="og:updated_time" content="2019-06-13T07:10:02.519Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 系统搭建Redis">
 <meta name="twitter:description" content="Installation1234567891011121314151617181920212223$ mkdir redis       //创建redis目录$ wget http://download.redis.io/releases/redis-5.0.5.tar.gz  //下载安装包$ tar xzf redis-5.0.5.tar.gz //解压 $ cd redis-5.0.5">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/redisconfig1.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/aliyun.png">
 
 
 
@@ -454,7 +452,7 @@
                 
               
 
-              <time title="创建时间：2019-06-13 16:00:00 / 修改时间：15:01:36" itemprop="dateCreated datePublished" datetime="2019-06-13T16:00:00+08:00">2019-06-13</time>
+              <time title="创建时间：2019-06-13 16:00:00 / 修改时间：15:10:02" itemprop="dateCreated datePublished" datetime="2019-06-13T16:00:00+08:00">2019-06-13</time>
             
 
             
@@ -529,8 +527,6 @@
 
       
         <h4 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir redis       //创建redis目录</span><br><span class="line"></span><br><span class="line">$ wget http://download.redis.io/releases/redis-5.0.5.tar.gz  //下载安装包</span><br><span class="line"></span><br><span class="line">$ tar xzf redis-5.0.5.tar.gz //解压</span><br><span class="line"> </span><br><span class="line">$ cd redis-5.0.5    //进入redis-5.0.5目录</span><br><span class="line"> </span><br><span class="line">$ make             //生成有效文件</span><br><span class="line"></span><br><span class="line">$ cd src          </span><br><span class="line"></span><br><span class="line">$ ./redis-server   //1.启动redis服务 这种方式启动redis 使用的是默认配置</span><br><span class="line"></span><br><span class="line">$ ./redis-cli</span><br><span class="line">redis&gt; set foo bar</span><br><span class="line">OK</span><br><span class="line">redis&gt; get foo</span><br><span class="line">&quot;bar&quot;</span><br><span class="line"></span><br><span class="line">$ vim ../redis.conf //编辑Redis配置文件</span><br><span class="line"></span><br><span class="line">$ ./redis-server ../redis.conf   //2.使用指定配置文件使用下面命令启动</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/redisconfig1.png" alt=""> </p>
-<p><img src="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/redisconf2.png" alt=""></p>
 <h5 id="redis-配置文件详解"><a href="#redis-配置文件详解" class="headerlink" title="redis 配置文件详解"></a>redis 配置文件详解</h5><table>
 <thead>
 <tr>
