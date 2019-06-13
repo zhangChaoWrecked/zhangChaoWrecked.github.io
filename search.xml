@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[常见问题汇总]]></title>
     <url>%2F2019%2F06%2F13%2F%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB%2F</url>
-    <content type="text"><![CDATA[Linuxcmmand redis-cli not found123456789root@wrecked:~# redis-cli -h 127.0.0.1 -p 6379 -a 123456Command &apos;redis-cli&apos; not found解决办法：cp /home/redis/redis-2.8.17/src/redis-cli /usr/local/bin/ 拷贝redis-cli 到 /usr/local/bin/ `/usr/bin`下面的都是系统预装的可执行程序，会随着系统升级而改变。`/usr/local/bin`目录是给用户放置自己的可执行程序的地方，推荐放在这里，不会被系统升级而覆盖同名文件。]]></content>
+    <content type="text"><![CDATA[Linuxcmmand redis-cli not found123456789root@wrecked:~# redis-cli -h 127.0.0.1 -p 6379 -a 123456Command &apos;redis-cli&apos; not found解决办法：cp /home/redis/redis-2.8.17/src/redis-cli /usr/local/bin/ 拷贝redis-cli 到 /usr/local/bin/ `/usr/bin`下面的都是系统预装的可执行程序，会随着系统升级而改变。`/usr/local/bin`目录是给用户放置自己的可执行程序的地方，推荐放在这里，不会被系统升级而覆盖同名文件。 buntu防火墙的开启，关闭，端口的打开，查看1234567891011121314151.防火墙的打开$ ufw enable2.防火墙的重启$ ufw reload3.打开想要的端口（以9000为例）$ ufw allow 90004.查看本机端口使用情况$ ufw status]]></content>
       <categories>
         <category>问题</category>
       </categories>
@@ -103,8 +103,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Redis</tag>
         <tag>Linux</tag>
+        <tag>Redis</tag>
         <tag>SpingBoot</tag>
       </tags>
   </entry>
