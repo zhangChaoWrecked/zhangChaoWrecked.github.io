@@ -108,20 +108,22 @@
 
 
 
-  <meta name="description" content="1.生成SSH Key123在 C:\Users\用户名\.ssh 目录 鼠标右键 git bash ssh-keygen -t rsa -C &amp;quot;****@qq.com&amp;quot;  //生成pub文件需指定生成文件名 id_rsa_hub/id_rsa_lab 区分GitHub/GitLabssh-keygen -t rsa -C &amp;quot;****@163.com&amp;quot; 2.">
-<meta name="keywords" content="GitHub">
+  <meta name="description" content="Installation1234567891011121314151617181920212223$ mkdir redis       //创建redis目录$ wget http://download.redis.io/releases/redis-5.0.5.tar.gz  //下载安装包$ tar xzf redis-5.0.5.tar.gz //解压 $ cd redis-5.0.5">
+<meta name="keywords" content="Redis">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何在一台电脑使用GitHub GitLab进行项目维护">
-<meta property="og:url" content="http://yoursite.com/2019/06/04/如何在一台电脑使用GitHub GitLab进行项目维护/index.html">
+<meta property="og:title" content="Linux 系统搭建Redis">
+<meta property="og:url" content="http://yoursite.com/2019/06/13/Linux 系统搭建Redis/index.html">
 <meta property="og:site_name" content="Wrecked">
-<meta property="og:description" content="1.生成SSH Key123在 C:\Users\用户名\.ssh 目录 鼠标右键 git bash ssh-keygen -t rsa -C &amp;quot;****@qq.com&amp;quot;  //生成pub文件需指定生成文件名 id_rsa_hub/id_rsa_lab 区分GitHub/GitLabssh-keygen -t rsa -C &amp;quot;****@163.com&amp;quot; 2.">
+<meta property="og:description" content="Installation1234567891011121314151617181920212223$ mkdir redis       //创建redis目录$ wget http://download.redis.io/releases/redis-5.0.5.tar.gz  //下载安装包$ tar xzf redis-5.0.5.tar.gz //解压 $ cd redis-5.0.5">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/host.png">
-<meta property="og:updated_time" content="2019-06-05T03:35:51.717Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/redisconfig1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/redisconf2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/aliyun.png">
+<meta property="og:updated_time" content="2019-06-13T07:01:36.709Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何在一台电脑使用GitHub GitLab进行项目维护">
-<meta name="twitter:description" content="1.生成SSH Key123在 C:\Users\用户名\.ssh 目录 鼠标右键 git bash ssh-keygen -t rsa -C &amp;quot;****@qq.com&amp;quot;  //生成pub文件需指定生成文件名 id_rsa_hub/id_rsa_lab 区分GitHub/GitLabssh-keygen -t rsa -C &amp;quot;****@163.com&amp;quot; 2.">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/host.png">
+<meta name="twitter:title" content="Linux 系统搭建Redis">
+<meta name="twitter:description" content="Installation1234567891011121314151617181920212223$ mkdir redis       //创建redis目录$ wget http://download.redis.io/releases/redis-5.0.5.tar.gz  //下载安装包$ tar xzf redis-5.0.5.tar.gz //解压 $ cd redis-5.0.5">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/redisconfig1.png">
 
 
 
@@ -130,7 +132,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/06/04/如何在一台电脑使用GitHub GitLab进行项目维护/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/13/Linux 系统搭建Redis/">
 
 
 
@@ -140,7 +142,7 @@
   };
 </script>
 
-  <title>如何在一台电脑使用GitHub GitLab进行项目维护 | Wrecked</title>
+  <title>Linux 系统搭建Redis | Wrecked</title>
   
 
 
@@ -410,7 +412,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/04/如何在一台电脑使用GitHub GitLab进行项目维护/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/13/Linux 系统搭建Redis/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wrecked">
@@ -427,7 +429,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">如何在一台电脑使用GitHub GitLab进行项目维护
+          <h2 class="post-title" itemprop="name headline">Linux 系统搭建Redis
               
             
           </h2>
@@ -452,28 +454,34 @@
                 
               
 
-              <time title="创建时间：2019-06-04 12:00:00" itemprop="dateCreated datePublished" datetime="2019-06-04T12:00:00+08:00">2019-06-04</time>
+              <time title="创建时间：2019-06-13 16:00:00 / 修改时间：15:01:36" itemprop="dateCreated datePublished" datetime="2019-06-13T16:00:00+08:00">2019-06-13</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-06-05 11:35:51" itemprop="dateModified" datetime="2019-06-05T11:35:51+08:00">2019-06-05</time>
               
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -483,9 +491,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/06/04/如何在一台电脑使用GitHub GitLab进行项目维护/#comments" itemprop="discussionUrl">
+                <a href="/2019/06/13/Linux 系统搭建Redis/#comments" itemprop="discussionUrl">
                 
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/06/04/如何在一台电脑使用GitHub GitLab进行项目维护/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/06/13/Linux 系统搭建Redis/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -520,17 +528,86 @@
       
 
       
-        <h4 id="1-生成SSH-Key"><a href="#1-生成SSH-Key" class="headerlink" title="1.生成SSH Key"></a>1.生成SSH Key</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在 C:\Users\用户名\.ssh 目录 鼠标右键 git bash </span><br><span class="line">ssh-keygen -t rsa -C &quot;****@qq.com&quot;  //生成pub文件需指定生成文件名 id_rsa_hub/id_rsa_lab 区分GitHub/GitLab</span><br><span class="line">ssh-keygen -t rsa -C &quot;****@163.com&quot;</span><br></pre></td></tr></table></figure>
-<h4 id="2-配置Config"><a href="#2-配置Config" class="headerlink" title="2.配置Config"></a>2.配置Config</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">在 C:\Users\用户名\.ssh 目录 生成config文件 编辑如下：</span><br><span class="line"></span><br><span class="line"># self(****@qq.com)</span><br><span class="line">Host github(拉取代码时仓库的别名)    </span><br><span class="line">    Port 22</span><br><span class="line">    User git</span><br><span class="line">    HostName github.com (github域名)   </span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa_hub (生成的GitHub公钥)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># company(****@163.com)</span><br><span class="line">Host gitlab(拉取代码时仓库的别名)   </span><br><span class="line">    Port 端口(默认22)</span><br><span class="line">    User git</span><br><span class="line">    HostName  ******* (公司GitLab域名)  </span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa_lab(生成的GitLab公钥)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">Host 作用[github为例]：</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#传统使用</span><br><span class="line">$git clone git@github.com:zhangChaoWrecked/pictures.git</span><br><span class="line">$git remote add origin git@github.com:zhangChaoWrecked/pictures.git</span><br><span class="line"></span><br><span class="line">#配置Config之后使用(host也可配置为域名即:github.com) </span><br><span class="line">$git clone git@[Host]:zhangChaoWrecked/pictures.git</span><br><span class="line">$git remote add origin git@[Host]:zhangChaoWrecked/pictures.git</span><br></pre></td></tr></table></figure>
-<h6 id="生成文件如下图："><a href="#生成文件如下图：" class="headerlink" title="生成文件如下图："></a>生成文件如下图：</h6><p><img src="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/host.png" alt="">   </p>
-<h6 id="配置Hosts-加速-拉取代码速度"><a href="#配置Hosts-加速-拉取代码速度" class="headerlink" title="配置Hosts 加速 拉取代码速度"></a>配置Hosts 加速 拉取代码速度</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">151.101.185.194    github.global.ssl.fastly.net</span><br><span class="line">192.30.253.112     github.com</span><br></pre></td></tr></table></figure>
-<h4 id="3-测试关联"><a href="#3-测试关联" class="headerlink" title="3.测试关联"></a>3.测试关联</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github</span><br><span class="line">ssh -T git@gitlab</span><br></pre></td></tr></table></figure>
-<h4 id="4-拉取远程代码或下载到本地"><a href="#4-拉取远程代码或下载到本地" class="headerlink" title="4.拉取远程代码或下载到本地"></a>4.拉取远程代码或下载到本地</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#取消全局 用户名/邮箱 配置(可跳过)</span><br><span class="line">$git config --global --unset user.name</span><br><span class="line">$git config --global --unset user.email</span><br><span class="line"></span><br><span class="line">$cd 项目名</span><br><span class="line">$git init</span><br><span class="line">$git config --local user.name &quot;用户名&quot;</span><br><span class="line">$git config --local user.email &quot;邮箱&quot;</span><br><span class="line">$git remote add origin git@[host]:***/***.git(git remote rm origin 删除之前关联的origin)</span><br><span class="line">$git pull orgin master</span><br></pre></td></tr></table></figure>
+        <h4 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir redis       //创建redis目录</span><br><span class="line"></span><br><span class="line">$ wget http://download.redis.io/releases/redis-5.0.5.tar.gz  //下载安装包</span><br><span class="line"></span><br><span class="line">$ tar xzf redis-5.0.5.tar.gz //解压</span><br><span class="line"> </span><br><span class="line">$ cd redis-5.0.5    //进入redis-5.0.5目录</span><br><span class="line"> </span><br><span class="line">$ make             //生成有效文件</span><br><span class="line"></span><br><span class="line">$ cd src          </span><br><span class="line"></span><br><span class="line">$ ./redis-server   //1.启动redis服务 这种方式启动redis 使用的是默认配置</span><br><span class="line"></span><br><span class="line">$ ./redis-cli</span><br><span class="line">redis&gt; set foo bar</span><br><span class="line">OK</span><br><span class="line">redis&gt; get foo</span><br><span class="line">&quot;bar&quot;</span><br><span class="line"></span><br><span class="line">$ vim ../redis.conf //编辑Redis配置文件</span><br><span class="line"></span><br><span class="line">$ ./redis-server ../redis.conf   //2.使用指定配置文件使用下面命令启动</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/redisconfig1.png" alt=""> </p>
+<p><img src="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/redisconf2.png" alt=""></p>
+<h5 id="redis-配置文件详解"><a href="#redis-配置文件详解" class="headerlink" title="redis 配置文件详解"></a>redis 配置文件详解</h5><table>
+<thead>
+<tr>
+<th>fields</th>
+<th>desc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>daemonize</td>
+<td>no 默认情况下，redis不是在后台运行的，如果需要在后台运行，把该项的值更改为yes</td>
+</tr>
+<tr>
+<td>port</td>
+<td>指定redis运行的端口，默认是6379</td>
+</tr>
+<tr>
+<td>bind</td>
+<td>指定redis只接收来自于该IP地址的请求，如果不进行设置，那么将处理所有请求，在生产环境中最好设置该项</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td>设置客户端连接时的超时时间，单位为秒。当客户端在这段时间内没有发出任何指令，那么关闭该连接 0是关闭此设置</td>
+</tr>
+<tr>
+<td>loglevel</td>
+<td># debu 记录很多信息，用于开发和测试 varbose    有用的信息，不像debug会记录那么多 notice 普通的verbose，常用于生产环境 warning 只有非常重要或者严重的信息会记录到日志 </td>
+</tr>
+<tr>
+<td>logfile</td>
+<td>/var/log/redis/redis.log 配置log文件地址 默认值为stdout，标准输出，若后台模式会输出到/dev/null</td>
+</tr>
+<tr>
+<td>rdbcompression</td>
+<td>yes 存储至本地数据库时（持久化到rdb文件）是否压缩数据，默认为yes</td>
+</tr>
+<tr>
+<td>dbfilename</td>
+<td>dump.rdb 本地持久化数据库文件名，默认值为dump.rdb</td>
+</tr>
+<tr>
+<td>requirepass</td>
+<td>foobared 设置客户端连接后进行任何其他指定前需要使用的密码。</td>
+</tr>
+<tr>
+<td>save <seconds> <changes></changes></seconds></td>
+<td>指定在多长时间内，有多少次更新操作，就将数据同步到数据文件，可以多个条件配合 save 900 1 900秒（15分钟）内有1个更改</td>
+</tr>
+</tbody>
+</table>
+<h5 id="windows-Redis-Desktop-Manager-连接不上Redis的问题"><a href="#windows-Redis-Desktop-Manager-连接不上Redis的问题" class="headerlink" title="windows Redis Desktop Manager 连接不上Redis的问题"></a>windows Redis Desktop Manager 连接不上Redis的问题</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. ufw status 查看Redis 6379 端口是否开启 未开启则 ：ufw allow 6379(Redis默认端口 修改默认端口到redis.conf修改)</span><br><span class="line"></span><br><span class="line">2. 云平台安全组是否开启了Redis 6379 端口</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/aliyun.png" alt=" 云平台安全组是否开启了Redis端口"></p>
+
       
     </div>
 
     
       
+
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="\2018\11\29\Linux常用命令\" rel="bookmark">Linux 常用命令</a></div>
+      
+    </li>
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="\2018\11\29\Redis Info命令详解\" rel="bookmark">Redis Info命令详解</a></div>
+      
+    </li>
+  
+  </ul>
 
 
     
@@ -581,7 +658,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/GitHub/" rel="tag"># GitHub</a>
+            <a href="/tags/Redis/" rel="tag"># Redis</a>
           
         </div>
       
@@ -606,8 +683,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/22/Volatile/" rel="next" title="Volatile">
-                <i class="fa fa-chevron-left"></i> Volatile
+              <a href="/2019/06/13/常见问题汇总/" rel="next" title="常见问题汇总">
+                <i class="fa fa-chevron-left"></i> 常见问题汇总
               </a>
             
           </div>
@@ -615,10 +692,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/06/04/博客基本配置/" rel="prev" title="博客基本配置">
-                博客基本配置 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -833,7 +906,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-生成SSH-Key"><span class="nav-number">1.</span> <span class="nav-text">1.生成SSH Key</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-配置Config"><span class="nav-number">2.</span> <span class="nav-text">2.配置Config</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#生成文件如下图："><span class="nav-number">2.0.1.</span> <span class="nav-text">生成文件如下图：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#配置Hosts-加速-拉取代码速度"><span class="nav-number">2.0.2.</span> <span class="nav-text">配置Hosts 加速 拉取代码速度</span></a></li></ol></li></ol><li class="nav-item nav-level-4"><a class="nav-link" href="#3-测试关联"><span class="nav-number">3.</span> <span class="nav-text">3.测试关联</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-拉取远程代码或下载到本地"><span class="nav-number">4.</span> <span class="nav-text">4.拉取远程代码或下载到本地</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Installation"><span class="nav-number">1.</span> <span class="nav-text">Installation</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#redis-配置文件详解"><span class="nav-number">1.1.</span> <span class="nav-text">redis 配置文件详解</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#windows-Redis-Desktop-Manager-连接不上Redis的问题"><span class="nav-number">1.2.</span> <span class="nav-text">windows Redis Desktop Manager 连接不上Redis的问题</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1014,9 +1087,9 @@
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'http://yoursite.com/2019/06/04/如何在一台电脑使用GitHub GitLab进行项目维护/';
-        this.page.identifier = '2019/06/04/如何在一台电脑使用GitHub GitLab进行项目维护/';
-        this.page.title = '如何在一台电脑使用GitHub GitLab进行项目维护';
+        this.page.url = 'http://yoursite.com/2019/06/13/Linux 系统搭建Redis/';
+        this.page.identifier = '2019/06/13/Linux 系统搭建Redis/';
+        this.page.title = 'Linux 系统搭建Redis';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');
