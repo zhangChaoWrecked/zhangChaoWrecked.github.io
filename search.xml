@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Mysql 安装]]></title>
+    <url>%2F2019%2F06%2F14%2FMysql%20%E5%AE%89%E8%A3%85%2F</url>
+    <content type="text"><![CDATA[12345678910111213141516171819202122232425262728//下载mysql-apt-config_0.8.13-1_all.deb 到Linux $apt-get update $mkdir mysql$cd mysql//安装$apt-get install mysql-server//查看Mysql服务状态$service mysql status//查看Mysql端口占用$netstat -tunlp | grep 3306//进行安装初始化设置密码等操作$ mysql_secure_installation//设置 Linux服务器数据库可以在任意服务器上远程连接$ mysql -u root -p mysql&gt; show databases;mysql&gt; use mysql;mysql&gt; select host, user from user;mysql&gt; update user set host = &apos;%&apos; where user = &apos;root&apos;;mysql&gt; flush privileges;mysql&gt; exit;]]></content>
+      <categories>
+        <category>Mysql</category>
+      </categories>
+      <tags>
+        <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Linux 系统搭建Redis]]></title>
     <url>%2F2019%2F06%2F13%2FLinux%20%E7%B3%BB%E7%BB%9F%E6%90%AD%E5%BB%BARedis%2F</url>
     <content type="text"><![CDATA[Installation1234567891011121314151617181920212223$ mkdir redis //创建redis目录$ wget http://download.redis.io/releases/redis-5.0.5.tar.gz //下载安装包$ tar xzf redis-5.0.5.tar.gz //解压 $ cd redis-5.0.5 //进入redis-5.0.5目录 $ make //生成有效文件$ cd src $ ./redis-server //1.启动redis服务 这种方式启动redis 使用的是默认配置$ ./redis-cliredis&gt; set foo barOKredis&gt; get foo&quot;bar&quot;$ vim ../redis.conf //编辑Redis配置文件$ ./redis-server ../redis.conf //2.使用指定配置文件使用下面命令启动 redis 配置文件详解 fields desc daemonize no 默认情况下，redis不是在后台运行的，如果需要在后台运行，把该项的值更改为yes port 指定redis运行的端口，默认是6379 bind 指定redis只接收来自于该IP地址的请求，如果不进行设置，那么将处理所有请求，在生产环境中最好设置该项 timeout 设置客户端连接时的超时时间，单位为秒。当客户端在这段时间内没有发出任何指令，那么关闭该连接 0是关闭此设置 loglevel # debu 记录很多信息，用于开发和测试 varbose 有用的信息，不像debug会记录那么多 notice 普通的verbose，常用于生产环境 warning 只有非常重要或者严重的信息会记录到日志 logfile /var/log/redis/redis.log 配置log文件地址 默认值为stdout，标准输出，若后台模式会输出到/dev/null rdbcompression yes 存储至本地数据库时（持久化到rdb文件）是否压缩数据，默认为yes dbfilename dump.rdb 本地持久化数据库文件名，默认值为dump.rdb requirepass foobared 设置客户端连接后进行任何其他指定前需要使用的密码。 save 指定在多长时间内，有多少次更新操作，就将数据同步到数据文件，可以多个条件配合 save 900 1 900秒（15分钟）内有1个更改 windows Redis Desktop Manager 连接不上Redis的问题1231. ufw status 查看Redis 6379 端口是否开启 未开启则 ：ufw allow 6379(Redis默认端口 修改默认端口到redis.conf修改)2. 云平台安全组是否开启了Redis 6379 端口]]></content>
@@ -114,9 +125,9 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Redis</tag>
         <tag>Linux</tag>
         <tag>SpingBoot</tag>
+        <tag>Redis</tag>
       </tags>
   </entry>
 </search>

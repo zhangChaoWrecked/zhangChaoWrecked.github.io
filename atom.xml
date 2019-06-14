@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-06-13T07:10:02.519Z</updated>
+  <updated>2019-06-14T07:12:12.784Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mysql 安装</title>
+    <link href="http://yoursite.com/2019/06/14/Mysql%20%E5%AE%89%E8%A3%85/"/>
+    <id>http://yoursite.com/2019/06/14/Mysql 安装/</id>
+    <published>2019-06-14T07:11:08.000Z</published>
+    <updated>2019-06-14T07:12:12.784Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/微信图片_20190614150319.png" alt=" Mysql安装地址"></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">//下载mysql-apt-config_0.8.13-1_all.deb 到Linux </span><br><span class="line"></span><br><span class="line">$apt-get update  </span><br><span class="line"></span><br><span class="line">$mkdir mysql</span><br><span class="line"></span><br><span class="line">$cd mysql</span><br><span class="line"></span><br><span class="line">//安装</span><br><span class="line">$apt-get install mysql-server</span><br><span class="line"></span><br><span class="line">//查看Mysql服务状态</span><br><span class="line">$service mysql status</span><br><span class="line"></span><br><span class="line">//查看Mysql端口占用</span><br><span class="line">$netstat -tunlp | grep 3306</span><br><span class="line"></span><br><span class="line">//进行安装初始化设置密码等操作</span><br><span class="line">$ mysql_secure_installation</span><br><span class="line"></span><br><span class="line">//设置 Linux服务器数据库可以在任意服务器上远程连接</span><br><span class="line">$ mysql -u root -p               </span><br><span class="line">mysql&gt; show databases;</span><br><span class="line">mysql&gt; use mysql;</span><br><span class="line">mysql&gt; select host, user from user;</span><br><span class="line">mysql&gt; update user set host = &apos;%&apos; where user = &apos;root&apos;;</span><br><span class="line">mysql&gt; flush privileges;</span><br><span class="line">mysql&gt; exit;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/微信图片_20190614150319.png&quot; alt=&quot; Mysql安装地址&quot;&gt;&lt;/p&gt;
+&lt;figure class
+      
+    
+    </summary>
+    
+      <category term="Mysql" scheme="http://yoursite.com/categories/Mysql/"/>
+    
+    
+      <category term="Mysql" scheme="http://yoursite.com/tags/Mysql/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux 系统搭建Redis</title>
@@ -304,11 +330,11 @@
       <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
     
     
-      <category term="Redis" scheme="http://yoursite.com/tags/Redis/"/>
-    
       <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
       <category term="SpingBoot" scheme="http://yoursite.com/tags/SpingBoot/"/>
+    
+      <category term="Redis" scheme="http://yoursite.com/tags/Redis/"/>
     
   </entry>
   
