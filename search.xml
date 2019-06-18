@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[搭建简单的文件下载服务器]]></title>
+    <url>%2F2019%2F06%2F18%2F%E6%90%AD%E5%BB%BA%E7%AE%80%E5%8D%95%E7%9A%84%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%2F</url>
+    <content type="text"><![CDATA[123456789$ root@iZwz9ccxu03fnah1zo7p9mZ: apt-getinstall apache2 //配置文件地址 /etc/apache2/sites-enabled/000-default$ root@iZwz9ccxu03fnah1zo7p9mZ: cd /var/www/html/ //并在此目录放入要下载的文件$ root@iZwz9ccxu03fnah1zo7p9mZ: rm -f index.html //删除该文件$ root@iZwz9ccxu03fnah1zo7p9mZ: curl cip.cc //获取服务器外网IP 通过浏览器访问 如图 $ root@iZwz9ccxu03fnah1zo7p9mZ: /etc/init.d/apache2 restart //重启Apache2 `]]></content>
+      <tags>
+        <tag>Linux</tag>
+        <tag>apache</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Mysql 安装]]></title>
     <url>%2F2019%2F06%2F14%2FMysql%20%E5%AE%89%E8%A3%85%2F</url>
     <content type="text"><![CDATA[12345678910111213141516171819202122232425262728//下载mysql-apt-config_0.8.13-1_all.deb 到Linux $apt-get update $mkdir mysql$cd mysql//安装$apt-get install mysql-server//查看Mysql服务状态$service mysql status//查看Mysql端口占用$netstat -tunlp | grep 3306//进行安装初始化设置密码等操作$ mysql_secure_installation//设置 Linux服务器数据库可以在任意服务器上远程连接$ mysql -u root -p mysql&gt; show databases;mysql&gt; use mysql;mysql&gt; select host, user from user;mysql&gt; update user set host = &apos;%&apos; where user = &apos;root&apos;;mysql&gt; flush privileges;mysql&gt; exit;]]></content>
@@ -126,8 +135,8 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>SpingBoot</tag>
         <tag>Redis</tag>
+        <tag>SpingBoot</tag>
       </tags>
   </entry>
 </search>
