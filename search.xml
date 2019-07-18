@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Linux时区更改]]></title>
+    <url>%2F2019%2F07%2F18%2FLinux%E6%97%B6%E5%8C%BA%E6%9B%B4%E6%94%B9%2F</url>
+    <content type="text"><![CDATA[时区查看123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475761.tzselect命令无法修改时区，仅给出时区的城市表示法2.TZ变量和/etc/localtime文件会影响时区，并建议直接修改/etc/localtime文件3.如果在shell中临时需要变更时区信息，可以修改TZ变量实现。4.在profile文件里设置变量TZ，达到和修改/etc/localtime类似的效果。$ tzselectPlease identify a location so that time zone rules can be set correctly.Please select a continent, ocean, &quot;coord&quot;, or &quot;TZ&quot;. 1) Africa 2) Americas 3) Antarctica 4) Asia 5) Atlantic Ocean 6) Australia 7) Europe 8) Indian Ocean 9) Pacific Ocean10) coord - I want to use geographical coordinates.11) TZ - I want to specify the time zone using the Posix TZ format.#? 4Please select a country whose clocks agree with yours. 1) Afghanistan 18) Israel 35) Palestine 2) Armenia 19) Japan 36) Philippines 3) Azerbaijan 20) Jordan 37) Qatar 4) Bahrain 21) Kazakhstan 38) Russia 5) Bangladesh 22) Korea (North) 39) Saudi Arabia 6) Bhutan 23) Korea (South) 40) Singapore 7) Brunei 24) Kuwait 41) Sri Lanka 8) Cambodia 25) Kyrgyzstan 42) Syria 9) China 26) Laos 43) Taiwan10) Cyprus 27) Lebanon 44) Tajikistan11) East Timor 28) Macau 45) Thailand12) Georgia 29) Malaysia 46) Turkmenistan13) Hong Kong 30) Mongolia 47) United Arab Emirates14) India 31) Myanmar (Burma) 48) Uzbekistan15) Indonesia 32) Nepal 49) Vietnam16) Iran 33) Oman 50) Yemen17) Iraq 34) Pakistan#? 9Please select one of the following time zone regions.1) Beijing Time2) Xinjiang Time#? 1The following information has been given: China Beijing TimeTherefore TZ=&apos;Asia/Shanghai&apos; will be used.Local time is now: Thu Jul 18 15:54:50 CST 2019.Universal Time is now: Thu Jul 18 07:54:50 UTC 2019.Is the above information OK?1) Yes2) No#? yesPlease enter a number in range.#? yesPlease enter a number in range.#? 1You can make this change permanent for yourself by appending the line TZ=&apos;Asia/Shanghai&apos;; export TZto the file &apos;.profile&apos; in your home directory; then log out and log in again.Here is that TZ value again, this time on standard output so that youcan use the /usr/bin/tzselect command in shell scripts:Asia/Shanghaicurl http://ifconfig.me 12345678910111213141516171819202122232425262728293031323334353637$ /etc/profile //在文件末尾追加时区 export TZ=Asia/Shanghai # /etc/profile: system-wide .profile file for the Bourne shell (sh(1))# and Bourne compatible shells (bash(1), ksh(1), ash(1), ...).if [ &quot;$PS1&quot; ]; then if [ &quot;$BASH&quot; ] &amp;&amp; [ &quot;$BASH&quot; != &quot;/bin/sh&quot; ]; then # The file bash.bashrc already sets the default PS1. # PS1=&apos;\h:\w\$ &apos; if [ -f /etc/bash.bashrc ]; then . /etc/bash.bashrc fi else if [ &quot;`id -u`&quot; -eq 0 ]; then PS1=&apos;# &apos; else PS1=&apos;$ &apos; fi fifiif [ -d /etc/profile.d ]; then for i in /etc/profile.d/*.sh; do if [ -r $i ]; then . $i fi done unset ifiexport JAVA_HOME=/usr/local/java/jdk1.8.0_211export JRE_HOME=$&#123;JAVA_HOME&#125;/jreexport CLASSPATH=.:$&#123;JAVA_HOME&#125;/lib:$&#123;JRE_HOME&#125;/lib:$CLASSPATHexport JAVA_PATH=$&#123;JAVA_HOME&#125;/bin:$&#123;JRE_HOME&#125;/binexport PATH=$PATH:$&#123;JAVA_PATH&#125;export TZ=Asia/Shanghai $ source /etc/profile //生效文件]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[搭建简单的文件下载服务器]]></title>
     <url>%2F2019%2F06%2F18%2F%E6%90%AD%E5%BB%BA%E7%AE%80%E5%8D%95%E7%9A%84%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%2F</url>
     <content type="text"><![CDATA[[apache2]123456789$ root@user: apt-getinstall apache2 //配置文件地址 /etc/apache2/sites-enabled/000-default$ root@user: cd /var/www/html/ //并在此目录放入要下载的文件$ root@user: rm -f index.html //删除该文件$ root@user: curl cip.cc //获取服务器外网IP 通过浏览器访问 如图 $ root@user: /etc/init.d/apache2 restart //重启Apache2 $ root@user: /etc/init.d/apache2 stop //停止Apache2 [Nginx]12345678910111213141516171819202122232425262728293031323334353637$ root@user: apt-getinstall nginx //配置文件地址 /etc/nginx/nginx.conf 在nginx.conf末尾有一句：include /etc/nginx/conf.d/*.conf; 推荐把用户自己的配置放到conf.d/$ root@user: vim /etc/nginx/conf.d/default.conf //添加用户的自定义配置文件 autoindex on;# 显示目录 autoindex_exact_size on;# 显示文件大小 autoindex_localtime on;# 显示文件时间$ root@user: vim /etc/nginx/nginx.conf //在http 增加以下配置 server &#123; listen 8080 default_server; listen [::]:8080 default_server; server_name _; root /root/share/; //分项目录 # Load configuration files for the default server block. include /etc/nginx/default.d/*.conf; location / &#123; &#125; error_page 404 /404.html; location = /40x.html &#123; &#125; error_page 500 502 503 504 /50x.html; location = /50x.html &#123; &#125; &#125;$ root@user: /etc/init.d/nginx reload 重新加载$ root@user: curl cip.cc //获取服务器外网IP 通过浏览器访问 如图 错误日志 /var/log/nginx/error.log访问日志 /var/log/nginx/access.log]]></content>
@@ -135,8 +146,8 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>Redis</tag>
         <tag>SpingBoot</tag>
+        <tag>Redis</tag>
       </tags>
   </entry>
 </search>
