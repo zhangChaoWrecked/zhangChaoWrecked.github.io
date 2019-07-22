@@ -23,7 +23,7 @@
   <entry>
     <title><![CDATA[Mysql 安装]]></title>
     <url>%2F2019%2F06%2F14%2FMysql%20%E5%AE%89%E8%A3%85%2F</url>
-    <content type="text"><![CDATA[12345678910111213141516171819202122232425262728//下载mysql-apt-config_0.8.13-1_all.deb 到Linux $apt-get update $mkdir mysql$cd mysql//安装$apt-get install mysql-server//查看Mysql服务状态$service mysql status//查看Mysql端口占用$netstat -tunlp | grep 3306//进行安装初始化设置密码等操作$ mysql_secure_installation//设置 Linux服务器数据库可以在任意服务器上远程连接$ mysql -u root -p mysql&gt; show databases;mysql&gt; use mysql;mysql&gt; select host, user from user;mysql&gt; update user set host = &apos;%&apos; where user = &apos;root&apos;;mysql&gt; flush privileges;mysql&gt; exit;]]></content>
+    <content type="text"><![CDATA[12345678910111213141516171819202122232425262728293031323334353637383940414243//下载mysql-apt-config_0.8.13-1_all.deb 到Linux $apt-get update $mkdir mysql$cd mysql//安装$apt-get install mysql-server//查看Mysql服务状态$ service mysql status//重启Mysql$service mysql restart//查看Mysql端口占用$netstat -tunlp | grep 3306//进行安装初始化设置密码等操作$ mysql_secure_installation//设置 Linux服务器数据库可以在任意服务器上远程连接$ mysql -u root -p mysql&gt; show databases;mysql&gt; use mysql;mysql&gt; select host, user from user;mysql&gt; update user set host = &apos;%&apos; where user = &apos;root&apos;;mysql&gt; flush privileges;mysql&gt; exit;从命令行终端运行此命令，将在寻找Linux/BSD / OS X系统中的MySQL配置文件 my.cnf 文件：mysql --help | grep &apos;Default options&apos; -A 1上面命令执行后，会有这样的输出：Default options are read from the following files in the given order:/etc/my.cnf /etc/mysql/my.cnf /usr/local/etc/my.cnf ~/.my.cnf现在，可以检查你正在使用的 my.cnf 文件是否存在。在 Mac OS X 中默认式没有 my.cnf 文件的。你可以从这个地方复制一份过去 /usr/local/mysql/support-files/my-default.cnf 每个版本都不一样，你只需要找到一个 .cnf]]></content>
       <categories>
         <category>Mysql</category>
       </categories>
@@ -145,9 +145,9 @@
         <category>Linux</category>
       </categories>
       <tags>
+        <tag>Redis</tag>
         <tag>Linux</tag>
         <tag>SpingBoot</tag>
-        <tag>Redis</tag>
       </tags>
   </entry>
 </search>
