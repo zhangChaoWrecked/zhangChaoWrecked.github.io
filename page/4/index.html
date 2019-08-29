@@ -312,7 +312,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">16</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">17</span></a>
 
   </li>
 
@@ -386,6 +386,175 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/04/如何在一台电脑使用GitHub GitLab进行项目维护/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wrecked">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wrecked">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/06/04/如何在一台电脑使用GitHub GitLab进行项目维护/" class="post-title-link" itemprop="http://yoursite.com/page/4/index.html">如何在一台电脑使用GitHub GitLab进行项目维护</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-04 12:00:00" itemprop="dateCreated datePublished" datetime="2019-06-04T12:00:00+08:00">2019-06-04</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-06-05 11:35:51" itemprop="dateModified" datetime="2019-06-05T11:35:51+08:00">2019-06-05</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/06/04/如何在一台电脑使用GitHub GitLab进行项目维护/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/06/04/如何在一台电脑使用GitHub GitLab进行项目维护/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="1-生成SSH-Key"><a href="#1-生成SSH-Key" class="headerlink" title="1.生成SSH Key"></a>1.生成SSH Key</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在 C:\Users\用户名\.ssh 目录 鼠标右键 git bash </span><br><span class="line">ssh-keygen -t rsa -C &quot;****@qq.com&quot;  //生成pub文件需指定生成文件名 id_rsa_hub/id_rsa_lab 区分GitHub/GitLab</span><br><span class="line">ssh-keygen -t rsa -C &quot;****@163.com&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="2-配置Config"><a href="#2-配置Config" class="headerlink" title="2.配置Config"></a>2.配置Config</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">在 C:\Users\用户名\.ssh 目录 生成config文件 编辑如下：</span><br><span class="line"></span><br><span class="line"># self(****@qq.com)</span><br><span class="line">Host github(拉取代码时仓库的别名)    </span><br><span class="line">    Port 22</span><br><span class="line">    User git</span><br><span class="line">    HostName github.com (github域名)   </span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa_hub (生成的GitHub公钥)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># company(****@163.com)</span><br><span class="line">Host gitlab(拉取代码时仓库的别名)   </span><br><span class="line">    Port 端口(默认22)</span><br><span class="line">    User git</span><br><span class="line">    HostName  ******* (公司GitLab域名)  </span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa_lab(生成的GitLab公钥)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">Host 作用[github为例]：</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#传统使用</span><br><span class="line">$git clone git@github.com:zhangChaoWrecked/pictures.git</span><br><span class="line">$git remote add origin git@github.com:zhangChaoWrecked/pictures.git</span><br><span class="line"></span><br><span class="line">#配置Config之后使用(host也可配置为域名即:github.com) </span><br><span class="line">$git clone git@[Host]:zhangChaoWrecked/pictures.git</span><br><span class="line">$git remote add origin git@[Host]:zhangChaoWrecked/pictures.git</span><br></pre></td></tr></table></figure>
+<h6 id="生成文件如下图："><a href="#生成文件如下图：" class="headerlink" title="生成文件如下图："></a>生成文件如下图：</h6><p><img src="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/host.png" alt="">   </p>
+<h6 id="配置Hosts-加速-拉取代码速度"><a href="#配置Hosts-加速-拉取代码速度" class="headerlink" title="配置Hosts 加速 拉取代码速度"></a>配置Hosts 加速 拉取代码速度</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">151.101.185.194    github.global.ssl.fastly.net</span><br><span class="line">192.30.253.112     github.com</span><br></pre></td></tr></table></figure>
+<h4 id="3-测试关联"><a href="#3-测试关联" class="headerlink" title="3.测试关联"></a>3.测试关联</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github</span><br><span class="line">ssh -T git@gitlab</span><br></pre></td></tr></table></figure>
+<h4 id="4-拉取远程代码或下载到本地"><a href="#4-拉取远程代码或下载到本地" class="headerlink" title="4.拉取远程代码或下载到本地"></a>4.拉取远程代码或下载到本地</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#取消全局 用户名/邮箱 配置(可跳过)</span><br><span class="line">$git config --global --unset user.name</span><br><span class="line">$git config --global --unset user.email</span><br><span class="line"></span><br><span class="line">$cd 项目名</span><br><span class="line">$git init</span><br><span class="line">$git config --local user.name &quot;用户名&quot;</span><br><span class="line">$git config --local user.email &quot;邮箱&quot;</span><br><span class="line">$git remote add origin git@[host]:***/***.git(git remote rm origin 删除之前关联的origin)</span><br><span class="line">$git pull orgin master</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -792,189 +961,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/16/Java Crypto(对称加密)/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wrecked">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wrecked">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/01/16/Java Crypto(对称加密)/" class="post-title-link" itemprop="http://yoursite.com/page/4/index.html">Java DES(对称加密)</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-16 17:39:31" itemprop="dateCreated datePublished" datetime="2019-01-16T17:39:31+08:00">2019-01-16</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-02-22 12:08:12" itemprop="dateModified" datetime="2019-02-22T12:08:12+08:00">2019-02-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/01/16/Java Crypto(对称加密)/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/01/16/Java Crypto(对称加密)/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h5 id="简单一种对称加密与解密"><a href="#简单一种对称加密与解密" class="headerlink" title="简单一种对称加密与解密"></a>简单一种对称加密与解密</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.crypto.Cipher;</span><br><span class="line"><span class="keyword">import</span> javax.crypto.KeyGenerator;</span><br><span class="line"><span class="keyword">import</span> javax.crypto.SecretKey;</span><br><span class="line"><span class="keyword">import</span> javax.crypto.spec.SecretKeySpec;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DESUtils</span> &#123;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * 生成密钥</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> byte[] initKey() throws Exception &#123;</span><br><span class="line">        KeyGenerator keyGen = KeyGenerator.getInstance(<span class="string">"DES"</span>);</span><br><span class="line">        keyGen.init(<span class="number">56</span>);</span><br><span class="line">        SecretKey secretKey = keyGen.generateKey();</span><br><span class="line">        <span class="keyword">return</span> secretKey.getEncoded();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * DES 加密</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">encrypt</span><span class="params">(byte[] data, byte[] key)</span> throws Exception </span>&#123;</span><br><span class="line">        SecretKey secretKey = <span class="keyword">new</span> SecretKeySpec(key, <span class="string">"DES"</span>);</span><br><span class="line"></span><br><span class="line">        Cipher cipher = Cipher.getInstance(<span class="string">"DES"</span>);</span><br><span class="line">        cipher.init(Cipher.ENCRYPT_MODE, secretKey);</span><br><span class="line">        byte[] cipherBytes = cipher.doFinal(data);</span><br><span class="line">        String result = byte2Hex(cipherBytes);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * DES 解密</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">decrypt</span><span class="params">(byte[] data, byte[] key)</span> throws Exception </span>&#123;</span><br><span class="line">        SecretKey secretKey = <span class="keyword">new</span> SecretKeySpec(key, <span class="string">"DES"</span>);</span><br><span class="line">        Cipher cipher = Cipher.getInstance(<span class="string">"DES"</span>);</span><br><span class="line">        cipher.init(Cipher.DECRYPT_MODE, secretKey);</span><br><span class="line">        byte[] plainBytes = cipher.doFinal(data);</span><br><span class="line">        String result = <span class="keyword">new</span> String(plainBytes);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">toByte</span><span class="params">(<span class="keyword">char</span> c)</span> </span>&#123;</span><br><span class="line">        byte b = (byte) <span class="string">"0123456789ABCDEF"</span>.indexOf(c);</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> byte[] hexToByte(String hex) &#123;</span><br><span class="line">        <span class="keyword">int</span> len = (hex.length() / <span class="number">2</span>);</span><br><span class="line">        byte[] result = <span class="keyword">new</span> byte[len];</span><br><span class="line">        <span class="keyword">char</span>[] achar = hex.toCharArray();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> pos = i * <span class="number">2</span>;</span><br><span class="line">            result[i] = (byte) (toByte(achar[pos]) &lt;&lt; <span class="number">4</span> | toByte(achar[pos + <span class="number">1</span>]));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">byte2Hex</span><span class="params">(byte[] b)</span> </span>&#123;</span><br><span class="line">        String stmp = <span class="string">""</span>;</span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder(<span class="string">""</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> n = <span class="number">0</span>; n &lt; b.length; n++) &#123;</span><br><span class="line">            stmp = Integer.toHexString(b[n] &amp; <span class="number">0xFF</span>);</span><br><span class="line">            sb.append((stmp.length() == <span class="number">1</span>) ? <span class="string">"0"</span> + stmp : stmp);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sb.toString().toUpperCase().trim();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//加密</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">encryptStr</span><span class="params">(String str, String secreytKey)</span> throws Exception </span>&#123;</span><br><span class="line">        String enResult = encrypt(str.getBytes(), hexToByte(secreytKey));</span><br><span class="line">        <span class="keyword">return</span> enResult;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//解密</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">decryptStr</span><span class="params">(String str, String secreytKey)</span> throws Exception </span>&#123;</span><br><span class="line">        String deResult = decrypt(hexToByte(str), hexToByte(secreytKey));</span><br><span class="line">        <span class="keyword">return</span> deResult;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/***</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">        秘钥769bfbae9d20100d</span></span><br><span class="line"><span class="comment">        加密结果e3f6b60180661bb0d541de00260afb10</span></span><br><span class="line"><span class="comment">        解密结果hello_world</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * @param args</span></span><br><span class="line"><span class="comment">     * @throws Exception</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> throws Exception </span>&#123;</span><br><span class="line">        <span class="comment">//生成秘钥</span></span><br><span class="line">        byte[] desKey = initKey();</span><br><span class="line">        String secreytKey = byte2Hex(desKey);</span><br><span class="line">        System.out.println(<span class="string">"秘钥"</span> + secreytKey.toLowerCase());</span><br><span class="line">        <span class="comment">//加密</span></span><br><span class="line">        String hello_world = encryptStr(<span class="string">"hello_world"</span>, secreytKey);</span><br><span class="line">        System.out.println(<span class="string">"加密结果"</span> + hello_world.toLowerCase());</span><br><span class="line">        <span class="comment">//解密</span></span><br><span class="line">        String  deResult = decryptStr(hello_world, secreytKey);</span><br><span class="line">        System.out.println(<span class="string">"解密结果"</span> + deResult);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-       
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1024,7 +1010,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
