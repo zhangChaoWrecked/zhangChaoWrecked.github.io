@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-09-06T07:45:15.748Z</updated>
+  <updated>2019-09-06T08:49:16.767Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux 安装Maven</title>
+    <link href="http://yoursite.com/2019/08/30/Linux%20%E5%AE%89%E8%A3%85Maven/"/>
+    <id>http://yoursite.com/2019/08/30/Linux 安装Maven/</id>
+    <published>2019-08-30T03:00:08.000Z</published>
+    <updated>2019-09-06T08:49:16.767Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://maven.apache.org/download.cgi" target="_blank" rel="noopener">Maven官网下载地址</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.6.2/binaries/apache-maven-3.6.2-bin.tar.gz</span><br><span class="line">--2019-09-06 16:35:40--  http://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.6.2/binaries/apache-maven-3.6.2-bin.tar.gz</span><br><span class="line">Resolving mirrors.tuna.tsinghua.edu.cn... 101.6.8.193, 2402:f000:1:408:8100::1</span><br><span class="line">Connecting to mirrors.tuna.tsinghua.edu.cn|101.6.8.193|:80... connected.</span><br><span class="line">HTTP request sent, awaiting response... 200 OK</span><br><span class="line">Length: 9142315 (8.7M) [application/x-gzip]</span><br><span class="line">Saving to: “apache-maven-3.6.2-bin.tar.gz”</span><br><span class="line"></span><br><span class="line">100%[================================================================================================================================================&gt;] 9,142,315    630K/s   in 16s     </span><br><span class="line"></span><br><span class="line">2019-09-06 16:35:56 (552 KB/s) - “apache-maven-3.6.2-bin.tar.gz” saved [9142315/9142315]</span><br><span class="line"></span><br><span class="line">$ ls</span><br><span class="line">apache-maven-3.6.2-bin.tar.gz bin include  jdk  lib  lib64  libexec  records  sbin  share  src</span><br><span class="line">$ tar zxvf apache-maven-3.6.2-bin.tar.gz </span><br><span class="line">$ mv apache-maven-3.6.2 maven</span><br><span class="line">$ vim /etc/profile //尾部添加 配置环境变量</span><br><span class="line">MAVEN_HOME=/usr/local/maven</span><br><span class="line">PATH=$PATH:$MAVEN_HOME/bin</span><br><span class="line">export MAVEN_HOME</span><br><span class="line">export PATH</span><br><span class="line">$ source /etc/profile</span><br><span class="line">$ mvn -v //验证是否安装成功</span><br><span class="line">Apache Maven 3.6.2 (40f52333136460af0dc0d7232c0dc0bcf0d9e117; 2019-08-27T23:06:16+08:00)</span><br><span class="line">Maven home: /usr/local/maven</span><br><span class="line">Java version: 1.8.0_45, vendor: Oracle Corporation, runtime: /usr/local/jdk/jre</span><br><span class="line">Default locale: en_US, platform encoding: UTF-8</span><br><span class="line">OS name: &quot;linux&quot;, version: &quot;2.6.32-754.12.1.el6.x86_64&quot;, arch: &quot;amd64&quot;, family: &quot;unix&quot;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://maven.apache.org/download.cgi&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Maven官网下载地址&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table
+      
+    
+    </summary>
+    
+      <category term="Maven" scheme="http://yoursite.com/categories/Maven/"/>
+    
+    
+      <category term="Maven" scheme="http://yoursite.com/tags/Maven/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux 安装Jenkins</title>
@@ -461,9 +487,9 @@
     
       <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
-      <category term="Redis" scheme="http://yoursite.com/tags/Redis/"/>
-    
       <category term="SpingBoot" scheme="http://yoursite.com/tags/SpingBoot/"/>
+    
+      <category term="Redis" scheme="http://yoursite.com/tags/Redis/"/>
     
   </entry>
   
