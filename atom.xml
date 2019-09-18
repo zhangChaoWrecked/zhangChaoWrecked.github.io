@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-09-06T08:49:16.767Z</updated>
+  <updated>2019-09-18T08:25:43.848Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mysql 数据库表数据的快速迁移</title>
+    <link href="http://yoursite.com/2019/09/18/Mysql%20%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E6%95%B0%E6%8D%AE%E7%9A%84%E5%BF%AB%E9%80%9F%E8%BF%81%E7%A7%BB/"/>
+    <id>http://yoursite.com/2019/09/18/Mysql 数据库表数据的快速迁移/</id>
+    <published>2019-09-18T07:11:08.000Z</published>
+    <updated>2019-09-18T08:25:43.848Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="表数据迁移-前提-目标数据库和源数据库含有相同数据库名和表"><a href="#表数据迁移-前提-目标数据库和源数据库含有相同数据库名和表" class="headerlink" title="表数据迁移 (前提:目标数据库和源数据库含有相同数据库名和表)"></a>表数据迁移 (前提:目标数据库和源数据库含有相同数据库名和表)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">mysql&gt; ALTER TABLE t_app_banner DISCARD TABLESPACE;  //目标数据库.ibd文件与原先的.frm文件解除绑定 </span><br><span class="line"></span><br><span class="line">$ cd /var/lib/mysql  //mysql数据库文件存放位置 在/etc/mysql/mysql.conf.d中查看</span><br><span class="line"></span><br><span class="line">$ ls</span><br><span class="line">auto.cnf  test  debian-5.7.flag  ib_buffer_pool  ibdata1  ib_logfile0  ib_logfile1  ibtmp1  mysql  performance_schema  sys</span><br><span class="line"></span><br><span class="line">$ls -lht</span><br><span class="line">total 144K</span><br><span class="line">-rw-r----- 1 mysql  mysql  9.1K Sep 18 08:00 t_app_banner.frm</span><br><span class="line">-rw-r----- 1 mysql  mysql    67 Sep 18 03:00 db.opt</span><br><span class="line">-rw-rw-r-- 1 mysql mysql 128K Sep 16 06:50 t_app_banner.ibd</span><br><span class="line"></span><br><span class="line">$ 复制要恢复表的.ibd文件 至目标数据库的相同目录下进行覆盖</span><br><span class="line"></span><br><span class="line">$cd /var/lib/mysql/test</span><br><span class="line">$ ls -lht</span><br><span class="line">total 144K</span><br><span class="line">-rw-r----- 1 mysql  mysql  9.1K Sep 18 08:00 t_app_banner.frm</span><br><span class="line">-rw-r----- 1 mysql  mysql    67 Sep 18 03:00 db.opt</span><br><span class="line">-rw-rw-r-- 1 ubuntu ubuntu 128K Sep 16 06:50 t_app_banner.ibd  //如果该文件使用者为ubuntu需要进行权限更改</span><br><span class="line"></span><br><span class="line">$ chown mysql:mysql /var/lib/mysql/test -R  //修改t_app_banner.ibd的授权用户</span><br><span class="line"></span><br><span class="line">$mysql&gt; ALTER TABLE t_app_banner IMPORT TABLESPACE; //恢复ibd和frm文件的关联</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h5 id=&quot;表数据迁移-前提-目标数据库和源数据库含有相同数据库名和表&quot;&gt;&lt;a href=&quot;#表数据迁移-前提-目标数据库和源数据库含有相同数据库名和表&quot; class=&quot;headerlink&quot; title=&quot;表数据迁移 (前提:目标数据库和源数据库含有相同数据库名和表)&quot;&gt;&lt;
+      
+    
+    </summary>
+    
+      <category term="Mysql" scheme="http://yoursite.com/categories/Mysql/"/>
+    
+    
+      <category term="Mysql" scheme="http://yoursite.com/tags/Mysql/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux 安装Maven</title>
@@ -176,9 +201,9 @@
     <link href="http://yoursite.com/2019/06/14/Mysql%20%E5%AE%89%E8%A3%85/"/>
     <id>http://yoursite.com/2019/06/14/Mysql 安装/</id>
     <published>2019-06-14T07:11:08.000Z</published>
-    <updated>2019-07-22T07:59:04.205Z</updated>
+    <updated>2019-09-18T08:26:03.993Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/微信图片_20190614150319.png" alt=" Mysql安装地址"></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">//下载mysql-apt-config_0.8.13-1_all.deb 到Linux </span><br><span class="line"></span><br><span class="line">$apt-get update  </span><br><span class="line"></span><br><span class="line">$mkdir mysql</span><br><span class="line"></span><br><span class="line">$cd mysql</span><br><span class="line"></span><br><span class="line">//安装</span><br><span class="line">$apt-get install mysql-server</span><br><span class="line"></span><br><span class="line">//查看Mysql服务状态</span><br><span class="line">$ service mysql status</span><br><span class="line"></span><br><span class="line">//重启Mysql</span><br><span class="line">$service mysql restart</span><br><span class="line"></span><br><span class="line">//查看Mysql端口占用</span><br><span class="line">$netstat -tunlp | grep 3306</span><br><span class="line"></span><br><span class="line">//进行安装初始化设置密码等操作</span><br><span class="line">$ mysql_secure_installation</span><br><span class="line"></span><br><span class="line">//设置 Linux服务器数据库可以在任意服务器上远程连接</span><br><span class="line">$ mysql -u root -p               </span><br><span class="line">mysql&gt; show databases;</span><br><span class="line">mysql&gt; use mysql;</span><br><span class="line">mysql&gt; select host, user from user;</span><br><span class="line">mysql&gt; update user set host = &apos;%&apos; where user = &apos;root&apos;;</span><br><span class="line">mysql&gt; flush privileges;</span><br><span class="line">mysql&gt; exit;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">从命令行终端运行此命令，将在寻找Linux/BSD / OS X系统中的MySQL配置文件 my.cnf 文件：</span><br><span class="line"></span><br><span class="line">mysql --help | grep &apos;Default options&apos; -A 1</span><br><span class="line">上面命令执行后，会有这样的输出：</span><br><span class="line"></span><br><span class="line">Default options are read from the following files in the given order:</span><br><span class="line">/etc/my.cnf /etc/mysql/my.cnf </span><br><span class="line">/usr/local/etc/my.cnf </span><br><span class="line">~/.my.cnf</span><br><span class="line">现在，可以检查你正在使用的 my.cnf 文件是否存在。在 Mac OS X 中默认式没有 my.cnf 文件的。你可以从这个地方复制一份过去 /usr/local/mysql/support-files/my-default.cnf 每个版本都不一样，你只需要找到一个 .cnf</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p><img src="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/微信图片_20190614150319.png" alt=" Mysql安装地址"></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">//下载mysql-apt-config_0.8.13-1_all.deb 到Linux </span><br><span class="line"></span><br><span class="line">$apt-get update  </span><br><span class="line"></span><br><span class="line">$mkdir mysql</span><br><span class="line"></span><br><span class="line">$cd mysql</span><br><span class="line"></span><br><span class="line">//安装</span><br><span class="line">$apt-get install mysql-server</span><br><span class="line"></span><br><span class="line">//查看Mysql服务状态</span><br><span class="line">$ service mysql status</span><br><span class="line"></span><br><span class="line">//重启Mysql</span><br><span class="line">$service mysql restart</span><br><span class="line"></span><br><span class="line">//查看Mysql端口占用</span><br><span class="line">$netstat -tunlp | grep 3306</span><br><span class="line"></span><br><span class="line">//进行安装初始化设置密码等操作</span><br><span class="line">$ mysql_secure_installation</span><br><span class="line"></span><br><span class="line">//设置 Linux服务器数据库可以在任意服务器上远程连接</span><br><span class="line">$ mysql -u root -p               </span><br><span class="line">mysql&gt; show databases;</span><br><span class="line">mysql&gt; use mysql;</span><br><span class="line">mysql&gt; select host, user from user;</span><br><span class="line">mysql&gt; update user set host = &apos;%&apos; where user = &apos;root&apos;;</span><br><span class="line">mysql&gt; flush privileges;</span><br><span class="line">mysql&gt; exit;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">从命令行终端运行此命令，将在寻找Linux/BSD / OS X系统中的MySQL配置文件 my.cnf 文件：</span><br><span class="line"></span><br><span class="line">mysql --help | grep &apos;Default options&apos; -A 1</span><br><span class="line">上面命令执行后，会有这样的输出：</span><br><span class="line"></span><br><span class="line">Default options are read from the following files in the given order:</span><br><span class="line">/etc/my.cnf /etc/mysql/my.cnf   </span><br><span class="line">/usr/local/etc/my.cnf </span><br><span class="line">~/.my.cnf</span><br><span class="line">/etc/mysql/mysql.conf.d  mysql配置文件</span><br><span class="line">现在，可以检查你正在使用的 my.cnf 文件是否存在。在 Mac OS X 中默认式没有 my.cnf 文件的。你可以从这个地方复制一份过去 /usr/local/mysql/support-files/my-default.cnf 每个版本都不一样，你只需要找到一个 .cnf</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -487,9 +512,9 @@
     
       <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
-      <category term="SpingBoot" scheme="http://yoursite.com/tags/SpingBoot/"/>
-    
       <category term="Redis" scheme="http://yoursite.com/tags/Redis/"/>
+    
+      <category term="SpingBoot" scheme="http://yoursite.com/tags/SpingBoot/"/>
     
   </entry>
   

@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Mysql 数据库表数据的快速迁移]]></title>
+    <url>%2F2019%2F09%2F18%2FMysql%20%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E6%95%B0%E6%8D%AE%E7%9A%84%E5%BF%AB%E9%80%9F%E8%BF%81%E7%A7%BB%2F</url>
+    <content type="text"><![CDATA[表数据迁移 (前提:目标数据库和源数据库含有相同数据库名和表)1234567891011121314151617181920212223242526mysql&gt; ALTER TABLE t_app_banner DISCARD TABLESPACE; //目标数据库.ibd文件与原先的.frm文件解除绑定 $ cd /var/lib/mysql //mysql数据库文件存放位置 在/etc/mysql/mysql.conf.d中查看$ lsauto.cnf test debian-5.7.flag ib_buffer_pool ibdata1 ib_logfile0 ib_logfile1 ibtmp1 mysql performance_schema sys$ls -lhttotal 144K-rw-r----- 1 mysql mysql 9.1K Sep 18 08:00 t_app_banner.frm-rw-r----- 1 mysql mysql 67 Sep 18 03:00 db.opt-rw-rw-r-- 1 mysql mysql 128K Sep 16 06:50 t_app_banner.ibd$ 复制要恢复表的.ibd文件 至目标数据库的相同目录下进行覆盖$cd /var/lib/mysql/test$ ls -lhttotal 144K-rw-r----- 1 mysql mysql 9.1K Sep 18 08:00 t_app_banner.frm-rw-r----- 1 mysql mysql 67 Sep 18 03:00 db.opt-rw-rw-r-- 1 ubuntu ubuntu 128K Sep 16 06:50 t_app_banner.ibd //如果该文件使用者为ubuntu需要进行权限更改$ chown mysql:mysql /var/lib/mysql/test -R //修改t_app_banner.ibd的授权用户$mysql&gt; ALTER TABLE t_app_banner IMPORT TABLESPACE; //恢复ibd和frm文件的关联]]></content>
+      <categories>
+        <category>Mysql</category>
+      </categories>
+      <tags>
+        <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Linux 安装Maven]]></title>
     <url>%2F2019%2F08%2F30%2FLinux%20%E5%AE%89%E8%A3%85Maven%2F</url>
     <content type="text"><![CDATA[Maven官网下载地址 12345678910111213141516171819202122232425262728$ wget http://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.6.2/binaries/apache-maven-3.6.2-bin.tar.gz--2019-09-06 16:35:40-- http://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.6.2/binaries/apache-maven-3.6.2-bin.tar.gzResolving mirrors.tuna.tsinghua.edu.cn... 101.6.8.193, 2402:f000:1:408:8100::1Connecting to mirrors.tuna.tsinghua.edu.cn|101.6.8.193|:80... connected.HTTP request sent, awaiting response... 200 OKLength: 9142315 (8.7M) [application/x-gzip]Saving to: “apache-maven-3.6.2-bin.tar.gz”100%[================================================================================================================================================&gt;] 9,142,315 630K/s in 16s 2019-09-06 16:35:56 (552 KB/s) - “apache-maven-3.6.2-bin.tar.gz” saved [9142315/9142315]$ lsapache-maven-3.6.2-bin.tar.gz bin include jdk lib lib64 libexec records sbin share src$ tar zxvf apache-maven-3.6.2-bin.tar.gz $ mv apache-maven-3.6.2 maven$ vim /etc/profile //尾部添加 配置环境变量MAVEN_HOME=/usr/local/mavenPATH=$PATH:$MAVEN_HOME/binexport MAVEN_HOMEexport PATH$ source /etc/profile$ mvn -v //验证是否安装成功Apache Maven 3.6.2 (40f52333136460af0dc0d7232c0dc0bcf0d9e117; 2019-08-27T23:06:16+08:00)Maven home: /usr/local/mavenJava version: 1.8.0_45, vendor: Oracle Corporation, runtime: /usr/local/jdk/jreDefault locale: en_US, platform encoding: UTF-8OS name: &quot;linux&quot;, version: &quot;2.6.32-754.12.1.el6.x86_64&quot;, arch: &quot;amd64&quot;, family: &quot;unix&quot;]]></content>
@@ -67,7 +78,7 @@
   <entry>
     <title><![CDATA[Mysql 安装]]></title>
     <url>%2F2019%2F06%2F14%2FMysql%20%E5%AE%89%E8%A3%85%2F</url>
-    <content type="text"><![CDATA[12345678910111213141516171819202122232425262728293031323334353637383940414243//下载mysql-apt-config_0.8.13-1_all.deb 到Linux $apt-get update $mkdir mysql$cd mysql//安装$apt-get install mysql-server//查看Mysql服务状态$ service mysql status//重启Mysql$service mysql restart//查看Mysql端口占用$netstat -tunlp | grep 3306//进行安装初始化设置密码等操作$ mysql_secure_installation//设置 Linux服务器数据库可以在任意服务器上远程连接$ mysql -u root -p mysql&gt; show databases;mysql&gt; use mysql;mysql&gt; select host, user from user;mysql&gt; update user set host = &apos;%&apos; where user = &apos;root&apos;;mysql&gt; flush privileges;mysql&gt; exit;从命令行终端运行此命令，将在寻找Linux/BSD / OS X系统中的MySQL配置文件 my.cnf 文件：mysql --help | grep &apos;Default options&apos; -A 1上面命令执行后，会有这样的输出：Default options are read from the following files in the given order:/etc/my.cnf /etc/mysql/my.cnf /usr/local/etc/my.cnf ~/.my.cnf现在，可以检查你正在使用的 my.cnf 文件是否存在。在 Mac OS X 中默认式没有 my.cnf 文件的。你可以从这个地方复制一份过去 /usr/local/mysql/support-files/my-default.cnf 每个版本都不一样，你只需要找到一个 .cnf]]></content>
+    <content type="text"><![CDATA[1234567891011121314151617181920212223242526272829303132333435363738394041424344//下载mysql-apt-config_0.8.13-1_all.deb 到Linux $apt-get update $mkdir mysql$cd mysql//安装$apt-get install mysql-server//查看Mysql服务状态$ service mysql status//重启Mysql$service mysql restart//查看Mysql端口占用$netstat -tunlp | grep 3306//进行安装初始化设置密码等操作$ mysql_secure_installation//设置 Linux服务器数据库可以在任意服务器上远程连接$ mysql -u root -p mysql&gt; show databases;mysql&gt; use mysql;mysql&gt; select host, user from user;mysql&gt; update user set host = &apos;%&apos; where user = &apos;root&apos;;mysql&gt; flush privileges;mysql&gt; exit;从命令行终端运行此命令，将在寻找Linux/BSD / OS X系统中的MySQL配置文件 my.cnf 文件：mysql --help | grep &apos;Default options&apos; -A 1上面命令执行后，会有这样的输出：Default options are read from the following files in the given order:/etc/my.cnf /etc/mysql/my.cnf /usr/local/etc/my.cnf ~/.my.cnf/etc/mysql/mysql.conf.d mysql配置文件现在，可以检查你正在使用的 my.cnf 文件是否存在。在 Mac OS X 中默认式没有 my.cnf 文件的。你可以从这个地方复制一份过去 /usr/local/mysql/support-files/my-default.cnf 每个版本都不一样，你只需要找到一个 .cnf]]></content>
       <categories>
         <category>Mysql</category>
       </categories>
@@ -190,8 +201,8 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>SpingBoot</tag>
         <tag>Redis</tag>
+        <tag>SpingBoot</tag>
       </tags>
   </entry>
 </search>

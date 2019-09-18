@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="Linuxcmmand redis-cli  not found123456789root@wrecked:~# redis-cli -h 127.0.0.1 -p 6379 -a 123456Command &amp;apos;redis-cli&amp;apos; not found解决办法：cp /home/redis/redis-2.8.17/src/redis-cli /usr/local/bin/">
-<meta name="keywords" content="Linux">
+  <meta name="description" content="表数据迁移 (前提:目标数据库和源数据库含有相同数据库名和表)1234567891011121314151617181920212223242526mysql&amp;gt; ALTER TABLE t_app_banner DISCARD TABLESPACE;  //目标数据库.ibd文件与原先的.frm文件解除绑定 $ cd /var/lib/mysql  //mysql数据库文件存放位置 在/et">
+<meta name="keywords" content="Mysql">
 <meta property="og:type" content="article">
-<meta property="og:title" content="常见问题汇总">
-<meta property="og:url" content="http://yoursite.com/2019/06/13/常见问题汇总/index.html">
+<meta property="og:title" content="Mysql 数据库表数据的快速迁移">
+<meta property="og:url" content="http://yoursite.com/2019/09/18/Mysql 数据库表数据的快速迁移/index.html">
 <meta property="og:site_name" content="Wrecked">
-<meta property="og:description" content="Linuxcmmand redis-cli  not found123456789root@wrecked:~# redis-cli -h 127.0.0.1 -p 6379 -a 123456Command &amp;apos;redis-cli&amp;apos; not found解决办法：cp /home/redis/redis-2.8.17/src/redis-cli /usr/local/bin/">
+<meta property="og:description" content="表数据迁移 (前提:目标数据库和源数据库含有相同数据库名和表)1234567891011121314151617181920212223242526mysql&amp;gt; ALTER TABLE t_app_banner DISCARD TABLESPACE;  //目标数据库.ibd文件与原先的.frm文件解除绑定 $ cd /var/lib/mysql  //mysql数据库文件存放位置 在/et">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-13T07:04:07.797Z">
+<meta property="og:updated_time" content="2019-09-18T08:25:43.848Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="常见问题汇总">
-<meta name="twitter:description" content="Linuxcmmand redis-cli  not found123456789root@wrecked:~# redis-cli -h 127.0.0.1 -p 6379 -a 123456Command &amp;apos;redis-cli&amp;apos; not found解决办法：cp /home/redis/redis-2.8.17/src/redis-cli /usr/local/bin/">
+<meta name="twitter:title" content="Mysql 数据库表数据的快速迁移">
+<meta name="twitter:description" content="表数据迁移 (前提:目标数据库和源数据库含有相同数据库名和表)1234567891011121314151617181920212223242526mysql&amp;gt; ALTER TABLE t_app_banner DISCARD TABLESPACE;  //目标数据库.ibd文件与原先的.frm文件解除绑定 $ cd /var/lib/mysql  //mysql数据库文件存放位置 在/et">
 
 
 
@@ -128,7 +128,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/06/13/常见问题汇总/">
+  <link rel="canonical" href="http://yoursite.com/2019/09/18/Mysql 数据库表数据的快速迁移/">
 
 
 
@@ -138,7 +138,7 @@
   };
 </script>
 
-  <title>常见问题汇总 | Wrecked</title>
+  <title>Mysql 数据库表数据的快速迁移 | Wrecked</title>
   
 
 
@@ -408,7 +408,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/13/常见问题汇总/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/18/Mysql 数据库表数据的快速迁移/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wrecked">
@@ -425,7 +425,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">常见问题汇总
+          <h2 class="post-title" itemprop="name headline">Mysql 数据库表数据的快速迁移
               
             
           </h2>
@@ -450,7 +450,7 @@
                 
               
 
-              <time title="创建时间：2019-06-13 12:39:31 / 修改时间：15:04:07" itemprop="dateCreated datePublished" datetime="2019-06-13T12:39:31+08:00">2019-06-13</time>
+              <time title="创建时间：2019-09-18 15:11:08 / 修改时间：16:25:43" itemprop="dateCreated datePublished" datetime="2019-09-18T15:11:08+08:00">2019-09-18</time>
             
 
             
@@ -472,7 +472,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/问题/" itemprop="url" rel="index"><span itemprop="name">问题</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Mysql/" itemprop="url" rel="index"><span itemprop="name">Mysql</span></a></span>
 
                 
                 
@@ -487,9 +487,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/06/13/常见问题汇总/#comments" itemprop="discussionUrl">
+                <a href="/2019/09/18/Mysql 数据库表数据的快速迁移/#comments" itemprop="discussionUrl">
                 
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/06/13/常见问题汇总/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/09/18/Mysql 数据库表数据的快速迁移/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -524,8 +524,7 @@
       
 
       
-        <h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><h5 id="cmmand-redis-cli-not-found"><a href="#cmmand-redis-cli-not-found" class="headerlink" title="cmmand redis-cli  not found"></a>cmmand redis-cli  not found</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root@wrecked:~# redis-cli -h 127.0.0.1 -p 6379 -a 123456</span><br><span class="line">Command &apos;redis-cli&apos; not found</span><br><span class="line"></span><br><span class="line">解决办法：cp /home/redis/redis-2.8.17/src/redis-cli /usr/local/bin/</span><br><span class="line">         拷贝redis-cli 到 /usr/local/bin/</span><br><span class="line">         </span><br><span class="line">         </span><br><span class="line">`/usr/bin`下面的都是系统预装的可执行程序，会随着系统升级而改变。</span><br><span class="line">`/usr/local/bin`目录是给用户放置自己的可执行程序的地方，推荐放在这里，不会被系统升级而覆盖同名文件。</span><br></pre></td></tr></table></figure>
-<h5 id="buntu防火墙的开启，关闭，端口的打开，查看"><a href="#buntu防火墙的开启，关闭，端口的打开，查看" class="headerlink" title="buntu防火墙的开启，关闭，端口的打开，查看"></a>buntu防火墙的开启，关闭，端口的打开，查看</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">1.防火墙的打开</span><br><span class="line"></span><br><span class="line">$ ufw enable</span><br><span class="line"></span><br><span class="line">2.防火墙的重启</span><br><span class="line"></span><br><span class="line">$ ufw reload</span><br><span class="line"></span><br><span class="line">3.打开想要的端口（以9000为例）</span><br><span class="line"></span><br><span class="line">$ ufw allow 9000</span><br><span class="line"></span><br><span class="line">4.查看本机端口使用情况</span><br><span class="line"></span><br><span class="line">$ ufw status</span><br></pre></td></tr></table></figure>
+        <h5 id="表数据迁移-前提-目标数据库和源数据库含有相同数据库名和表"><a href="#表数据迁移-前提-目标数据库和源数据库含有相同数据库名和表" class="headerlink" title="表数据迁移 (前提:目标数据库和源数据库含有相同数据库名和表)"></a>表数据迁移 (前提:目标数据库和源数据库含有相同数据库名和表)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">mysql&gt; ALTER TABLE t_app_banner DISCARD TABLESPACE;  //目标数据库.ibd文件与原先的.frm文件解除绑定 </span><br><span class="line"></span><br><span class="line">$ cd /var/lib/mysql  //mysql数据库文件存放位置 在/etc/mysql/mysql.conf.d中查看</span><br><span class="line"></span><br><span class="line">$ ls</span><br><span class="line">auto.cnf  test  debian-5.7.flag  ib_buffer_pool  ibdata1  ib_logfile0  ib_logfile1  ibtmp1  mysql  performance_schema  sys</span><br><span class="line"></span><br><span class="line">$ls -lht</span><br><span class="line">total 144K</span><br><span class="line">-rw-r----- 1 mysql  mysql  9.1K Sep 18 08:00 t_app_banner.frm</span><br><span class="line">-rw-r----- 1 mysql  mysql    67 Sep 18 03:00 db.opt</span><br><span class="line">-rw-rw-r-- 1 mysql mysql 128K Sep 16 06:50 t_app_banner.ibd</span><br><span class="line"></span><br><span class="line">$ 复制要恢复表的.ibd文件 至目标数据库的相同目录下进行覆盖</span><br><span class="line"></span><br><span class="line">$cd /var/lib/mysql/test</span><br><span class="line">$ ls -lht</span><br><span class="line">total 144K</span><br><span class="line">-rw-r----- 1 mysql  mysql  9.1K Sep 18 08:00 t_app_banner.frm</span><br><span class="line">-rw-r----- 1 mysql  mysql    67 Sep 18 03:00 db.opt</span><br><span class="line">-rw-rw-r-- 1 ubuntu ubuntu 128K Sep 16 06:50 t_app_banner.ibd  //如果该文件使用者为ubuntu需要进行权限更改</span><br><span class="line"></span><br><span class="line">$ chown mysql:mysql /var/lib/mysql/test -R  //修改t_app_banner.ibd的授权用户</span><br><span class="line"></span><br><span class="line">$mysql&gt; ALTER TABLE t_app_banner IMPORT TABLESPACE; //恢复ibd和frm文件的关联</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -539,35 +538,14 @@
     <li class="popular-posts-item">
       
       
-      <div class="popular-posts-title"><a href="\2018\11\30\Linux Top命令\" rel="bookmark">Linux Top命令</a></div>
+      <div class="popular-posts-title"><a href="\2019\06\14\Mysql 安装\" rel="bookmark">Mysql 安装</a></div>
       
     </li>
   
     <li class="popular-posts-item">
       
       
-      <div class="popular-posts-title"><a href="\2018\11\29\Linux常用命令\" rel="bookmark">Linux 常用命令</a></div>
-      
-    </li>
-  
-    <li class="popular-posts-item">
-      
-      
-      <div class="popular-posts-title"><a href="\2019\07\18\Linux时区更改\" rel="bookmark">Linux时区更改</a></div>
-      
-    </li>
-  
-    <li class="popular-posts-item">
-      
-      
-      <div class="popular-posts-title"><a href="\2019\06\11\Linux系统配置\" rel="bookmark">Linux系统配置</a></div>
-      
-    </li>
-  
-    <li class="popular-posts-item">
-      
-      
-      <div class="popular-posts-title"><a href="\2019\06\18\搭建简单的文件下载服务器\" rel="bookmark">搭建简单的文件下载服务器</a></div>
+      <div class="popular-posts-title"><a href="\2019\08\29\Mysql开启log_bin并进行数据恢复\" rel="bookmark">Mysql开启log_bin并进行数据恢复</a></div>
       
     </li>
   
@@ -622,7 +600,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Linux/" rel="tag"># Linux</a>
+            <a href="/tags/Mysql/" rel="tag"># Mysql</a>
           
         </div>
       
@@ -647,8 +625,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/11/Linux系统配置/" rel="next" title="Linux系统配置">
-                <i class="fa fa-chevron-left"></i> Linux系统配置
+              <a href="/2019/08/30/Linux 安装Maven/" rel="next" title="Linux 安装Maven">
+                <i class="fa fa-chevron-left"></i> Linux 安装Maven
               </a>
             
           </div>
@@ -656,10 +634,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/06/13/Linux 系统搭建Redis/" rel="prev" title="Linux 系统搭建Redis">
-                Linux 系统搭建Redis <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -892,7 +866,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux"><span class="nav-number">1.</span> <span class="nav-text">Linux</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#cmmand-redis-cli-not-found"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">cmmand redis-cli  not found</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#buntu防火墙的开启，关闭，端口的打开，查看"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">buntu防火墙的开启，关闭，端口的打开，查看</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#表数据迁移-前提-目标数据库和源数据库含有相同数据库名和表"><span class="nav-number">1.</span> <span class="nav-text">表数据迁移 (前提:目标数据库和源数据库含有相同数据库名和表)</span></a></li></ol></div>
             
 
           </div>
@@ -1073,9 +1047,9 @@
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'http://yoursite.com/2019/06/13/常见问题汇总/';
-        this.page.identifier = '2019/06/13/常见问题汇总/';
-        this.page.title = '常见问题汇总';
+        this.page.url = 'http://yoursite.com/2019/09/18/Mysql 数据库表数据的快速迁移/';
+        this.page.identifier = '2019/09/18/Mysql 数据库表数据的快速迁移/';
+        this.page.title = 'Mysql 数据库表数据的快速迁移';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');
