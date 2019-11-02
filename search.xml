@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Linux 安装 Elasticsearch Kibana]]></title>
+    <url>%2F2019%2F11%2F02%2FLinux%20%20%E5%AE%89%E8%A3%85%20Elasticsearch%20Kibana%2F</url>
+    <content type="text"><![CDATA[各系统安装说明 安装 ElasticSearch1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495 $ groupadd es //使用 root 用户启动 elasticsearch 会报错,用 root 用户新建 es$ useradd -g es es //新建 es 用户，并添加到 es用户组$ passwd es //设置 es 用户的用户密码，按照提示输入你的密码$ chown -R es:es /es //授权，我这里文件路径在 /es 下面$ vim /etc/sysctl.conf //编辑 #添加一行 vm.max_map_count=655360 $ sysctl -p //配置生效$ su es //切换用户 $ mkdir es$ cd es $ wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.7.0.tar.gz$ tar -zxvf elasticsearch-6.7.0.tar.gz //解压文件#es 作为集群，应该至少 3 个节点，这里服务器内存只有 2G，部署一个单机版 3 节点的伪集群$ mv elasticsearch-6.7.0-node elasticsearch-6.7.0-node1 //给文件夹改名#修改配置文件,默认值为 1g，我这里改为 160m，否则服务器带不动$ cd elasticsearch-6.7.0-node1$ vim config/jvm.options -Xms160m -Xmx160m$ mkdir elasticsearch-6.7.0-data1 //新建文件夹存放数据和日志，默认存放于 es 安装目录，为了防止误删和被覆盖，另建文件夹$ cd elasticsearch-6.7.0-data1/$ mkdir data logs#修改配置文件(https://www.cnblogs.com/zhq1007/p/8482454.html)$ cd /es/elasticsearch-6.7.0-node1/config/$ vim elasticsearch.yml cluster.name: 你的集群名称 node.name: node-1 # 节点名称 其余两个节点分别为 node-2、node-3 node.master: true node.data: true bootstrap.memory_lock: true path.data: /opt/fangzhibin/es670/elasticsearch-6.7.0-data1/data # 其余两个节点为 data2/data、data3/data path.logs: /opt/fangzhibin/es670/elasticsearch-6.7.0-data1/logs # 其余两个节点为 data2/logs、data3/logs network.host: 0.0.0.0 transport.tcp.port: 9301 # 因为在同一台服务器，其余两个节点分别为 9302、9303 http.port: 9201 # 因为在同一台服务器，其余两个节点分别为 9202、9203 discovery.zen.ping.unicast.hosts: [&quot;节点IP:9301&quot;,&quot;节点IP:9302&quot;,&quot;节点IP:9303&quot;] # discovery.zen.minimum_master_nodes: 2 # 根据主节点数量计算：主节点数量/2 + 1；3 个节点则设置为 2$ cd /es/elasticsearch-6.7.0-node1$ bin/elasticsearch -d#验证是否正常启动 node1（或者浏览器访问 http://你的IP:9201）curl &quot;http://你的IP:9201&quot;#出现以下内容即可，node2 和node3 同理 &#123; &quot;name&quot; : &quot;node-1&quot;, &quot;cluster_name&quot; : &quot;cluster-aly&quot;, &quot;cluster_uuid&quot; : &quot;RixPnO6hTQClAqxlAt_v2g&quot;, &quot;version&quot; : &#123; &quot;number&quot; : &quot;6.7.0&quot;, &quot;build_flavor&quot; : &quot;default&quot;, &quot;build_type&quot; : &quot;tar&quot;, &quot;build_hash&quot; : &quot;8453f77&quot;, &quot;build_date&quot; : &quot;2019-03-21T15:32:29.844721Z&quot;, &quot;build_snapshot&quot; : false, &quot;lucene_version&quot; : &quot;7.7.0&quot;, &quot;minimum_wire_compatibility_version&quot; : &quot;5.6.0&quot;, &quot;minimum_index_compatibility_version&quot; : &quot;5.0.0&quot; &#125;, &quot;tagline&quot; : &quot;You Know, for Search&quot; &#125;#正常启动 node1 后，复制节点$ cd /es$ cp -r elasticsearch-6.7.0-data1 elasticsearch-6.7.0-data2$ cp -r elasticsearch-6.7.0-node1 elasticsearch-6.7.0-node2$ cp -r elasticsearch-6.7.0-data1 elasticsearch-6.7.0-data3$ cp -r elasticsearch-6.7.0-node1 elasticsearch-6.7.0-node3#注意：按照上面的配置项说明更改 node2、node3 的配置文件#启动 node2 和 node3$ cd /es/elasticsearch-6.7.0-node2$ bin/elasticsearch -d$ cd /es/elasticsearch-6.7.0-node3$ bin/elasticsearch -d#验证是否正常启动，参考上面 安装 Kibana1234567891011121314### Kibana 是一款开源的数据分析和可视化平台，它是 Elastic Stack 成员之一，设计用于和 Elasticsearch 协作。您可以使用 Kibana 对 Elasticsearch 索引中的数据进行搜索、查看、交互操作。您可以很方便的利用图表、表格及地图对数据进行多元化的分析和呈现。#同样使用 es 用户$ cd /opt/fangzhibin/es670$ wget https://artifacts.elastic.co/downloads/kibana/kibana-6.7.0-linux-x86_64.tar.gz$ tar -zxvf kibana-6.7.0-linux-x86_64.tar.gz$ cd kibana-6.7.0-linux-x86_64$ vim config/kibana.yml# 更改如下配置# 配置参考官方文档：https://www.elastic.co/guide/cn/kibana/current/settings.html server.host: &quot;0.0.0.0&quot; # 指定后端服务器的主机地址 elasticsearch.hosts: [&quot;http://localhost:9201&quot;] # 所有 Elasticsearch 实例的 URL，用逗号分隔 $ nohup bin/kibana &amp; //启动 kibana 浏览器访问： http://Kibana服务器IP:5601 默认配置1234567891011121314151617181920#集群名称cluster.name: elasticsearch_production#该节点名称node.name: elasticsearch_001_data#数据存放目录path.data: /home/elasticsearch-6.7.0-data1/data#日志存放目录path.logs: /home/elasticsearch-6.7.0-data1/logs#是否可以被选举为master节点node.master: true#是否为data nodenode.data: true#端口http.port: 9200]]></content>
+      <categories>
+        <category>Elasticsearch</category>
+      </categories>
+      <tags>
+        <tag>Elasticsearch</tag>
+        <tag>Logstash</tag>
+        <tag>Kibana</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Mysql 数据库表数据的快速迁移]]></title>
     <url>%2F2019%2F09%2F18%2FMysql%20%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E6%95%B0%E6%8D%AE%E7%9A%84%E5%BF%AB%E9%80%9F%E8%BF%81%E7%A7%BB%2F</url>
     <content type="text"><![CDATA[表数据迁移 (前提:目标数据库和源数据库含有相同数据库名和表)1234567891011121314151617181920212223242526mysql&gt; ALTER TABLE t_app_banner DISCARD TABLESPACE; //目标数据库.ibd文件与原先的.frm文件解除绑定 $ cd /var/lib/mysql //mysql数据库文件存放位置 在/etc/mysql/mysql.conf.d中查看$ lsauto.cnf test debian-5.7.flag ib_buffer_pool ibdata1 ib_logfile0 ib_logfile1 ibtmp1 mysql performance_schema sys$ls -lhttotal 144K-rw-r----- 1 mysql mysql 9.1K Sep 18 08:00 t_app_banner.frm-rw-r----- 1 mysql mysql 67 Sep 18 03:00 db.opt-rw-rw-r-- 1 mysql mysql 128K Sep 16 06:50 t_app_banner.ibd$ 复制要恢复表的.ibd文件 至目标数据库的相同目录下进行覆盖$cd /var/lib/mysql/test$ ls -lhttotal 144K-rw-r----- 1 mysql mysql 9.1K Sep 18 08:00 t_app_banner.frm-rw-r----- 1 mysql mysql 67 Sep 18 03:00 db.opt-rw-rw-r-- 1 ubuntu ubuntu 128K Sep 16 06:50 t_app_banner.ibd //如果该文件使用者为ubuntu需要进行权限更改$ chown mysql:mysql /var/lib/mysql/test -R //修改t_app_banner.ibd的授权用户$mysql&gt; ALTER TABLE t_app_banner IMPORT TABLESPACE; //恢复ibd和frm文件的关联]]></content>
@@ -201,8 +214,8 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>SpingBoot</tag>
         <tag>Redis</tag>
+        <tag>SpingBoot</tag>
       </tags>
   </entry>
 </search>
