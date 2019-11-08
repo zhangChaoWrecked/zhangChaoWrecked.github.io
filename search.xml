@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Navicat Premium 12永久激活]]></title>
+    <url>%2F2019%2F11%2F08%2FNavicat%20Premium%2012%E6%B0%B8%E4%B9%85%E6%BF%80%E6%B4%BB%2F</url>
+    <content type="text"><![CDATA[一、下载Navicat Premium 12并安装 官网地址二、点击注册机下载三、激活Navicat Premium 1211、以管理员身份运行注册机 12、打开注册机后，在1) Patch，勾选Backup、Host和Navicat v12，然后点击Patch按钮： 123.找到Navicat Premium 12安装路径下的navicat.exe，选中并点击打开。此时出现如下弹窗，提示navicat.exe - x64 -&gt; Cracked.，提示已破解（别高兴，还没结束）。若提示libcc.dll或navicat.exe出错，检查是否未关闭Navicat Premium，或到安装目录下将libcc.dll和navicat.exe删除，并将libcc.dll.BAK或navicat.exe.BAK去掉.BAK后缀名。否则卸载已安装的Navicat Premium并清理文件残留和注册表残留： 14. Keygen / Offline Activation，点击Generate，将自动生成SerialKeygen(注册码) 15.打开Navicat Premium 12，点击菜单栏的帮助，选择注册，在注册窗口键处填入上一步生成的Serial Keygen（即注册码），然后点击激活： 126.点击手动激活：将Navicat手动激活窗口的请求码框中内容复制到注册机Request Code框中，点击Activation Code下面的Generate按钮（若此处出现错误，要么你未完全按照教程来，要么你所安装的版本高于注册机所支持的版本）： 17.将注册机Activation Code处生成的激活码内容复制到Navicat手动激活窗口的激活码框中（或点击Activation Code处下面的Copy按钮，这样会自动粘贴到Navicat手动激活窗口的激活码框中），然后点击激活按钮：]]></content>
+      <categories>
+        <category>Mysql</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Linux服务器如何禁用密码登录，使用秘钥文件登录增加服务器安全性？]]></title>
     <url>%2F2019%2F11%2F05%2FLinux%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%A6%82%E4%BD%95%E7%A6%81%E7%94%A8%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95%EF%BC%8C%E4%BD%BF%E7%94%A8%E7%A7%98%E9%92%A5%E6%96%87%E4%BB%B6%E7%99%BB%E5%BD%95%E5%A2%9E%E5%8A%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E5%85%A8%E6%80%A7%2F</url>
     <content type="text"><![CDATA[生成秘钥公钥1234567891011121314151617181920212223242526272829303132333435363738394041$ ssh-keygen //生成秘钥Generating public/private rsa key pair.Enter file in which to save the key (/root/.ssh/id_rsa): Enter passphrase (empty for no passphrase): Enter same passphrase again: Your identification has been saved in /root/.ssh/id_rsa.Your public key has been saved in /root/.ssh/id_rsa.pub.The key fingerprint is:The key&apos;s randomart image is:+---[RSA 2048]----+| .o=B@*. || . = =o*.*. ||. . + @ + o o ||oo o * + ||o +.. + S ||.oo. . || =. ||..=oE || *+ o. |+----[SHA256]-----+$ cat /root/.ssh/id_rsa.pub &gt;&gt; /root/.ssh/authorized_keys //把公钥放进授权文件中去$ cd /root/.ssh$ chmod 600 authorized_keys$ chmod 700 ~/.ssh$ vim /etc/ssh/sshd_configRSAAuthentication yesPubkeyAuthentication yesPermitRootLogin yes //另外，请留意 root 用户能否通过 SSH 登录，默认为yes： 当我们完成全部设置并以密钥方式登录成功后，可以禁用密码登录。这里我们先不禁用，先允许密码登陆PasswordAuthentication yes $ service sshd restart //重启服务 客户端使用秘钥登录1231. /root/.ssh/id_rsa 到Windwos桌面 更改为.pem文件 2.使用SecurtCRT SSH远程连接工具进行登录 3.登录成功后 请把/etc/ssh/sshd_config 文件中的PasswordAuthentication改为No 禁止密码进行远程登录 防止服务器被恶意SSH暴力破解攻击 服务器被攻击如图]]></content>
@@ -36,17 +47,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Linux 安装Maven]]></title>
-    <url>%2F2019%2F08%2F30%2FLinux%20%E5%AE%89%E8%A3%85Maven%2F</url>
-    <content type="text"><![CDATA[Maven官网下载地址 12345678910111213141516171819202122232425262728$ wget http://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.6.2/binaries/apache-maven-3.6.2-bin.tar.gz--2019-09-06 16:35:40-- http://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.6.2/binaries/apache-maven-3.6.2-bin.tar.gzResolving mirrors.tuna.tsinghua.edu.cn... 101.6.8.193, 2402:f000:1:408:8100::1Connecting to mirrors.tuna.tsinghua.edu.cn|101.6.8.193|:80... connected.HTTP request sent, awaiting response... 200 OKLength: 9142315 (8.7M) [application/x-gzip]Saving to: “apache-maven-3.6.2-bin.tar.gz”100%[================================================================================================================================================&gt;] 9,142,315 630K/s in 16s 2019-09-06 16:35:56 (552 KB/s) - “apache-maven-3.6.2-bin.tar.gz” saved [9142315/9142315]$ lsapache-maven-3.6.2-bin.tar.gz bin include jdk lib lib64 libexec records sbin share src$ tar zxvf apache-maven-3.6.2-bin.tar.gz $ mv apache-maven-3.6.2 maven$ vim /etc/profile //尾部添加 配置环境变量MAVEN_HOME=/usr/local/mavenPATH=$PATH:$MAVEN_HOME/binexport MAVEN_HOMEexport PATH$ source /etc/profile$ mvn -v //验证是否安装成功Apache Maven 3.6.2 (40f52333136460af0dc0d7232c0dc0bcf0d9e117; 2019-08-27T23:06:16+08:00)Maven home: /usr/local/mavenJava version: 1.8.0_45, vendor: Oracle Corporation, runtime: /usr/local/jdk/jreDefault locale: en_US, platform encoding: UTF-8OS name: &quot;linux&quot;, version: &quot;2.6.32-754.12.1.el6.x86_64&quot;, arch: &quot;amd64&quot;, family: &quot;unix&quot;]]></content>
-      <categories>
-        <category>Maven</category>
-      </categories>
-      <tags>
-        <tag>Maven</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Linux 安装Jenkins、Linux启动多个Tomcat、安装JDK]]></title>
     <url>%2F2019%2F08%2F30%2FLinux%20%E5%AE%89%E8%A3%85Jenkins%E3%80%81Linux%E5%90%AF%E5%8A%A8%E5%A4%9A%E4%B8%AATomcat%E3%80%81%E5%AE%89%E8%A3%85JDK%2F</url>
     <content type="text"><![CDATA[安装Java(略)1234567891011121314151617181920$ tar zxvf jdk-8u231-linux-x64.tar.gz //下载 jdk-8u231-linux-x64.tar.gz 解压到/usr/local/java$ vim /etc/profile 配置环境变量 export JAVA_HOME=/usr/local/javaexport JRE_HOME=$&#123;JAVA_HOME&#125;/jre export CLASSPATH=.:$&#123;JAVA_HOME&#125;/lib:$&#123;JRE_HOME&#125;/lib export PATH=$&#123;JAVA_HOME&#125;/bin:$PATH$ source /etc/profile$ java -versionjava version &quot;1.8.0_45&quot;Java(TM) SE Runtime Environment (build 1.8.0_45-b14)Java HotSpot(TM) 64-Bit Server VM (build 25.45-b02, mixed mode)$ echo $JAVA_HOME ##输出Java安装目录/usr/local/jdk Linux启动多个Tomcat123456789101112131415161718192021222324$ vim /etx/profile##########first tomcat###########CATALINA_BASE=/home/tomcat-1CATALINA_HOME=/home/tomcat-1TOMCAT_HOME=/home/tomcat-1export CATALINA_BASE CATALINA_HOME TOMCAT_HOME##########first tomcat#####################second tomcat##########CATALINA2_BASE=/home/tomcat-2CATALINA2_HOME=/home/tomcat-2TOMCAT2_HOME=/home/tomcat-2export CATALINA2_BASE CATALINA2_HOME TOMCAT2_HOME##########second tomcat##########$ vim /home/tomcat-data/bin/catalina.sh //找到OS specific support 在下面添加# OS specific support. $var _must_ be set to either true or false.export CATALINA_BASE=$CATALINA2_BASEexport CATALINA_HOME=$CATALINA2_HOME$ vim /home/tomcat-2/conf/server.xml // 修改 conf/server.xml 修改关闭端口 监听端口 访问端口 Ubuntu 安装jenkins123456789101112131415161718192021222324$ wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -$ sudo sh -c &apos;echo deb http://pkg.jenkins.io/debian-stable binary/ &gt; /etc/apt/sources.list.d/jenkins.list&apos;$ sudo apt-get update$ sudo apt-get install jenkins$ service jenkins status //jenkins服务状态$ service jenkins stop //启动jenkins$ service jenkins start //停止jenkins$ service jenkins restart //重启jenkins$ vim /etc/default/jenkins //修改以下属性为root # user and group to be invoked as (default to jenkins)JENKINS_USER=rootJENKINS_GROUP=root$ find / -name &quot;jenkins&quot; //查找jenkins目录 进行root授权$ chown -R root:root /usr/share/jenkins$ chown -R root:root /usr/share/doc/jenkins$ chown -R root:root /etc/init.d/jenkins$ chown -R root:root /etc/default/jenkins$ chown -R root:root /etc/logrotate.d/jenkins$ chown -R root:root /var/lib/jenkins$ chown -R root:root /var/cache/jenkins$ chown -R root:root /var/log/jenkins$ service jenkins stop //重启jenkins如果你的`/etc/init.d/jenkins`文件无法启动Jenkins，编辑`/etc/default/jenkins`， 修改 ----HTTP_PORT=8080----`为----HTTP_PORT=8081----` 在这里，“8081”也可被换为其他可用端口。ln -s /opt/jdk1.8.0_201/bin/java /usr/bin/java //创建java软连接 centos版本 安装Jenkins12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970$ sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo$ sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key$ yum install jenkinsLoaded plugins: fastestmirrorSetting up Install ProcessLoading mirror speeds from cached hostfilejenkins | 2.9 kB 00:00 jenkins/primary_db | 29 kB 00:00 Resolving Dependencies--&gt; Running transaction check---&gt; Package jenkins.noarch 0:2.176.3-1.1 will be installed--&gt; Finished Dependency ResolutionDependencies Resolved=========================================================================================================================================================== Package Arch Version Repository Size===========================================================================================================================================================Installing: jenkins noarch 2.176.3-1.1 jenkins 74 MTransaction Summary===========================================================================================================================================================Install 1 Package(s)Total download size: 74 MInstalled size: 74 MIs this ok [y/N]: yDownloading Packages:jenkins-2.176.3-1.1.noarch.rpm | 74 MB 00:26 Running rpm_check_debugRunning Transaction TestTransaction Test SucceededRunning Transaction Installing : jenkins-2.176.3-1.1.noarch 1/1 Verifying : jenkins-2.176.3-1.1.noarch 1/1 Installed: jenkins.noarch 0:2.176.3-1.1 Complete!$ service jenkins start //启动JenkinsStarting Jenkins bash: /usr/bin/java: No such file or directory [FAILED]说明该目录下没有配置Java $ vi /etc/sysconfig/jenkins //修改一下默认端口(8080)和启动用户JENKINS_USER=&quot;root&quot;JENKINS_PORT=&quot;8081&quot;$ echo $JAVA_HOME ##输出Java安装目录/usr/local/jdk$ vim /etc/init.d/jenkins candidates=/etc/alternatives/java/usr/lib/jvm/java-1.8.0/bin/java/usr/lib/jvm/jre-1.8.0/bin/java/usr/lib/jvm/java-1.7.0/bin/java/usr/lib/jvm/jre-1.7.0/bin/java/usr/lib/jvm/java-11.0/bin/java/usr/lib/jvm/jre-11.0/bin/java/usr/lib/jvm/java-11-openjdk-amd64/usr/bin/java/usr/local/jdk/bin/java //增加Java安装目录$ service jenkins start //启动jenkins 成功Starting Jenkins [ OK ]$ cat /var/lib/jenkins/secrets/initialAdminPassword62ce0816e3c24d9aa3fac37a9a39fb4r 在浏览器输入ip:8080进入Jenkins登录页面。如图： 出现一下情况 1234解决方法： http://ip:8080/pluginManager/advanced Update Site 下的 http://updates.jenkins.io/update-center.json 修改为 https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json 之后 在浏览器输入 http://ip:8080/restart 再进入 http://ip:8080登陆即可正常$ service jenkins start //如果还不行 进行重启 如果出现登陆成功卡在空白页面 输入http://ip:8080/restart 进行重启 或 service jenkins start]]></content>
@@ -55,6 +55,17 @@
       </categories>
       <tags>
         <tag>Jenkins</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux 安装Maven]]></title>
+    <url>%2F2019%2F08%2F30%2FLinux%20%E5%AE%89%E8%A3%85Maven%2F</url>
+    <content type="text"><![CDATA[Maven官网下载地址 12345678910111213141516171819202122232425262728$ wget http://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.6.2/binaries/apache-maven-3.6.2-bin.tar.gz--2019-09-06 16:35:40-- http://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.6.2/binaries/apache-maven-3.6.2-bin.tar.gzResolving mirrors.tuna.tsinghua.edu.cn... 101.6.8.193, 2402:f000:1:408:8100::1Connecting to mirrors.tuna.tsinghua.edu.cn|101.6.8.193|:80... connected.HTTP request sent, awaiting response... 200 OKLength: 9142315 (8.7M) [application/x-gzip]Saving to: “apache-maven-3.6.2-bin.tar.gz”100%[================================================================================================================================================&gt;] 9,142,315 630K/s in 16s 2019-09-06 16:35:56 (552 KB/s) - “apache-maven-3.6.2-bin.tar.gz” saved [9142315/9142315]$ lsapache-maven-3.6.2-bin.tar.gz bin include jdk lib lib64 libexec records sbin share src$ tar zxvf apache-maven-3.6.2-bin.tar.gz $ mv apache-maven-3.6.2 maven$ vim /etc/profile //尾部添加 配置环境变量MAVEN_HOME=/usr/local/mavenPATH=$PATH:$MAVEN_HOME/binexport MAVEN_HOMEexport PATH$ source /etc/profile$ mvn -v //验证是否安装成功Apache Maven 3.6.2 (40f52333136460af0dc0d7232c0dc0bcf0d9e117; 2019-08-27T23:06:16+08:00)Maven home: /usr/local/mavenJava version: 1.8.0_45, vendor: Oracle Corporation, runtime: /usr/local/jdk/jreDefault locale: en_US, platform encoding: UTF-8OS name: &quot;linux&quot;, version: &quot;2.6.32-754.12.1.el6.x86_64&quot;, arch: &quot;amd64&quot;, family: &quot;unix&quot;]]></content>
+      <categories>
+        <category>Maven</category>
+      </categories>
+      <tags>
+        <tag>Maven</tag>
       </tags>
   </entry>
   <entry>
@@ -225,8 +236,8 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>SpingBoot</tag>
         <tag>Redis</tag>
+        <tag>SpingBoot</tag>
       </tags>
   </entry>
 </search>
