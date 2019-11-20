@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-11-13T01:34:08.539Z</updated>
+  <updated>2019-11-20T03:42:16.581Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Docker介绍</title>
+    <link href="http://yoursite.com/2019/11/20/Docker%E4%BB%8B%E7%BB%8D/"/>
+    <id>http://yoursite.com/2019/11/20/Docker介绍/</id>
+    <published>2019-11-20T01:39:31.000Z</published>
+    <updated>2019-11-20T03:42:16.581Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://docs.docker.com/get-started/" target="_blank" rel="noopener">Docker Docs</a><br><img src="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/docker.png" alt="如图"></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Docker是一个开源的应用容器引擎。Docker可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的Linux机器上，也可以实现虚拟化。容器是完全使用沙箱机制相互之间不会有任何接口（类似 iPhone的app）,更重要的是容器性能开销极低。</span><br></pre></td></tr></table></figure><h2 id="Docker的应用场景"><a href="#Docker的应用场景" class="headerlink" title="Docker的应用场景"></a>Docker的应用场景</h2><ol><li>Web 应用的自动化打包和发布。</li><li>自动化测试和持续集成、发布。</li><li>在服务型环境中部署和调整数据库或其他的后台应用。</li><li>从头编译或者扩展现有的 OpenShift 或 Cloud Foundry 平台来搭建自己的 PaaS 环境。</li></ol><h2 id="Docker-的优点"><a href="#Docker-的优点" class="headerlink" title="Docker 的优点"></a>Docker 的优点</h2><p>Docker 是一个用于开发，交付和运行应用程序的开放平台。Docker 使您能够将应用程序与基础架构分开，从而可以快速交付软件。借助 Docker，您可以与管理应用程序相同的方式来管理基础架构。通过利用 Docker 的方法来快速交付，测试和部署代码，您可以大大减少编写代码和在生产环境中运行代码之间的延迟。</p><h4 id="1、快速，一致地交付您的应用程序"><a href="#1、快速，一致地交付您的应用程序" class="headerlink" title="1、快速，一致地交付您的应用程序"></a>1、快速，一致地交付您的应用程序</h4><p>Docker 允许开发人员使用您提供的应用程序或服务的本地容器在标准化环境中工作，从而简化了开发的生命周期。<br>容器非常适合持续集成和持续交付（CI / CD）工作流程，请考虑以下示例方案：<br>您的开发人员在本地编写代码，并使用 Docker 容器与同事共享他们的工作。<br>他们使用 Docker 将其应用程序推送到测试环境中，并执行自动或手动测试。<br>当开发人员发现错误时，他们可以在开发环境中对其进行修复，然后将其重新部署到测试环境中，以进行测试和验证。<br>测试完成后，将修补程序推送给生产环境，就像将更新的镜像推送到生产环境一样简单。</p><h4 id="2、响应式部署和扩展"><a href="#2、响应式部署和扩展" class="headerlink" title="2、响应式部署和扩展"></a>2、响应式部署和扩展</h4><p>Docker 是基于容器的平台，允许高度可移植的工作负载。Docker 容器可以在开发人员的本机上，数据中心的物理或虚拟机上，云服务上或混合环境中运行。<br>Docker 的可移植性和轻量级的特性，还可以使您轻松地完成动态管理的工作负担，并根据业务需求指示，实时扩展或拆除应用程序和服务。</p><h4 id="3、在同一硬件上运行更多工作负载"><a href="#3、在同一硬件上运行更多工作负载" class="headerlink" title="3、在同一硬件上运行更多工作负载"></a>3、在同一硬件上运行更多工作负载</h4><p>Docker 轻巧快速。它为基于虚拟机管理程序的虚拟机提供了可行、经济、高效的替代方案，因此您可以利用更多的计算能力来实现业务目标。Docker 非常适合于高密度环境以及中小型部署，而您可以用更少的资源做更多的事情。</p><h5 id="镜像-Image"><a href="#镜像-Image" class="headerlink" title="镜像(Image)"></a>镜像(Image)</h5><p>就相当于是一个 root 文件系统。比如官方镜像 ubuntu:16.04就包含了完整的一套 Ubuntu16.04 最小系统的 root 文件系统。</p><h5 id="容器-Container"><a href="#容器-Container" class="headerlink" title="容器(Container)"></a>容器(Container)</h5><p>镜像(Image)和容器(Container)的关系，就像是面向对象程序设计中的类和实例一样，镜像是静态的定义，容器是镜像运行时的实体。容器可以被创建、启动、停止、删除、暂停等。</p><h5 id="仓库-Repository"><a href="#仓库-Repository" class="headerlink" title="仓库(Repository)"></a>仓库(Repository)</h5><p>仓库可看着一个代码控制中心，用来保存镜像。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://docs.docker.com/get-started/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Docker Docs&lt;/a&gt;&lt;br&gt;&lt;img src=&quot;https://raw.githubusercontent.
+      
+    
+    </summary>
+    
+      <category term="Docker" scheme="http://yoursite.com/categories/Docker/"/>
+    
+    
+      <category term="Docker" scheme="http://yoursite.com/tags/Docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Logback</title>
+    <link href="http://yoursite.com/2019/11/19/Logback/"/>
+    <id>http://yoursite.com/2019/11/19/Logback/</id>
+    <published>2019-11-19T01:39:31.000Z</published>
+    <updated>2019-11-20T03:43:28.972Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">appender:定义了打印过滤的条件、打印输出方式、滚动策略、编码方式、打印格式等等</span><br><span class="line">root:    是根logger</span><br><span class="line">logger:  指定某些应用具体的日志输出方式</span><br><span class="line">scan:当此属性设置为true时，配置文件如果发生改变，将会被重新加载，默认值为true。</span><br><span class="line">scanPeriod:设置监测配置文件是否有修改的时间间隔，如果没有给出时间单位，默认单位是毫秒。当scan为true时，此属性生效。默认的时间间隔为1分钟。</span><br><span class="line">debug:当此属性设置为true时，将打印出logback内部日志信息，实时查看logback运行状态。默认值为false。</span><br></pre></td></tr></table></figure><h4 id="Appender"><a href="#Appender" class="headerlink" title="Appender"></a>Appender</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"> appender:种类</span><br><span class="line">                    1.ConsoleAppender：把日志添加到控制台</span><br><span class="line">                    2.FileAppender：把日志添加到文件</span><br><span class="line">                    3.RollingFileAppender：滚动记录文件，先将日志记录到指定文件，当符合某个条件时，将日志记录到其他文件。它是FileAppender的子类</span><br><span class="line"></span><br><span class="line">appender过滤器:</span><br><span class="line">                    1.ThresholdFilter临界值过滤器，过滤掉低于指定临界值的日志。当日志级别等于或高于临界值时，过滤器返回NEUTRAL；当日志级别低于临界值时，日志会被拒绝</span><br><span class="line">                                &lt;filter class=&quot;ch.qos.logback.classic.filter.ThresholdFilter&quot;&gt;</span><br><span class="line">                                   &lt;level&gt;INFO&lt;/level&gt;</span><br><span class="line">                                &lt;/filter&gt;</span><br><span class="line"></span><br><span class="line">                    2.LevelFilter级别过滤器，根据日志级别进行过滤。如果日志级别等于配置级别，过滤器会根据onMath(用于配置符合过滤条件的操作) 和 onMismatch(用于配置不符合过滤条件的操作)接收或拒绝日志。</span><br><span class="line">                              &lt;filter class=&quot;ch.qos.logback.classic.filter.LevelFilter&quot;&gt;</span><br><span class="line">                                  &lt;level&gt;INFO&lt;/level&gt;</span><br><span class="line">                                  &lt;onMatch&gt;ACCEPT&lt;/onMatch&gt;</span><br><span class="line">                                  &lt;onMismatch&gt;DENY&lt;/onMismatch&gt;</span><br><span class="line">                              &lt;/filter&gt;</span><br><span class="line">                                 DENY：日志将立即被抛弃不再经过其他过滤器</span><br><span class="line">                                 NEUTRAL：有序列表里的下个过滤器过接着处理日志</span><br><span class="line">                                 ACCEPT：日志会被立即处理，不再经过剩余过滤器</span><br><span class="line"> appender file 子标签：</span><br><span class="line">                   标签用于指定被写入的文件名，可以是相对目录，也可以是绝对目录，如果上级目录不存在会自动创建，没有默认值。</span><br><span class="line">                     &lt;file&gt;</span><br><span class="line">                         $&#123;logging.path&#125;/glmapper-spring-boot/SERVICE-USER.log</span><br><span class="line">                     &lt;/file&gt;</span><br><span class="line">rollingPolicy 子标签</span><br><span class="line">                    这个子标签用来描述滚动策略的。这个只有appender的class是RollingFileAppender时才需要配置。这个也会涉及文件的移动和重命名（a.log-&gt;a.log.2018.07.22）。</span><br><span class="line">                    TimeBasedRollingPolicy 最常用的滚动策略，它根据时间来制定滚动策略，既负责滚动也负责出发滚动。这个下面又包括了</span><br><span class="line">                      FileNamePattern   日志文件输出的文件名:按天回滚 daily</span><br><span class="line">                      maxHistory    日志文件保留天数</span><br><span class="line">encoder 子标签</span><br><span class="line">                      记录事件进行格式化。它干了两件事：</span><br><span class="line">                      把日志信息转换成字节数组</span><br><span class="line">                      把字节数组写入到输出流</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                      &lt;encoder class=&quot;ch.qos.logback.classic.encoder.PatternLayoutEncoder&quot;&gt;</span><br><span class="line">                        &lt;pattern&gt;%d&#123;yyyy-MM-dd HH:mm:ss.SSS&#125; [%thread] %-5level %logger&#123;50&#125;- %msg%n&lt;/pattern&gt;</span><br><span class="line">                        &lt;charset&gt;UTF-8&lt;/charset&gt;</span><br><span class="line">                      &lt;/encoder&gt;</span><br></pre></td></tr></table></figure><h4 id="logger"><a href="#logger" class="headerlink" title="logger"></a>logger</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">             &lt;logger name=&quot;com.spring.boot.controller&quot;</span><br><span class="line">                 level=&quot;$&#123;logging.level&#125;&quot; additivity=&quot;false&quot;&gt;</span><br><span class="line">                 &lt;appender-ref ref=&quot;SERVICE-USER&quot; /&gt;</span><br><span class="line">              &lt;/logger&gt;</span><br><span class="line"></span><br><span class="line">上面的这个配置文件描述的是：com.spring.boot.controller这个包下的$&#123;logging.level&#125;级别的日志将会使用SERVICE-USER来打印。</span><br><span class="line">   name:用来指定受此logger约束的某一个包或者具体的某一个类。</span><br><span class="line">   level:用来设置打印级别（TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF），还有一个值INHERITED或者同义词NULL，代表强制执行上级的级别。如果没有设置此属性，那么当前logger将会继承上级的级别。</span><br><span class="line">   addtivity:用来描述是否向上级logger传递打印信息。默认是true。</span><br></pre></td></tr></table></figure><h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><pre><code>&lt;!--每个logger都关联到logger上下文，默认上下文名称为“default”。但可以使用contextName标签设置成其他名字，用于区分不同应用程序的记录--&gt; &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;configuration scan=&quot;false&quot; scanPeriod=&quot;60 seconds&quot; debug=&quot;false&quot;&gt;&lt;!-- 定义日志的根目录 --&gt;&lt;property name=&quot;LOG_HOME&quot; value=&quot;/app/log&quot; /&gt;&lt;!-- 定义日志文件名称 --&gt;&lt;property name=&quot;appName&quot; value=&quot;nasus-springboot&quot;&gt;&lt;/property&gt;&lt;!-- ch.qos.logback.core.ConsoleAppender 表示控制台输出 --&gt;&lt;appender name=&quot;stdout&quot; class=&quot;ch.qos.logback.core.ConsoleAppender&quot;&gt;    &lt;!--    日志输出格式：        %d表示日期时间，        %thread表示线程名，        %-5level：级别从左显示5个字符宽度        %logger{50} 表示logger名字最长50个字符，否则按照句点分割。         %msg：日志消息，        %n是换行符    --&gt;    &lt;layout class=&quot;ch.qos.logback.classic.PatternLayout&quot;&gt;        &lt;springProfile name=&quot;dev&quot;&gt;            &lt;pattern&gt;%d{yyyy-MM-dd HH:mm:ss.SSS} ----&gt; [%thread] ---&gt; %-5level %logger{50} - %msg%n&lt;/pattern&gt;        &lt;/springProfile&gt;        &lt;springProfile name=&quot;!dev&quot;&gt;            &lt;pattern&gt;%d{yyyy-MM-dd HH:mm:ss.SSS} ==== [%thread] ==== %-5level %logger{50} - %msg%n&lt;/pattern&gt;        &lt;/springProfile&gt;    &lt;/layout&gt;&lt;/appender&gt;&lt;!-- 滚动记录文件，先将日志记录到指定文件，当符合某个条件时，将日志记录到其他文件 --&gt;  &lt;appender name=&quot;appLogAppender&quot; class=&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;&gt;    &lt;!-- 指定日志文件的名称 --&gt;    &lt;file&gt;${LOG_HOME}/${appName}.log&lt;/file&gt;    &lt;!--    当发生滚动时，决定 RollingFileAppender 的行为，涉及文件移动和重命名    TimeBasedRollingPolicy： 最常用的滚动策略，它根据时间来制定滚动策略，既负责滚动也负责出发滚动。    --&gt;    &lt;rollingPolicy class=&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;&gt;        &lt;!--        滚动时产生的文件的存放位置及文件名称 %d{yyyy-MM-dd}：按天进行日志滚动         %i：当文件大小超过maxFileSize时，按照i进行文件滚动        --&gt;        &lt;fileNamePattern&gt;${LOG_HOME}/${appName}-%d{yyyy-MM-dd}-%i.log&lt;/fileNamePattern&gt;        &lt;!--         可选节点，控制保留的归档文件的最大数量，超出数量就删除旧文件。假设设置每天滚动，        且maxHistory是365，则只保存最近365天的文件，删除之前的旧文件。注意，删除旧文件是，        那些为了归档而创建的目录也会被删除。        --&gt;        &lt;MaxHistory&gt;365&lt;/MaxHistory&gt;        &lt;!--         当日志文件超过maxFileSize指定的大小是，根据上面提到的%i进行日志文件滚动 注意此处配置SizeBasedTriggeringPolicy是无法实现按文件大小进行滚动的，必须配置timeBasedFileNamingAndTriggeringPolicy        --&gt;        &lt;timeBasedFileNamingAndTriggeringPolicy class=&quot;ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP&quot;&gt;            &lt;maxFileSize&gt;100MB&lt;/maxFileSize&gt;        &lt;/timeBasedFileNamingAndTriggeringPolicy&gt;    &lt;/rollingPolicy&gt;    &lt;!-- 日志输出格式： --&gt;         &lt;layout class=&quot;ch.qos.logback.classic.PatternLayout&quot;&gt;        &lt;pattern&gt;%d{yyyy-MM-dd HH:mm:ss.SSS} [ %thread ] - [ %-5level ] [ %logger{50} : %line ] - %msg%n&lt;/pattern&gt;    &lt;/layout&gt;&lt;/appender&gt;&lt;!--     logger主要用于存放日志对象，也可以定义日志类型、级别    name：表示匹配的logger类型前缀，也就是包的前半部分    level：要记录的日志级别，包括 TRACE &lt; DEBUG &lt; INFO &lt; WARN &lt; ERROR    additivity：作用在于children-logger是否使用 rootLogger配置的appender进行输出，    false：表示只用当前logger的appender-ref，true：    表示当前logger的appender-ref和rootLogger的appender-ref都有效--&gt;&lt;!-- hibernate logger --&gt;&lt;logger name=&quot;com.nasus&quot; level=&quot;debug&quot; /&gt;&lt;!-- Spring framework logger --&gt;&lt;logger name=&quot;org.springframework&quot; level=&quot;debug&quot; additivity=&quot;false&quot;&gt;&lt;/logger&gt;&lt;!-- root 与 logger 是父子关系，没有特别定义则默认为root，任何一个类只会和一个logger对应，要么是定义的logger，要么是root，判断的关键在于找到这个logger，然后判断这个logger的appender和level。 --&gt;&lt;root level=&quot;info&quot;&gt;    &lt;appender-ref ref=&quot;stdout&quot; /&gt;    &lt;appender-ref ref=&quot;appLogAppender&quot; /&gt;&lt;/root&gt; &lt;/configuration&gt; </code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;标签&quot;&gt;&lt;a href=&quot;#标签&quot; class=&quot;headerlink&quot; title=&quot;标签&quot;&gt;&lt;/a&gt;标签&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span 
+      
+    
+    </summary>
+    
+      <category term="Logback" scheme="http://yoursite.com/categories/Logback/"/>
+    
+    
+      <category term="Logback" scheme="http://yoursite.com/tags/Logback/"/>
+    
+  </entry>
   
   <entry>
     <title>Btrace 远程调试</title>
@@ -143,9 +193,9 @@
       <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
     
     
-      <category term="Redis" scheme="http://yoursite.com/tags/Redis/"/>
-    
       <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+      <category term="Redis" scheme="http://yoursite.com/tags/Redis/"/>
     
       <category term="SpingBoot" scheme="http://yoursite.com/tags/SpingBoot/"/>
     
@@ -477,52 +527,6 @@
     
     
       <category term="GitHub" scheme="http://yoursite.com/tags/GitHub/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Volatile</title>
-    <link href="http://yoursite.com/2019/02/22/Volatile/"/>
-    <id>http://yoursite.com/2019/02/22/Volatile/</id>
-    <published>2019-02-22T03:58:33.000Z</published>
-    <updated>2019-06-04T09:23:10.822Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="上下文切换"><a href="#上下文切换" class="headerlink" title="上下文切换"></a>上下文切换</h3><p>  阐述：CPU通过时间片分配算法来循环执行任务，当前任务执行一个时间片后会切换到下一个<br>任务。但是，在切换前会保存上一个任务的状态，以便下次切换回这个任务时，可以再加载这<br>个任务的状态。所以任务从保存到再加载的过程就是一次上下文切换</p><table><thead><tr><th>如何减少上下文切换</th><th>方案</th></tr></thead><tbody><tr><td>无锁并发编程</td><td>将数据的ID按照Hash算法取模分段，不同的线程处理不同段的数据</td></tr><tr><td>CAS算法</td><td>Java的Atomic包使用CAS算法来更新数据，而不需要加锁</td></tr><tr><td>使用最少线程</td><td>避免创建不需要的线程</td></tr></tbody></table><h3 id="volatile"><a href="#volatile" class="headerlink" title="volatile"></a>volatile</h3><table><thead><tr><th>描述</th><th>特点</th></tr></thead><tbody><tr><td>1.使用volatile关键字会强制将修改的值立即写入主存</td><td>1.保证有序性、可见性</td></tr><tr><td>2.导致其他线程的工作内存中缓存变量的缓存行无效</td><td>2.不保证原子性</td></tr></tbody></table><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">应用场景：状态标志</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;上下文切换&quot;&gt;&lt;a href=&quot;#上下文切换&quot; class=&quot;headerlink&quot; title=&quot;上下文切换&quot;&gt;&lt;/a&gt;上下文切换&lt;/h3&gt;&lt;p&gt;  阐述：CPU通过时间片分配算法来循环执行任务，当前任务执行一个时间片后会切换到下一个&lt;br&gt;任务。但是，在切换前
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>RabbitMQ安装</title>
-    <link href="http://yoursite.com/2019/01/19/RabbitMQ%E5%AE%89%E8%A3%85/"/>
-    <id>http://yoursite.com/2019/01/19/RabbitMQ安装/</id>
-    <published>2019-01-19T03:49:08.000Z</published>
-    <updated>2019-11-14T11:00:36.139Z</updated>
-    
-    <content type="html"><![CDATA[<h5 id="erlang下载"><a href="#erlang下载" class="headerlink" title="erlang下载"></a><a href="https://www.erlang.org/downloads/" target="_blank" rel="noopener">erlang下载</a></h5><p><img src="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/erlang.png" alt="erlang客户端"></p><h5 id="rabbit下载"><a href="#rabbit下载" class="headerlink" title="rabbit下载"></a><a href="http://www.rabbitmq.com/install-windows.html#install" target="_blank" rel="noopener">rabbit下载</a></h5><p><img src="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/rabbitmq.png" alt="rabbit客户端"></p><h5 id="cmd命令行"><a href="#cmd命令行" class="headerlink" title="cmd命令行"></a><a href="#">cmd命令行</a></h5><p><img src="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/RabbitCmd.png" alt="cmd界面"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;E:\rabbitMq\rabbitmq_server-3.7.10\sbin\rabbitmq-plugins.bat&quot;  enable rabbitmq_management  开启web管理接口</span><br><span class="line"> </span><br><span class="line">net stop RabbitMQ &amp;&amp; net start RabbitMQ 重启rabbitMQ</span><br><span class="line"></span><br><span class="line">rabbitmqctl.bat list_users 列出当前用户列表</span><br></pre></td></tr></table></figure></p><table><thead><tr><th>账号</th><th>密码</th></tr></thead><tbody><tr><td>guest(默认)</td><td>guest(默认)</td></tr></tbody></table><h5 id="本地浏览器打开"><a href="#本地浏览器打开" class="headerlink" title="本地浏览器打开"></a><a href="http://localhost:15672" target="_blank" rel="noopener">本地浏览器打开</a></h5><p><img src="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/LocalRabbit.png" alt="本地打开"></p><h4 id="Linux安装"><a href="#Linux安装" class="headerlink" title="Linux安装"></a>Linux安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$ apt-get install erlang</span><br><span class="line"></span><br><span class="line">$ apt-get install rabbitmq-server</span><br><span class="line"></span><br><span class="line">$ service rabbitmq-server status  //service rabbitmq-server status</span><br><span class="line"></span><br><span class="line">$ service rabbitmq-server stop //停止</span><br><span class="line"></span><br><span class="line">$ service rabbitmq-server start //启动</span><br><span class="line"></span><br><span class="line">$ vim /etc/rabbitmq/rabbitmq.config   //设置guest可以远程访问</span><br><span class="line">[&#123;rabbit, [&#123;loopback_users, []&#125;]&#125;].</span><br><span class="line"></span><br><span class="line">$ service rabbitmq-server restart //重启 </span><br><span class="line"></span><br><span class="line">$ /usr/sbin/rabbitmq-plugins enable rabbitmq_management  //安装客户端管理插件 开启Web管理页面 http://ip:15672 使用guest,guest 进行登陆web页面了</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h5 id=&quot;erlang下载&quot;&gt;&lt;a href=&quot;#erlang下载&quot; class=&quot;headerlink&quot; title=&quot;erlang下载&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://www.erlang.org/downloads/&quot; target=&quot;_blank&quot; re
-      
-    
-    </summary>
-    
-      <category term="MQ" scheme="http://yoursite.com/categories/MQ/"/>
-    
-    
-      <category term="rabbitmq" scheme="http://yoursite.com/tags/rabbitmq/"/>
     
   </entry>
   

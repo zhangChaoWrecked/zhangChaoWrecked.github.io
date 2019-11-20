@@ -274,7 +274,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">19</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">21</span></a>
 
   </li>
         
@@ -293,7 +293,7 @@
       
     
 
-    <a href="/categories" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">10</span></a>
+    <a href="/categories" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">12</span></a>
 
   </li>
         
@@ -312,7 +312,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">24</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">26</span></a>
 
   </li>
 
@@ -386,6 +386,401 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/13/Linux 系统搭建Redis/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wrecked">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wrecked">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/06/13/Linux 系统搭建Redis/" class="post-title-link" itemprop="http://yoursite.com/page/6/index.html">Linux 系统搭建Redis</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-13 16:00:00 / 修改时间：15:10:02" itemprop="dateCreated datePublished" datetime="2019-06-13T16:00:00+08:00">2019-06-13</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/06/13/Linux 系统搭建Redis/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/06/13/Linux 系统搭建Redis/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir redis       //创建redis目录</span><br><span class="line"></span><br><span class="line">$ wget http://download.redis.io/releases/redis-5.0.5.tar.gz  //下载安装包</span><br><span class="line"></span><br><span class="line">$ tar xzf redis-5.0.5.tar.gz //解压</span><br><span class="line"> </span><br><span class="line">$ cd redis-5.0.5    //进入redis-5.0.5目录</span><br><span class="line"> </span><br><span class="line">$ make             //生成有效文件</span><br><span class="line"></span><br><span class="line">$ cd src          </span><br><span class="line"></span><br><span class="line">$ ./redis-server   //1.启动redis服务 这种方式启动redis 使用的是默认配置</span><br><span class="line"></span><br><span class="line">$ ./redis-cli</span><br><span class="line">redis&gt; set foo bar</span><br><span class="line">OK</span><br><span class="line">redis&gt; get foo</span><br><span class="line">&quot;bar&quot;</span><br><span class="line"></span><br><span class="line">$ vim ../redis.conf //编辑Redis配置文件</span><br><span class="line"></span><br><span class="line">$ ./redis-server ../redis.conf   //2.使用指定配置文件使用下面命令启动</span><br></pre></td></tr></table></figure>
+<h5 id="redis-配置文件详解"><a href="#redis-配置文件详解" class="headerlink" title="redis 配置文件详解"></a>redis 配置文件详解</h5><table>
+<thead>
+<tr>
+<th>fields</th>
+<th>desc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>daemonize</td>
+<td>no 默认情况下，redis不是在后台运行的，如果需要在后台运行，把该项的值更改为yes</td>
+</tr>
+<tr>
+<td>port</td>
+<td>指定redis运行的端口，默认是6379</td>
+</tr>
+<tr>
+<td>bind</td>
+<td>指定redis只接收来自于该IP地址的请求，如果不进行设置，那么将处理所有请求，在生产环境中最好设置该项</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td>设置客户端连接时的超时时间，单位为秒。当客户端在这段时间内没有发出任何指令，那么关闭该连接 0是关闭此设置</td>
+</tr>
+<tr>
+<td>loglevel</td>
+<td># debu 记录很多信息，用于开发和测试 varbose    有用的信息，不像debug会记录那么多 notice 普通的verbose，常用于生产环境 warning 只有非常重要或者严重的信息会记录到日志 </td>
+</tr>
+<tr>
+<td>logfile</td>
+<td>/var/log/redis/redis.log 配置log文件地址 默认值为stdout，标准输出，若后台模式会输出到/dev/null</td>
+</tr>
+<tr>
+<td>rdbcompression</td>
+<td>yes 存储至本地数据库时（持久化到rdb文件）是否压缩数据，默认为yes</td>
+</tr>
+<tr>
+<td>dbfilename</td>
+<td>dump.rdb 本地持久化数据库文件名，默认值为dump.rdb</td>
+</tr>
+<tr>
+<td>requirepass</td>
+<td>foobared 设置客户端连接后进行任何其他指定前需要使用的密码。</td>
+</tr>
+<tr>
+<td>save <seconds> <changes></changes></seconds></td>
+<td>指定在多长时间内，有多少次更新操作，就将数据同步到数据文件，可以多个条件配合 save 900 1 900秒（15分钟）内有1个更改</td>
+</tr>
+</tbody>
+</table>
+<h5 id="windows-Redis-Desktop-Manager-连接不上Redis的问题"><a href="#windows-Redis-Desktop-Manager-连接不上Redis的问题" class="headerlink" title="windows Redis Desktop Manager 连接不上Redis的问题"></a>windows Redis Desktop Manager 连接不上Redis的问题</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. ufw status 查看Redis 6379 端口是否开启 未开启则 ：ufw allow 6379(Redis默认端口 修改默认端口到redis.conf修改)</span><br><span class="line"></span><br><span class="line">2. 云平台安全组是否开启了Redis 6379 端口</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/aliyun.png" alt=" 云平台安全组是否开启了Redis端口"></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/13/常见问题汇总/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wrecked">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wrecked">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/06/13/常见问题汇总/" class="post-title-link" itemprop="http://yoursite.com/page/6/index.html">常见问题汇总</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-13 12:39:31 / 修改时间：15:04:07" itemprop="dateCreated datePublished" datetime="2019-06-13T12:39:31+08:00">2019-06-13</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/问题/" itemprop="url" rel="index"><span itemprop="name">问题</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/06/13/常见问题汇总/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/06/13/常见问题汇总/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><h5 id="cmmand-redis-cli-not-found"><a href="#cmmand-redis-cli-not-found" class="headerlink" title="cmmand redis-cli  not found"></a>cmmand redis-cli  not found</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root@wrecked:~# redis-cli -h 127.0.0.1 -p 6379 -a 123456</span><br><span class="line">Command &apos;redis-cli&apos; not found</span><br><span class="line"></span><br><span class="line">解决办法：cp /home/redis/redis-2.8.17/src/redis-cli /usr/local/bin/</span><br><span class="line">         拷贝redis-cli 到 /usr/local/bin/</span><br><span class="line">         </span><br><span class="line">         </span><br><span class="line">`/usr/bin`下面的都是系统预装的可执行程序，会随着系统升级而改变。</span><br><span class="line">`/usr/local/bin`目录是给用户放置自己的可执行程序的地方，推荐放在这里，不会被系统升级而覆盖同名文件。</span><br></pre></td></tr></table></figure>
+<h5 id="buntu防火墙的开启，关闭，端口的打开，查看"><a href="#buntu防火墙的开启，关闭，端口的打开，查看" class="headerlink" title="buntu防火墙的开启，关闭，端口的打开，查看"></a>buntu防火墙的开启，关闭，端口的打开，查看</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">1.防火墙的打开</span><br><span class="line"></span><br><span class="line">$ ufw enable</span><br><span class="line"></span><br><span class="line">2.防火墙的重启</span><br><span class="line"></span><br><span class="line">$ ufw reload</span><br><span class="line"></span><br><span class="line">3.打开想要的端口（以9000为例）</span><br><span class="line"></span><br><span class="line">$ ufw allow 9000</span><br><span class="line"></span><br><span class="line">4.查看本机端口使用情况</span><br><span class="line"></span><br><span class="line">$ ufw status</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -571,346 +966,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/04/博客基本配置/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wrecked">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wrecked">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/06/04/博客基本配置/" class="post-title-link" itemprop="http://yoursite.com/page/6/index.html">博客基本配置</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-06-04 15:47:11 / 修改时间：16:37:09" itemprop="dateCreated datePublished" datetime="2019-06-04T15:47:11+08:00">2019-06-04</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/06/04/博客基本配置/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/06/04/博客基本配置/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><img src="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/Background.jpg" alt=""></p>
-<h2 id="环境初始化"><a href="#环境初始化" class="headerlink" title="环境初始化"></a>环境初始化</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g    //安装hexo modules</span><br><span class="line"></span><br><span class="line">mkdir WreckedBolg       //创建目录</span><br><span class="line"> </span><br><span class="line">cd WreckedBolg         //进入目录</span><br><span class="line"> </span><br><span class="line">hexo init             //初始化目录</span><br><span class="line"></span><br><span class="line">npm install hexo-deployer-git --save  安装部署gitHub依赖</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">git clone https://github.com/theme-next/hexo-theme-next themes/next  //主题文件地址</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">npm install hexo-generator-searchdb --save     //搜素引擎依赖包</span><br><span class="line"> </span><br><span class="line">npm install hexo-related-popular-posts --save  //相关文章包</span><br></pre></td></tr></table></figure>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server      //生成本地Service http://localhost:4000/ 访问地址  hexo s 简写</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate   //生成静态HTML  hexo g 简写</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy   //部署到GitHub   hexo d 简写</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-<h3 id="配置文件-config-yml"><a href="#配置文件-config-yml" class="headerlink" title="配置文件 _config.yml"></a>配置文件 _config.yml</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/***/***.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">hexo g #完整命令为hexo generate,用于生成静态文件</span><br><span class="line"></span><br><span class="line">hexo s #完整命令为hexo server,用于启动服务器，主要用来本地预览</span><br><span class="line"></span><br><span class="line">hexo d #完整命令为hexo deploy,用于将本地文件发布到github等git仓库上</span><br><span class="line"></span><br><span class="line">hexo n “my article” #完整命令为hexo new,用于新建一篇名为“my article”的文章</span><br><span class="line"></span><br><span class="line">hexo n “我的第一篇文章”</span><br><span class="line"></span><br><span class="line">hexo list  page / post / route / tag / category(参数) 查看博客对应信息</span><br></pre></td></tr></table></figure>
-<h3 id="背景图设置"><a href="#背景图设置" class="headerlink" title="背景图设置"></a>背景图设置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">..\themes\next\layout\_layout.swig 目录 找到&lt;Body&gt;标签 设置背景图片 </span><br><span class="line"></span><br><span class="line">style=&quot;background: url(https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/Background.jpg) no-repeat fixed ;&quot;</span><br></pre></td></tr></table></figure>
-<p><a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">点击跳转配置教程链接</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-       
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/04/如何在一台电脑使用GitHub GitLab进行项目维护/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wrecked">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wrecked">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/06/04/如何在一台电脑使用GitHub GitLab进行项目维护/" class="post-title-link" itemprop="http://yoursite.com/page/6/index.html">如何在一台电脑使用GitHub GitLab进行项目维护</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-06-04 12:00:00" itemprop="dateCreated datePublished" datetime="2019-06-04T12:00:00+08:00">2019-06-04</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-06-05 11:35:51" itemprop="dateModified" datetime="2019-06-05T11:35:51+08:00">2019-06-05</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/06/04/如何在一台电脑使用GitHub GitLab进行项目维护/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/06/04/如何在一台电脑使用GitHub GitLab进行项目维护/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="1-生成SSH-Key"><a href="#1-生成SSH-Key" class="headerlink" title="1.生成SSH Key"></a>1.生成SSH Key</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在 C:\Users\用户名\.ssh 目录 鼠标右键 git bash </span><br><span class="line">ssh-keygen -t rsa -C &quot;****@qq.com&quot;  //生成pub文件需指定生成文件名 id_rsa_hub/id_rsa_lab 区分GitHub/GitLab</span><br><span class="line">ssh-keygen -t rsa -C &quot;****@163.com&quot;</span><br></pre></td></tr></table></figure>
-<h4 id="2-配置Config"><a href="#2-配置Config" class="headerlink" title="2.配置Config"></a>2.配置Config</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">在 C:\Users\用户名\.ssh 目录 生成config文件 编辑如下：</span><br><span class="line"></span><br><span class="line"># self(****@qq.com)</span><br><span class="line">Host github(拉取代码时仓库的别名)    </span><br><span class="line">    Port 22</span><br><span class="line">    User git</span><br><span class="line">    HostName github.com (github域名)   </span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa_hub (生成的GitHub公钥)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># company(****@163.com)</span><br><span class="line">Host gitlab(拉取代码时仓库的别名)   </span><br><span class="line">    Port 端口(默认22)</span><br><span class="line">    User git</span><br><span class="line">    HostName  ******* (公司GitLab域名)  </span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa_lab(生成的GitLab公钥)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">Host 作用[github为例]：</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#传统使用</span><br><span class="line">$git clone git@github.com:zhangChaoWrecked/pictures.git</span><br><span class="line">$git remote add origin git@github.com:zhangChaoWrecked/pictures.git</span><br><span class="line"></span><br><span class="line">#配置Config之后使用(host也可配置为域名即:github.com) </span><br><span class="line">$git clone git@[Host]:zhangChaoWrecked/pictures.git</span><br><span class="line">$git remote add origin git@[Host]:zhangChaoWrecked/pictures.git</span><br></pre></td></tr></table></figure>
-<h6 id="生成文件如下图："><a href="#生成文件如下图：" class="headerlink" title="生成文件如下图："></a>生成文件如下图：</h6><p><img src="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/host.png" alt="">   </p>
-<h6 id="配置Hosts-加速-拉取代码速度"><a href="#配置Hosts-加速-拉取代码速度" class="headerlink" title="配置Hosts 加速 拉取代码速度"></a>配置Hosts 加速 拉取代码速度</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">151.101.185.194    github.global.ssl.fastly.net</span><br><span class="line">192.30.253.112     github.com</span><br></pre></td></tr></table></figure>
-<h4 id="3-测试关联"><a href="#3-测试关联" class="headerlink" title="3.测试关联"></a>3.测试关联</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github</span><br><span class="line">ssh -T git@gitlab</span><br></pre></td></tr></table></figure>
-<h4 id="4-拉取远程代码或下载到本地"><a href="#4-拉取远程代码或下载到本地" class="headerlink" title="4.拉取远程代码或下载到本地"></a>4.拉取远程代码或下载到本地</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#取消全局 用户名/邮箱 配置(可跳过)</span><br><span class="line">$git config --global --unset user.name</span><br><span class="line">$git config --global --unset user.email</span><br><span class="line"></span><br><span class="line">$cd 项目名</span><br><span class="line">$git init</span><br><span class="line">$git config --local user.name &quot;用户名&quot;</span><br><span class="line">$git config --local user.email &quot;邮箱&quot;</span><br><span class="line">$git remote add origin git@[host]:***/***.git(git remote rm origin 删除之前关联的origin)</span><br><span class="line">$git pull orgin master</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-       
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -955,7 +1015,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -988,7 +1048,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">10</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1039,7 +1103,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">19</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">21</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
