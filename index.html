@@ -447,12 +447,24 @@
                 
               
 
-              <time title="创建时间：2019-12-12 11:49:08 / 修改时间：18:00:46" itemprop="dateCreated datePublished" datetime="2019-12-12T11:49:08+08:00">2019-12-12</time>
+              <time title="创建时间：2019-12-12 11:49:08" itemprop="dateCreated datePublished" datetime="2019-12-12T11:49:08+08:00">2019-12-12</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-12-13 10:04:30" itemprop="dateModified" datetime="2019-12-13T10:04:30+08:00">2019-12-13</time>
               
             
           </span>
@@ -516,7 +528,7 @@
       
         
           
-            <h5 id="Shell-脚本-输入参数-并判断是否存在"><a href="#Shell-脚本-输入参数-并判断是否存在" class="headerlink" title="Shell 脚本 输入参数 并判断是否存在"></a>Shell 脚本 输入参数 并判断是否存在</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">server_array[0]=1</span><br><span class="line">server_array[1]=2</span><br><span class="line">server_array[2]=3</span><br><span class="line">server_array[3]=4</span><br><span class="line">server_array[4]=5</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if [ ! -n &quot;$1&quot; ] ;then</span><br><span class="line">    echo &quot;you have not enter a  number ! such like : xxx.sh 1&quot;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">flag=0</span><br><span class="line"></span><br><span class="line">for var in $&#123;server_array[@]&#125;;</span><br><span class="line">do</span><br><span class="line">       if [ $var == &quot;$1&quot; ];then</span><br><span class="line">               flag=1 </span><br><span class="line">       fi</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if [ &quot;$flag&quot; -eq 1 ];</span><br><span class="line">then</span><br><span class="line">     echo &quot;Start Server &quot;</span><br><span class="line"></span><br><span class="line">else</span><br><span class="line">   echo &quot;Error!!!!&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+            <h5 id="Shell-脚本-输入参数-并判断是否存在"><a href="#Shell-脚本-输入参数-并判断是否存在" class="headerlink" title="Shell 脚本 输入参数 并判断是否存在"></a>Shell 脚本 输入参数 并判断是否存在</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">server_array[0]=server1</span><br><span class="line">server_array[1]=server2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">font=&quot;\E[34m\033[01m&quot;</span><br><span class="line"></span><br><span class="line">end=&quot;\E[0m&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if [ ! -n &quot;$1&quot; ] ;then</span><br><span class="line">    echo -e &quot;$&#123;font&#125; you have not enter a server name ! such like : sh xxx.sh servername $&#123;end&#125;&quot;</span><br><span class="line">    exit 1;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">flag=0</span><br><span class="line"></span><br><span class="line">for var in $&#123;server_array[@]&#125;;</span><br><span class="line">do</span><br><span class="line">       if [ $var == &quot;$1&quot; ];then</span><br><span class="line">               flag=1 </span><br><span class="line">       fi</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if [ &quot;$flag&quot; -eq 1 ];</span><br><span class="line">then</span><br><span class="line">       </span><br><span class="line"> echo  -e &quot;$&#123;font&#125; $1 $&#123;end&#125;&quot;</span><br><span class="line">else</span><br><span class="line">   echo  -e &quot;$&#123;font&#125; Error Server Name!!!! $&#123;end&#125;&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
 
           
         
