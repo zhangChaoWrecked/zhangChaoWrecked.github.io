@@ -1,0 +1,1543 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="1Docker是一个开源的应用容器引擎。Docker可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的Linux机器上，也可以实现虚拟化。容器是完全使用沙箱机制相互之间不会有任何接口（类似 iPhone的app）,更重要的是容器性能开销极低。 12345678910111213141516171819202122232425262728293031323334">
+<meta name="keywords" content="Docker">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker入门文档">
+<meta property="og:url" content="http://yoursite.com/2019/12/18/Docker入门文档/index.html">
+<meta property="og:site_name" content="Wrecked">
+<meta property="og:description" content="1Docker是一个开源的应用容器引擎。Docker可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的Linux机器上，也可以实现虚拟化。容器是完全使用沙箱机制相互之间不会有任何接口（类似 iPhone的app）,更重要的是容器性能开销极低。 12345678910111213141516171819202122232425262728293031323334">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/docker.png">
+<meta property="og:updated_time" content="2019-12-18T08:11:24.314Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Docker入门文档">
+<meta name="twitter:description" content="1Docker是一个开源的应用容器引擎。Docker可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的Linux机器上，也可以实现虚拟化。容器是完全使用沙箱机制相互之间不会有任何接口（类似 iPhone的app）,更重要的是容器性能开销极低。 12345678910111213141516171819202122232425262728293031323334">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/docker.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Wrecked" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/12/18/Docker入门文档/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Docker入门文档 | Wrecked</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body style="background: url(https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/spcce.png) no-repeat fixed;opacity: 0.93" itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader" style="background-color:#e3e0e0;">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Wrecked</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Holding You Back As I Breath You In</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">23</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">13</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">29</span></a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+  
+
+  
+
+    <a href="https://github.com/zhangchaowrecked" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/18/Docker入门文档/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wrecked">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wrecked">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Docker入门文档
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-12-18 09:39:31 / 修改时间：16:11:24" itemprop="dateCreated datePublished" datetime="2019-12-18T09:39:31+08:00">2019-12-18</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/12/18/Docker入门文档/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/12/18/Docker入门文档/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/docker.png" alt="如图"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Docker是一个开源的应用容器引擎。Docker可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的Linux机器上，也可以实现虚拟化。容器是完全使用沙箱机制相互之间不会有任何接口（类似 iPhone的app）,更重要的是容器性能开销极低。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br><span class="line">471</span><br><span class="line">472</span><br><span class="line">473</span><br><span class="line">474</span><br><span class="line">475</span><br><span class="line">476</span><br><span class="line">477</span><br><span class="line">478</span><br><span class="line">479</span><br><span class="line">480</span><br><span class="line">481</span><br><span class="line">482</span><br><span class="line">483</span><br><span class="line">484</span><br><span class="line">485</span><br><span class="line">486</span><br><span class="line">487</span><br><span class="line">488</span><br><span class="line">489</span><br><span class="line">490</span><br><span class="line">491</span><br><span class="line">492</span><br><span class="line">493</span><br><span class="line">494</span><br><span class="line">495</span><br><span class="line">496</span><br><span class="line">497</span><br><span class="line">498</span><br><span class="line">499</span><br><span class="line">500</span><br><span class="line">501</span><br><span class="line">502</span><br><span class="line">503</span><br><span class="line">504</span><br><span class="line">505</span><br><span class="line">506</span><br><span class="line">507</span><br><span class="line">508</span><br><span class="line">509</span><br><span class="line">510</span><br><span class="line">511</span><br><span class="line">512</span><br><span class="line">513</span><br><span class="line">514</span><br><span class="line">515</span><br><span class="line">516</span><br><span class="line">517</span><br><span class="line">518</span><br><span class="line">519</span><br><span class="line">520</span><br><span class="line">521</span><br><span class="line">522</span><br><span class="line">523</span><br><span class="line">524</span><br><span class="line">525</span><br><span class="line">526</span><br><span class="line">527</span><br><span class="line">528</span><br><span class="line">529</span><br><span class="line">530</span><br><span class="line">531</span><br><span class="line">532</span><br><span class="line">533</span><br><span class="line">534</span><br><span class="line">535</span><br><span class="line">536</span><br><span class="line">537</span><br><span class="line">538</span><br><span class="line">539</span><br><span class="line">540</span><br><span class="line">541</span><br><span class="line">542</span><br><span class="line">543</span><br><span class="line">544</span><br><span class="line">545</span><br><span class="line">546</span><br><span class="line">547</span><br><span class="line">548</span><br><span class="line">549</span><br><span class="line">550</span><br><span class="line">551</span><br><span class="line">552</span><br><span class="line">553</span><br><span class="line">554</span><br><span class="line">555</span><br><span class="line">556</span><br><span class="line">557</span><br><span class="line">558</span><br><span class="line">559</span><br><span class="line">560</span><br><span class="line">561</span><br><span class="line">562</span><br><span class="line">563</span><br><span class="line">564</span><br><span class="line">565</span><br><span class="line">566</span><br><span class="line">567</span><br><span class="line">568</span><br><span class="line">569</span><br><span class="line">570</span><br><span class="line">571</span><br><span class="line">572</span><br><span class="line">573</span><br><span class="line">574</span><br><span class="line">575</span><br><span class="line">576</span><br><span class="line">577</span><br><span class="line">578</span><br><span class="line">579</span><br><span class="line">580</span><br><span class="line">581</span><br><span class="line">582</span><br><span class="line">583</span><br><span class="line">584</span><br><span class="line">585</span><br><span class="line">586</span><br><span class="line">587</span><br><span class="line">588</span><br><span class="line">589</span><br><span class="line">590</span><br><span class="line">591</span><br><span class="line">592</span><br><span class="line">593</span><br><span class="line">594</span><br><span class="line">595</span><br><span class="line">596</span><br><span class="line">597</span><br><span class="line">598</span><br><span class="line">599</span><br><span class="line">600</span><br><span class="line">601</span><br><span class="line">602</span><br><span class="line">603</span><br><span class="line">604</span><br><span class="line">605</span><br><span class="line">606</span><br><span class="line">607</span><br><span class="line">608</span><br><span class="line">609</span><br><span class="line">610</span><br><span class="line">611</span><br><span class="line">612</span><br><span class="line">613</span><br><span class="line">614</span><br><span class="line">615</span><br><span class="line">616</span><br><span class="line">617</span><br><span class="line">618</span><br><span class="line">619</span><br><span class="line">620</span><br><span class="line">621</span><br><span class="line">622</span><br><span class="line">623</span><br><span class="line">624</span><br><span class="line">625</span><br><span class="line">626</span><br><span class="line">627</span><br><span class="line">628</span><br><span class="line">629</span><br><span class="line">630</span><br><span class="line">631</span><br><span class="line">632</span><br><span class="line">633</span><br><span class="line">634</span><br><span class="line">635</span><br><span class="line">636</span><br><span class="line">637</span><br><span class="line">638</span><br><span class="line">639</span><br><span class="line">640</span><br><span class="line">641</span><br><span class="line">642</span><br><span class="line">643</span><br><span class="line">644</span><br><span class="line">645</span><br><span class="line">646</span><br><span class="line">647</span><br><span class="line">648</span><br><span class="line">649</span><br><span class="line">650</span><br><span class="line">651</span><br><span class="line">652</span><br><span class="line">653</span><br><span class="line">654</span><br><span class="line">655</span><br><span class="line">656</span><br><span class="line">657</span><br><span class="line">658</span><br><span class="line">659</span><br><span class="line">660</span><br><span class="line">661</span><br><span class="line">662</span><br><span class="line">663</span><br><span class="line">664</span><br><span class="line">665</span><br><span class="line">666</span><br><span class="line">667</span><br><span class="line">668</span><br><span class="line">669</span><br><span class="line">670</span><br><span class="line">671</span><br><span class="line">672</span><br><span class="line">673</span><br><span class="line">674</span><br><span class="line">675</span><br><span class="line">676</span><br><span class="line">677</span><br><span class="line">678</span><br><span class="line">679</span><br><span class="line">680</span><br><span class="line">681</span><br><span class="line">682</span><br><span class="line">683</span><br><span class="line">684</span><br><span class="line">685</span><br><span class="line">686</span><br><span class="line">687</span><br><span class="line">688</span><br><span class="line">689</span><br><span class="line">690</span><br><span class="line">691</span><br><span class="line">692</span><br><span class="line">693</span><br><span class="line">694</span><br><span class="line">695</span><br><span class="line">696</span><br><span class="line">697</span><br><span class="line">698</span><br><span class="line">699</span><br><span class="line">700</span><br><span class="line">701</span><br><span class="line">702</span><br><span class="line">703</span><br><span class="line">704</span><br><span class="line">705</span><br><span class="line">706</span><br><span class="line">707</span><br><span class="line">708</span><br><span class="line">709</span><br><span class="line">710</span><br><span class="line">711</span><br><span class="line">712</span><br><span class="line">713</span><br><span class="line">714</span><br><span class="line">715</span><br><span class="line">716</span><br><span class="line">717</span><br><span class="line">718</span><br><span class="line">719</span><br><span class="line">720</span><br><span class="line">721</span><br><span class="line">722</span><br><span class="line">723</span><br><span class="line">724</span><br><span class="line">725</span><br><span class="line">726</span><br><span class="line">727</span><br><span class="line">728</span><br><span class="line">729</span><br><span class="line">730</span><br><span class="line">731</span><br><span class="line">732</span><br><span class="line">733</span><br><span class="line">734</span><br><span class="line">735</span><br><span class="line">736</span><br><span class="line">737</span><br><span class="line">738</span><br><span class="line">739</span><br><span class="line">740</span><br><span class="line">741</span><br><span class="line">742</span><br><span class="line">743</span><br><span class="line">744</span><br><span class="line">745</span><br><span class="line">746</span><br><span class="line">747</span><br><span class="line">748</span><br><span class="line">749</span><br><span class="line">750</span><br><span class="line">751</span><br><span class="line">752</span><br><span class="line">753</span><br><span class="line">754</span><br><span class="line">755</span><br><span class="line">756</span><br></pre></td><td class="code"><pre><span class="line">  本内容整理来源于《微服务架构基础 Spring Boot+Spring Cloud+Docker.pdf》 下载地址在 http://www.86clouds.com/detail/383366928 </span><br><span class="line"></span><br><span class="line"> ####【Docker安装】 ####</span><br><span class="line"></span><br><span class="line">#更新apt索引包</span><br><span class="line">$ apt-get update </span><br><span class="line"></span><br><span class="line">#使用Docker库</span><br><span class="line">$ apt-get install apt-transport-https ca-certificates curl software-properties-common</span><br><span class="line"></span><br><span class="line">#添加Docker官网的GPG   key</span><br><span class="line">$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg |  apt-key add - </span><br><span class="line"></span><br><span class="line">#添加Docker稳定的仓库源(根据Ubuntu镜像版本的不同进行选择安装)</span><br><span class="line"></span><br><span class="line">amd64：</span><br><span class="line">$  add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot;</span><br><span class="line"></span><br><span class="line">armhf：</span><br><span class="line">$  add-apt-repository &quot;deb [arch=armhf] https://download.docker.com/linux/ubuntu $ (lsb___release -cs) stable&quot;</span><br><span class="line"></span><br><span class="line">s390x:</span><br><span class="line">$  add-apt-repository &quot;deb [arch=s390x] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot;</span><br><span class="line"></span><br><span class="line">2.安装 DockerCE</span><br><span class="line">设置好Docker仓库之后，就可以从存储库中安装和更新Docker,其实现步骤如下。</span><br><span class="line">(1 )更新apt的索引包。</span><br><span class="line">$  apt-get update</span><br><span class="line">(2)安装不同版本的Docker。在安装Docker时，通常会根据个人情况选择安装不同的版 本。为此，Docker提供了两种安装方式，一是安装默认的最新版本的Docker,二是安装指定版 本的Docker,具体如下。</span><br><span class="line">・安装最新版本的Docker,具体指令如下。</span><br><span class="line">$  apt-get install docker-ce</span><br><span class="line">需要注意的是，执行上述指令后，之前存在的任何版本的Docker都会被替换。安装指定版本的Docker,具体指令如下。</span><br><span class="line">$  apt-get install docker-ce=&lt;VERSION&gt;</span><br><span class="line">从上述指令可以看出，安装指定版本的Docker时，需要通过“=”将版本字符串附加到安 装包后。为了更好地选择指定版本的Docker,可以使用apt-cache madison指令查看Docker仓库 中的Docker版本信息，具体指令如下。</span><br><span class="line">$ apt-cache madison docker-ce</span><br><span class="line"> docker-ce | 5:19.03.3~3-0~ubuntu-xenial | https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages</span><br><span class="line"> docker-ce | 5:19.03.2~3-0~ubuntu-xenial | https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages</span><br><span class="line"> docker-ce | 5:19.03.1~3-0~ubuntu-xenial | https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages</span><br><span class="line"> docker-ce | 5:19.03.0~3-0~ubuntu-xenial | https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages</span><br><span class="line"> docker-ce | 5:18.09.9~3-0~ubuntu-xenial | https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages</span><br><span class="line"> docker-ce | 5:18.09.8~3-0~ubuntu-xenial | https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages</span><br><span class="line"> docker-ce | 5:18.09.7~3-0~ubuntu-xenial | https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages</span><br><span class="line"> docker-ce | 5:18.09.6~3-0~ubuntu-xenial | https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages</span><br><span class="line"> ................................................................................................................</span><br><span class="line">执行上述指令后，就会显示出当前Docker仓库提供的在线的Docker的版本信息，其中第二列是版本字符串，第三列是存储库名称，用于指示安装包来自哪个存储库。</span><br><span class="line">(3)安装完成后，可以使用 docker run hello-world指令运行测试，具体指令如下。</span><br><span class="line">$  docker run hello-world</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">在没有网络或者网络条件较差的情况下，我们可以选择离线安装Docker (使用DEB格式的 安装文件)。这种安装方式的好处是不依赖于网络，但其缺点是后期使用时需要手动升级和维护, 并且每次升级时都需要下载一个新的.deb文件。</span><br><span class="line">离线安装方式的具体实现步骤如下。</span><br><span class="line">1.下载离线安装文件</span><br><span class="line">通过官方提供的地址 https://download.docker.com/linux/ubuntu/dists/,下载安装 Docker的.deb</span><br><span class="line">Ubuntu Xenial 16.04 ( LTS )版本，所以要单击图中的xenial链接并进入到pool/stable/目录下，然后根据情况选择amd64、armhf或者s390x版本的.deb文件</span><br><span class="line">2.使用离线文件安装Docker</span><br><span class="line">通过下载的.deb文件进行Docker离线安装非常简单，只需要在Ubuntu系统的终端中执行 如下指令。</span><br><span class="line">$  dpkg -i /path/to/package.deb</span><br><span class="line">需要注意的是，使用sudo dpkg -i指令安装Docker时，一定要指定读者下载的.deb文件 所在地址，例如上面指令表示执行/path/to/路径下的package.deb文件。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">(4)  docker version  查看 docker版本 </span><br><span class="line">Client: Docker Engine - Community</span><br><span class="line"> Version:           19.03.3</span><br><span class="line"> API version:       1.40</span><br><span class="line"> Go version:        go1.12.10</span><br><span class="line"> Git commit:        a872fc2</span><br><span class="line"> Built:             Tue Oct  8 00:59:54 2019</span><br><span class="line"> OS/Arch:           linux/amd64</span><br><span class="line"> Experimental:      false</span><br><span class="line"></span><br><span class="line">Server: Docker Engine - Community</span><br><span class="line"> Engine:</span><br><span class="line">  Version:          19.03.3</span><br><span class="line">  API version:      1.40 (minimum version 1.12)</span><br><span class="line">  Go version:       go1.12.10</span><br><span class="line">  Git commit:       a872fc2</span><br><span class="line">  Built:            Tue Oct  8 00:58:28 2019</span><br><span class="line">  OS/Arch:          linux/amd64</span><br><span class="line">  Experimental:     false</span><br><span class="line"> containerd:</span><br><span class="line">  Version:          1.2.10</span><br><span class="line">  GitCommit:        b34a5c8af56e510852c35414db4c1f4fa6172339</span><br><span class="line"> runc:</span><br><span class="line">  Version:          1.0.0-rc8+dev</span><br><span class="line">  GitCommit:        3e425f80a8c931f88e6d94a8c831b9d5aa481657</span><br><span class="line"> docker-init:</span><br><span class="line">  Version:          0.18.0</span><br><span class="line">  GitCommit:        fec3683</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">############【Docker基本的使用介绍】################</span><br><span class="line">  </span><br><span class="line">$ 编写Dockerfile文件</span><br><span class="line"></span><br><span class="line">$ docker build -t hellodocker .              -t参数指定了生成的镜像名称为 hellodocker  指令最后的点[•]代表的是当前目录下的应用上下文 如果Dockerfile不在则需要替换为Dockerfile的路径地址</span><br><span class="line"></span><br><span class="line">$ docker images                              查看镜像</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$ docker run -d -p 5000:80 hellodocker       访问程序，查看结果。使用宿主机的浏览器通过地址http://localhost:5000来访问容器中运行的程序</span><br><span class="line">                                             创建并启动容器,镜像就类似一个Java类，必须有具体的实例才能使用</span><br><span class="line">                                             docker run是Docker创建并启动容器的指令,-d参数表示在后台运行容器, -p参数将容器暴露的80端口映射到宿主机的 5000 端口</span><br><span class="line">		  </span><br><span class="line">		  </span><br><span class="line">$ docker ps                                  查看Docker运行中的容器效果</span><br><span class="line"></span><br><span class="line">$ docker stop 653347ecc6df                   停止容器</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">############【Dockerfile基本的介绍】################</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">指令	               说明</span><br><span class="line">FROM	 			                 指定基础镜像</span><br><span class="line">MAINTAINER		               指定镜像维护者信息</span><br><span class="line">RUN					                 用于执行指定脚本命令</span><br><span class="line">CMD					                 指定启动容器时执行的命令</span><br><span class="line">EXPOSE				               指定容器暴露的端口</span><br><span class="line">ENV					                 指定环境变量</span><br><span class="line">ADD					                 将文件从宿主机复制到容器指定位置，同时对压缩文件有自动解压功能</span><br><span class="line">COPY				                 将文件从宿主机复制到容器指定位置</span><br><span class="line">ENTRYPOINT		               设置容器启动时需要运行的命令</span><br><span class="line">WORKDIR			                 为后续的如RUN、CMD、ENTRYPOINT, COPY、ADD指定工作目录</span><br><span class="line"></span><br><span class="line">############【Docker常用操作指令】################</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">docker images	                     列岀镜像</span><br><span class="line">docker search	                     搜索镜像</span><br><span class="line">docker pull	                       拉取镜像</span><br><span class="line">docker build	                     构建镜像</span><br><span class="line">docker rmi	                       删除镜像</span><br><span class="line">docker run	                       创建并启动容器</span><br><span class="line">docker ps	                         列岀容器</span><br><span class="line">docker exec	                       执行容器</span><br><span class="line">docker stop	                       停止容器</span><br><span class="line">docker start	                     启动容器</span><br><span class="line">docker rm	                         删除容器</span><br><span class="line">                                     </span><br><span class="line">                                     </span><br><span class="line">$ docker images	                     执行上述指令后，系统会将所有本地镜像都展示出来</span><br><span class="line">                                     </span><br><span class="line">REPOSITORY                           镜像名称 </span><br><span class="line">TAG                                  镜像的参数，类似于版本号，默认是latesto</span><br><span class="line">IMAGE ID                             镜像ID,是唯一值。此处看到的是一个长度为12的字符串，实际上它是64 位完整镜像ID的缩写形式</span><br><span class="line">CREATED                              距今创建镜像的时间</span><br><span class="line">SIZE                                 镜像大小</span><br><span class="line">                                     </span><br><span class="line">                                     </span><br><span class="line">$ docker search ubuntu               执行上述指令后，系统终端就会将搜索到的有关Ubuntu的镜像展示出来</span><br><span class="line">                                     </span><br><span class="line">NAME                                 表示镜像的名称，这里有两种格式的名称，其中不带有&quot;/”的表示官方镜像，而带有7&quot;的表示其他用户的公开镜像。公开镜像&quot;/”前面是用户在±的用户名(后面是对应的镜像</span><br><span class="line">DESCRIPTION                          表示镜像的描述，这里只显示了一小部分。</span><br><span class="line">STARS                                表示该镜像的收藏数，用户可以在Docker Hub ±对镜像进行收藏，一般可以通 过该数字反映出该镜像的受欢迎程度。</span><br><span class="line">OFFICIAL：                           表示是否为官方镜像。</span><br><span class="line">AUTOMATED                            表示是否自动构建镜像。例如，用户可以将自己的Docker Hub绑定到如 Github上，当代码提交更新后，可以自动构建镜像。</span><br><span class="line">                                     </span><br><span class="line">                          </span><br><span class="line">						  </span><br><span class="line">$ docker pull ubuntu                                                     Docker会自动从Docker Hub上下载最新版本的Ubuntu到本地 </span><br><span class="line">                                                                         </span><br><span class="line">$ docker pull ubuntu:14.04                                               拉取指定版本的镜像到本地</span><br><span class="line">                                                                                                        </span><br><span class="line">$ cd workspace/dockerspace/                                              在Dockerfile文件所在目录构建镜像</span><br><span class="line">                                                                         </span><br><span class="line">$ docker build -t hellodocker2 .                                         进入Dockerfile文件所在目录后，可以使用docker build指令进行镜像构建</span><br><span class="line">                                                                         </span><br><span class="line">$ cd ~                                                                   在其他目录构建镜像</span><br><span class="line">$ docker build -t hellodocker3 /home/shitou/workspace/dockerspace/.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$ docker rmi -f hellodocker2 hellodocker3                                当本地存放过多不需要的镜像时</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$ docker run -d -p 5000:80 --name test hellodocker                       创建并启动容器</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$ docker ps                                                              列出容器</span><br><span class="line"></span><br><span class="line">CONTAINER ID                                                             表示生成的容器ID。</span><br><span class="line">IMAGE                                                                    表示生成该容器的镜像名称。</span><br><span class="line">COMMAND                                                                  表示启动容器时运行的命令，Docker要求在启动容器时必须运行一个命令。</span><br><span class="line">CREATED                                                                  表示容器创建的时间。</span><br><span class="line">STATUS                                                                   表示容器运行状态，例如Up表示运行中，Exited表示已停止。</span><br><span class="line">PORTS                                                                    表示容器内部暴露的端口映射到主机的端口。</span><br><span class="line">NAMES                                                                    表小生成容器的名称,由Docker引擎自动生成，可以像上述不例中使用—name 参数指定生成容器的名称。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$ docker stop f0c9a8b6e8c5             停止容器</span><br><span class="line"></span><br><span class="line">$ docker ps -a                         查看该容器</span><br><span class="line"></span><br><span class="line">$ docker start f0c9a8b6e8c5            启动容器</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$ docker restart f0c9a8b6e8c5          重启容器</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">############【Docke管理指令】################</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">docker container	                   用于管理容器</span><br><span class="line">docker image	                       用于管理镜像</span><br><span class="line">docker network	                     用于管理Docker网络</span><br><span class="line">docker node	                         用于管理Swarm集群节点</span><br><span class="line">docker plugin	                       用于管理插件</span><br><span class="line">docker secret	                       用于管理Docker机密</span><br><span class="line">docker service	                     用于管理Docke一些服务</span><br><span class="line">docker stack	                       用于管理Docker堆栈</span><br><span class="line">docker swarm	                       用于管理Swa「m</span><br><span class="line">docker system	                       用于管理Docke「</span><br><span class="line">docker volume	                       用于管理数据卷</span><br><span class="line"></span><br><span class="line">############【 Docker Hub远程镜像管理】################</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1.登录 Docker Hub         </span><br><span class="line"></span><br><span class="line">    要使用Docker Hub就需要先在其官网https://hub.docker.com/注册一个账号(需要用户名、 邮箱和密码)，通过邮件认证后，即可登录到Docker Hub中心</span><br><span class="line">Docker Hub的仓库分为Public (公开)和Private (私有)两种，公开仓库 可以被其他开发者查看和拉取资源；而私有仓库不对外公开，只对内部创建组织的</span><br><span class="line">成员公开。Docker Hub为免费用户只提供了一个私有仓库，如果需要使用更多的私有仓库，则可以单击上 图中的“Get more”链接通过付费的方式进行获取。</span><br><span class="line"></span><br><span class="line">其他功能</span><br><span class="line">    1.镜像管理：可以从社区或官方搜索、拉取、管理、推送镜像等。</span><br><span class="line">    2.自动构建镜像：Docker Hub支持连接到源代码仓库，如GitHub和Bitbucket,当源代码 进行修改后可以进行自动化构建镜像。</span><br><span class="line">    3.Webhooks (监测工具)：属于自动构建的一个特性，Webhooks能够让开发者成功推送仓 库后触发一些行为。Organizations (组织)：可以创建工作组，来协同开发、管理一个镜像仓库。</span><br><span class="line">    4.GitHub和Bitbucket集成：支持集成代码仓库GitHub和Bitbucket到工作流中。</span><br><span class="line"></span><br><span class="line">2.修改镜像名称</span><br><span class="line"></span><br><span class="line">$  docker tag hellodocker:latest itheima/hellodocker:latest   修改镜像名称</span><br><span class="line"></span><br><span class="line">3.登录认证</span><br><span class="line"></span><br><span class="line">$ docker login </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">4.推送镜像</span><br><span class="line"></span><br><span class="line">$ docker push itheima/hellodocker:latest</span><br><span class="line"></span><br><span class="line"> 如果想要将推送的镜像仓库设置为私有的，有两种方式：一种方式就是推送完成后立即进入 Docker Hub仓库面板，进入对应仓库详情中的Settings菜单/功能下，单击“Make Private”按钮设 置为私有仓库；另一种方式就是在推送镜像之前，先在Docker Hub上通过Create Repository (创建 仓库)链接创建一个私有仓库，然后再以该私有仓库为名重命名一个本地镜像，推送到该指定私有仓库上。</span><br><span class="line"> 相比Docker Hub而言，Docker Registry的功能就不够全面了，且需要自己手动配置、升 级、维护和管理，所以说对于Docker镜像管理不太熟悉的人员推荐使用Docker Hubo如果开 发者想要严格控制镜像存储位置，完全拥有自己的镜像分配渠道，或者要想将镜像存储和分布紧 密嵌入到自己开发的程序中，贝U选择Docker Registry更适合。接下来，本小节将针对Docker Registry本地私有镜像仓库的管理进行详细讲解。</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">############【 Docker网络管理】################</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$ docker network ls  </span><br><span class="line"></span><br><span class="line">  Docker中默认的三种网络分别为bridge.host和none,其中名为bridge 的网络就是默认的bridge驱动网络，也是容器创建时默认的网络管理方式，配置后可以与宿主 机通信从而实现与互联网通信功能，而host和none属于无网络，容器添加到这两个网络时不能 与外界网络通信。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">############【 Docker数据管理】################</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">(1)Docker数据存储机制</span><br><span class="line"></span><br><span class="line">    使用Docker时，我们操作的都是镜像和由镜像生成的容器，所以想要更好地了解Docker 内部的数据存储机制，就必须从镜像、容器与数据存储的关系出发。</span><br><span class="line">Docker镜像是通过读取Dockerfile文件中的指令构建的，Dockerfile中的每条指令都会创 建一个镜像层，并且每层都是只读的，这一系列的镜像层就构成了 Docker镜像</span><br><span class="line"></span><br><span class="line">(2)Docker数据存储方式</span><br><span class="line"></span><br><span class="line">    在默认情况下，Docker中的数据都是存放在容器层的，但是这样存储数据却有较多的缺陷， 具体表现如下。当容器不再运行时，容器中的数据无法持久化保存，</span><br><span class="line">如果另一个进程需要这些数据，那么 将很难从容器中获取数据。容器层与正在运行的主机紧密耦合，不能轻易地移动数据。容器层需要一个存储驱动程序来管理文件</span><br><span class="line">系统，存储驱动程序提供了一个使用Linux内核 的联合文件系统，这种额外的抽象化降低了性能。</span><br><span class="line">    基于上述种种原因，多数情况下Docker数据管理都不会直接将数据写入容器层，而是使用 另一种叫做Docker volume数据外部挂载的机制进行数据管理。</span><br><span class="line">针对Docker volume数据外部挂载机制，Docker提供了三种不同的方式将数据从容器映射 到Docker宿主机，它们分别为：volumes(数据卷)、bind mounts(绑定挂载)和tmpfs mounts (tmpfs挂载).这三种数据管理方式的具体选择，需要结合实际情况进行考虑，其中的volumes 数据卷是最常用也是官方推荐的数据管理方式。</span><br><span class="line">无论选择使用哪种数据管理方式，数据在容器内看起来都一样的，而在容器外则会被被挂载 到文件系统中的某个目录或文件中。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">(3)数据管理方式</span><br><span class="line">volumes         存储在主机文件系统中(在Linux系统 下是存在于/var/lib/Docker/volumes/目录),并由 Docker 管理，非Docker进程无法修改文件系统的这个部分。</span><br><span class="line">bind mounts     可以存储在主机系统的任意位置，甚至可能是重要的系统文件或目录，在 Docker主机或容器上的非Docker进程可以对它们进行任意修改。</span><br><span class="line">tmpfs mounts    只存储在主机系统的内存中，并没有写入到主机的文件系统中。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">==========================================================================================================================================================</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">############【 Docker Compose】################</span><br><span class="line"></span><br><span class="line">    Docker Compose,俗称Docker编排工具，是用来定义和运行多容器应用的Docker工具。 通过该编排工具，可以使用yml文件来配置应用程序服务，</span><br><span class="line">然后只需要一条简单的服 务部署指令就可以从配置中创建并启动所有服务</span><br><span class="line">    对于简单的个别服务应用可以使用Dockerfile构建镜像，然后使用docker run或者 docker service create命令启动容器服务；对于多容器服务</span><br><span class="line">如微服务架构项目,最好使用 Docker Compose编排工具进行统一管理。</span><br><span class="line"></span><br><span class="line">1.安装</span><br><span class="line"></span><br><span class="line">   (1)安装条件</span><br><span class="line">        Docker Compose是依赖于Docker引擎的，所以在安装Docker Compose之前要确保机 器上已经安装了 Docker (可以使用docker -v指令查看)。</span><br><span class="line">   	 </span><br><span class="line">   (2)安装 Compose</span><br><span class="line">   </span><br><span class="line">       使用curl命令从GitHub的Compose仓库拉取Docker Compose,具体操作指令如下。</span><br><span class="line">   $ sudo curl -L https://github.com/docker/compose/releases/download/1.16.1/ docker-compose-&apos;uname -s&apos;-&apos;uname -m&apos; -o /usr/local/bin/docker-compose</span><br><span class="line">   </span><br><span class="line">       执行上述指令后，就会从GitHub下载并安装Docker Compose工具，该过程需要耗时几分 钟。从上述指令也可以看出，指定下载的Docker Compose版本为1.16.1 读可以根据实际情况选择下载对应的版本，各个版本的信息可参考地址https://github.com/docker/compose/releases 查看。	 </span><br><span class="line">   </span><br><span class="line">   $ sudo chmod +x /usr/local/bin/docker-compose    更改Docker Compose的可执行文件权限</span><br><span class="line">   </span><br><span class="line">   $ docker-compose --version                       查看安装的Docker Compose效果及版本，具体操作指令如下。</span><br><span class="line">   </span><br><span class="line">   (3)卸载 Compose</span><br><span class="line">   $ rm /usr/local/bin/docker-compose          </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2.Compose file文件的使用说明</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">(1)编写Dockerfile文件。使用Dockerfile定义应用程序的环境，这样可以在任何地方使用它，Dockerfile的作用就是为每个服务构建镜像。</span><br><span class="line">(2)定义yml文件(通常是docker-compose.yml )就是将前面介绍的服务部署指令及相 关参数都统一在该文件中编写和配置，这样就省去了针对不同服务各自运行的麻烦。</span><br><span class="line">(3)运行服务部署指令。根据具体的部署需求，来执行相应的部署指令，Docker会读取 docker-compose.yml文件内容启动整个应用服务。</span><br><span class="line">   在上述三步中，第一步中Dockerfile文件的编写已经在第7章有过讲解，而第三步的服务部 署指令会在后面服务部署环节进行说明，所以现在需要掌握的就是如何编写docker-compose.yml文件。接下来，将针对Compose file文件的定义和配置进行详细讲解。  https://docs.docker.eom/compose/compose-file 配置文档地址</span><br><span class="line">   </span><br><span class="line">【docker-compose.yml】</span><br><span class="line">version: * 3 *</span><br><span class="line">services:</span><br><span class="line">  web:</span><br><span class="line">   image: id/imagename:lable</span><br><span class="line">restart: on-failure</span><br><span class="line">container_name: my-web-container</span><br><span class="line">ports:</span><br><span class="line">  - 8080:8080</span><br><span class="line">networks:</span><br><span class="line">  - example-net</span><br><span class="line">depends_on:</span><br><span class="line">  - db</span><br><span class="line">deploy:</span><br><span class="line">  replicas: 2</span><br><span class="line">  restart__policy:</span><br><span class="line">     condition: on-failure</span><br><span class="line">db:</span><br><span class="line">  image: mysql:5.6</span><br><span class="line">  restart: on-failure</span><br><span class="line">  container_name: my-mysql-container</span><br><span class="line">  ports:</span><br><span class="line">   - 3306:3306</span><br><span class="line">  volumes:</span><br><span class="line">   - example-mysql:/var/lib/mysql</span><br><span class="line">  networks:</span><br><span class="line">   - example-net</span><br><span class="line">  environment:</span><br><span class="line">   MYSQL_ROOT_PASSWORD: root</span><br><span class="line">   MYSQL_DATABASE: mysql_database</span><br><span class="line">  deploy:</span><br><span class="line">   replicas: 1</span><br><span class="line">   restart__policy:</span><br><span class="line">    condition: on-failure</span><br><span class="line">   placement:</span><br><span class="line">     constraints: [node.role == manager]</span><br><span class="line">networks:</span><br><span class="line">  example-net:</span><br><span class="line">volumes:</span><br><span class="line">  example-mysql:</span><br><span class="line"></span><br><span class="line">总体来看：</span><br><span class="line">     version     &quot;3&apos;&apos;表示文件是使用3版本的约束进行编写的。</span><br><span class="line">     services    下面包含有web和db两个服务配置项，每一个服务配置项都有镜像image、 端口 ports.网络networks和部署deploy等配置信息，同时web服务配置依赖于db服务配置。</span><br><span class="line">     networks   (网络)和volumes (数据卷)：在服务部署时会自动创建example-net网络和 example-mysql 数据卷。</span><br><span class="line">结合上述示例进行整体介绍后，相信大家已经对Compose file文件的配置和样式已经有了 一个初步的了解。下面将对Compose file文件中一些常用的配置进行更详细的解释，具体说明 如下。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1.version (版本)</span><br><span class="line">version通常在一个docker-compose.yml文件的最顶部，用来表示文件内容的约束版本(类似于XML文件约束),本书编写时的最新版本为3.3版本。</span><br><span class="line"></span><br><span class="line">2.services (服务)</span><br><span class="line">services用来声明服务，在services下的所有同缩进的应用名称都代表一个服务，如上面 示例中的web和db。在进行多服务部署的时候，有多少个服务需要同时部署，就需要在services 参数下面声明并配置多少个服务。</span><br><span class="line"></span><br><span class="line">3.image (镜像)</span><br><span class="line">所有启动的服务都是依赖镜像构建的，所以每一个服务下面首先要声明依赖的镜像名称，- 般都是xxx/xxx:lable的形式。如果是本地私有仓库镜像，一般为IP:PORT/xxx：lable (如果省略 了 lable标签，则默认是latest)的形式。</span><br><span class="line"></span><br><span class="line">4.restart (重启策略)</span><br><span class="line">restart  表示服务重启策略，在使用Compose file文件启动所有服务过程中，有些服务由于 个别原因可能会启动失败。为了保证服务正常启动，需要使用该参数来确保服务重启(在集群环 境下该属性会被忽略)。</span><br><span class="line">restart服务重启策略可以设为四个值，分别如下。</span><br><span class="line">    restart: &quot;no&quot;	         #服安默认值为n。，即服务失败后没有任何动作</span><br><span class="line">    restart: always          #表示服务会一直重新启动</span><br><span class="line">    restart: on-failure      #表示服务提示失败错误后会重新启动</span><br><span class="line">    restart: unless-stopped  #表示只有服务柱停止后才会重启</span><br><span class="line"></span><br><span class="line">5.container_name (容器名称)</span><br><span class="line">container_name表示单个服务启动后的容器名称。在3版本以后，如果是在集群多实例环 境下部署，该参数就会被忽略。</span><br><span class="line"></span><br><span class="line">6.ports (端口)</span><br><span class="line">ports用于指定服务向外暴露的端口。Compose支持多种形式的ports端口映射，在上面示 例中使用了比较常规的端口映射方式(宿主机端口：容器端口)来暴露服务。</span><br><span class="line"></span><br><span class="line">7.networks (网络)</span><br><span class="line">networks用于配置服务网络。在前面介绍Docker时，已经介绍过在进行服务部署时最好使 用自定义网络，这里就可以使用networks参数。上面示例中指定了各个服务启动后的网络管理 为example-net,该网络会在服务启动时自动创建。</span><br><span class="line"></span><br><span class="line">8.depends_on (服务依赖)</span><br><span class="line">depends.on表示多个服务之间的依赖关系，用来确定服务启动的先后顺序。针对该参数， 需要特别注意以下两点。</span><br><span class="line">depends.on决定了服务的依赖关系，如示例中的web依赖db,所以db服务会先于web 服务启动，但并不表示db服务完全启动成功后才启动web服务，它只决定启动的先后顺序而已。在3版本中，depends_on参数将会被忽略。</span><br><span class="line"></span><br><span class="line">9.links (服务关联)</span><br><span class="line">links表示多个服务之间的相互访问关系，即可以通过服务名称或别名来访问关联的服务； 同时也具有depends.on参数一样的服务依赖关系，即可以确定服务启动的先后顺序。针对该参 数，也需要注意以下几点。</span><br><span class="line">同depends_on —样，links确定了服务的依赖关系，但它只决定服务启动的先后顺序而已。如果同时定义了 links和networks参数，使用links连接的服务必须有一个共同的网络。</span><br><span class="line">在3版本中，links参数也将会被忽略。</span><br><span class="line"></span><br><span class="line">10.deploy (服务集群部署)</span><br><span class="line">deploy参数是Docker Compose针对Swarm集群部署提供的(在非集群环境下该参数及其 子参数会被忽略)。该参数及其子参数专门用于指定与服务部署和运行相关的配置，并且该参数 只有在3版本以及部署到Swarm集群时才会生效。</span><br><span class="line"></span><br><span class="line">11.replicas (服务实例副本)</span><br><span class="line">replicas表示服务实例的副本数量。在Swarm集群环境下，为了实现服务器端的负载均衡, 通常会将一个服务实例复制多个副本运行，如上述实例中的web服务就提供了 2个副本。</span><br><span class="line"></span><br><span class="line">12.restart_policy (重启策略)</span><br><span class="line">restart_policy参数同前面介绍的restart类似，都是用来配置服务重启策略的，只是该属性 配置在deploy参数下，并只在集群环境下生效。该参数包含多个子属性及属性值，具体示例 如下。</span><br><span class="line">   restart_policy:&apos;	.</span><br><span class="line">        condition: on-failure     #表示服务重启的条件，值有 none、on-failure 和 any </span><br><span class="line">		delay: 5s                 #表示重启服务之间等待时间，默认为0 </span><br><span class="line">		max_attempts : 3          #表示失败后尝试重启的次数</span><br><span class="line">		window: 120s	          #表示等待多久来确定服务是否启动成功</span><br><span class="line"></span><br><span class="line">13.placement (位置约束)</span><br><span class="line">placement用来配置指定位置的约束，当服务在Swarm集群环境下部署时会随机分配到管 理节点和其他工作节点上。在上述示例中由于将mysql数据挂载到了本机example-mysql数据 卷中，所以使用了 placement的子参数constraints:[node.role == manager]指定该服务只在 manager管理节点上运行。</span><br><span class="line"></span><br><span class="line">14.volumes (数据卷)</span><br><span class="line">volumes表示数据卷，就是将容器中的数据备份到宿主机地址(具体可回顾前面章节介绍的 数据管理)□上述示例中是将mysql数据挂载到本地example-mysql数据卷中，如果该数据卷 不存在，服务启动时也会默认创建。</span><br><span class="line"></span><br><span class="line">15.environment (环境变量)</span><br><span class="line">environment用于配置服务启动时需要的环境变量，如上述示例中MYSQL_ROOT_ PASSWORD表示数据库root用户的密码，MYSQL_DATABASE表示数据库启动后自动创建的数据库。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">==========================================================================================================================================================</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">############【 微服务与Docker】################</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1.[添加Dockerfile文件]</span><br><span class="line"></span><br><span class="line">   在Docker中，应用都是部署在容器中的，而容器又由镜像生成，镜像则通常是通过Dockerfile 文件构建的，所以微服务与Docker整合的第一步就是要提供Dockerfile文件。</span><br><span class="line">第9章讲解整合时编写的微服务项目microservice-mallmanagement主要有4个子项目模 块（包括2个微服务模块和2个辅助服务模块），我们需要针对每一个子项目模块编写对应的 Dockerfile文件。这里以用户订单管理微服务模块为例，所编写的Dockerfile文件的具体内容如:</span><br><span class="line"></span><br><span class="line">      FROM java:8-jre</span><br><span class="line">      MAINTAINER shirx 〈shirx@qq.com&gt;</span><br><span class="line">      ADD ./target/microservice-userservice-0.0.1-SNAPSHOT.jar \</span><br><span class="line">      /app/microservice-userservice.jar</span><br><span class="line">      CMD [&quot;java&quot;, H-Xmx200mn, &quot;-jar&quot;, &quot;/app/microservice-userservice.jar&quot;]</span><br><span class="line">      EXPOSE 8030</span><br><span class="line"></span><br><span class="line">具体说明如下：</span><br><span class="line">1~2行设置了一个基础镜像java:8-jre来提供项目的运行环境，并通过MAINTAINER配 置了该镜像的维护者信息。</span><br><span class="line">3~4行通过ADD命令将生成的项目jar包（在target目录下）复制到容器内部的app目 录下，并重命名为 microservice-userservice.jar。</span><br><span class="line">第5行通过CMD命令指定了由该镜像生成的容器的启动命令（其实就是java -jar microservice-userservice.jar 启动 jar 包的命令）o</span><br><span class="line">第6行通过EXPOSE指令指定容器暴露的端口号为8030  跟项目配置文件application, yml中指定的端口相同。</span><br><span class="line"></span><br><span class="line">将上述Dockerfile文件直接放在项目的根目录即可,其他服务编写的Dockerfile文件与文件基本相同，只需要将Dockerfile中的项目名称和版本号后缀，以及复制到容器内部的JAR包名称进行相应修改即可。</span><br><span class="line"></span><br><span class="line">2.[添加 dockerfile-maven 插件]</span><br><span class="line"></span><br><span class="line">   Dockerfile文件编写完成后，就可以使用Docker的相关指令构建镜像并运行容器，然后访 问容器中的应用了。只是上述所有的操作都是手动完成的，如果需要部署多个服务，将会非常麻烦。</span><br><span class="line">针对这种情况,MAVEN提供了一个dockerfile-maven-plugin插件,很好地支持了与Docker 的整合。该插件的使用非常简单，只需要在所有需要生成Docker容器项目的pom文件中添加该插件</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;build&gt;</span><br><span class="line">  &lt;plugins&gt;</span><br><span class="line">    &lt;plugin&gt;</span><br><span class="line">      &lt;groupld&gt;com.spotify&lt;/groupld&gt; </span><br><span class="line">	     &lt;artifactld&gt;dockerfile-maven-plugin&lt;/artifactld&gt; </span><br><span class="line">		 &lt;version&gt;l.3.6&lt;/version&gt;</span><br><span class="line">      &lt;configuration&gt;</span><br><span class="line">        &lt;!--生成的镜像名称--&gt;</span><br><span class="line">          &lt;repository&gt;</span><br><span class="line">            $&#123;docker.image.prefix&#125;/$&#123;project.artifactld&#125; &lt;/repository&gt;</span><br><span class="line">           &lt;!―生成的镜像版本--&gt;</span><br><span class="line">          &lt;tag&gt;$&#123;project.version&#125;&lt;/tag&gt;</span><br><span class="line">          &lt;!--推送到私有镜像仓库或者DockerHub时需要开启用户认证--&gt;</span><br><span class="line">		  &lt;useMavenSettingsForAuth&gt;true&lt;/useMavenSettingsForAuth&gt; </span><br><span class="line">	  &lt;/configuration&gt;</span><br><span class="line">         &lt;!--直接使用mvn install命令打包项目，就会自动构建并推送镜像--&gt;</span><br><span class="line">     &lt;executions&gt;</span><br><span class="line">       &lt;execution&gt;</span><br><span class="line">         &lt;id&gt;default&lt;/id&gt;</span><br><span class="line">         &lt;phase&gt;install&lt;/phase&gt;</span><br><span class="line">         &lt;goals&gt;</span><br><span class="line">           &lt;goal&gt;build&lt;/goal&gt; </span><br><span class="line">		   &lt;goal&gt;push&lt;/goal&gt;</span><br><span class="line">         &lt;/goals&gt;</span><br><span class="line">        &lt;/execution&gt;</span><br><span class="line">     &lt;/executions&gt;</span><br><span class="line">    &lt;/plugin&gt;</span><br><span class="line"> &lt;/plugins&gt;</span><br><span class="line">&lt;/build&gt;</span><br><span class="line"></span><br><span class="line">&lt;properties&gt;</span><br><span class="line">&lt;!- 配置镜像前缀（就是仓库服务地址）--&gt;</span><br><span class="line">〈docker.image.prefix&gt;l92.168.197.143:5000&lt;/docker.image.prefix&gt;</span><br><span class="line">&lt;/properties&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   通过&lt;plugin&gt;标签添加了一个版本为136的dockerfile-maven-plugin插件。</span><br><span class="line">分别使用&lt;repository&gt;和&lt;tag&gt;标签配置了生成的镜像名称和标签。其中$&#123;docker. image.prefix&#125;用于指定镜像前缀（需要继续配置）,$&#123;project.artifactld&#125;用于将项目名称指定为镜 像名称；$&#123;project.version）用于将项目版本指定为镜像版本。</span><br><span class="line"></span><br><span class="line">使用&lt;useMavenSettingsForAuth&gt;标签开启仓库用户认证。生成的镜像不管是推送到 DockerHub,还是本地私有镜像仓库，都必须先登录认证并通过后才可推送。该标签的作用就是 在使用maven插件的时候开启用户认证（本地未创建认证的私有仓库或者后续手动推送镜像则 不需要配置此标签）</span><br><span class="line"></span><br><span class="line">在&lt;execution&gt;标签中分别使用&lt;phase&gt;和&lt;goals&gt;子标签配置了 mvn的执行命令和自动 化动作。其中上述配置表示在使用mvn install执行打包项目时，会先进行打包，然后自动执行 镜像构建和镜像推送任务，这种配置方式可以很好地完成项目与Docker的自动化整合工作（如 果想要手动构建和推送镜像则可以去除&lt;executions&gt;标签）。</span><br><span class="line">在&lt;properties&gt;标签中使用&lt; docker.image.prefix&gt;子标签配置了生成的镜像前缀（也就是本地私有仓库地址）,来为$&#123;docker.image.prefix&#125;赋值。</span><br><span class="line"></span><br><span class="line">上述配置文件指定了＜docker.image.prefix＞标签（即镜像仓库前缀）,这里使用的地址 192.168.197.143:5000 就是第 8 章介绍 Docker Swarm 集群时搭建的 Docker 机器 managerl 中的私有仓库地址，后续项目将在该集群上进行部署。</span><br><span class="line"></span><br><span class="line">上述 dockerfile-maven-plugin 插件的配置，需要在 microservice-mallmanagement 项目 的4个子项目模块的pom文件中分别添加，并且无需任何更改。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">3.[添加 docker-compose.yml 编排文件]</span><br><span class="line"></span><br><span class="line">version: &quot;3&quot;</span><br><span class="line">services:</span><br><span class="line">	mysql:</span><br><span class="line">		image: mysql:5.6</span><br><span class="line">		restart: on-failure</span><br><span class="line">		ports:</span><br><span class="line">			- 3306:3306	</span><br><span class="line">		volumes:</span><br><span class="line">			- microservice-mysql:/var/lib/mysql</span><br><span class="line">		networks:</span><br><span class="line">			- microservice-net</span><br><span class="line">		environment:</span><br><span class="line">			MYSQL__ROOT_PASSWORD: root</span><br><span class="line">			MYSQL_DATABASE: microservice__mallmanagement</span><br><span class="line">		deploy:	</span><br><span class="line">			replicas: 1</span><br><span class="line">			restart_policy:</span><br><span class="line">				condition: on-failure</span><br><span class="line">			placement:</span><br><span class="line">				constraints: [node.role == manager]</span><br><span class="line">	eureka-server:</span><br><span class="line">		image: 192.168.197.143:5000/microservice-eureka-server:0.0.1-SNAPSHOT</span><br><span class="line">		restart: on-failure</span><br><span class="line">		ports:</span><br><span class="line">			- 8761:8761</span><br><span class="line">		networks:</span><br><span class="line">			- microservice-net</span><br><span class="line">		deploy:</span><br><span class="line">			replicas: 1</span><br><span class="line">			restart_policy:</span><br><span class="line">			condition: on-failure</span><br><span class="line">	gateway-zuul:</span><br><span class="line">		image: 192.168.197.143:5000/microservice-gateway-zuul:0.0.1-SNAPSHOT</span><br><span class="line">		restart: on-failure</span><br><span class="line">		ports:</span><br><span class="line">			-8050:8050</span><br><span class="line">		networks:</span><br><span class="line">			-microservice-net</span><br><span class="line">		depends_on:</span><br><span class="line">			-eureka-server</span><br><span class="line">		deploy:</span><br><span class="line">			replicas: 1 </span><br><span class="line">			restart_policy:</span><br><span class="line">				condition: on-failure</span><br><span class="line">			placement:</span><br><span class="line">				constraints: [node.role == manager]</span><br><span class="line">	order-service:</span><br><span class="line">		image: 192.168.197.143:5000/microservice-orderservice:0.0.1-SNAPSHOT</span><br><span class="line">		restart: on-failure</span><br><span class="line">		ports:</span><br><span class="line">			-7900:7900</span><br><span class="line">		networks:</span><br><span class="line">			-microservice-net</span><br><span class="line">		depends_on:</span><br><span class="line">			-mysql</span><br><span class="line">			-eureka-server</span><br><span class="line">		deploy:</span><br><span class="line">				replicas: 2 </span><br><span class="line">				restart_policy:</span><br><span class="line">					condition: on-failure</span><br><span class="line">	user-service:</span><br><span class="line">		image: 192.168.197.143:5000/microservice-userservice:0.0.1-SNAPSHOT</span><br><span class="line">		restart: on-failure</span><br><span class="line">		ports:</span><br><span class="line">			-8030:8030</span><br><span class="line">		networks:</span><br><span class="line">			-microservice-net</span><br><span class="line">		depends_on:</span><br><span class="line">			-mysql</span><br><span class="line">			-eureka-server</span><br><span class="line">		deploy:</span><br><span class="line">		replicas: 2 </span><br><span class="line">		restart_policy:</span><br><span class="line">			condition: on-failure</span><br><span class="line">	visualizer:</span><br><span class="line">		image: dockersamples/visualizer:stable</span><br><span class="line">		ports:</span><br><span class="line">			-8081:8080</span><br><span class="line">		networks:</span><br><span class="line">			-microservice-net</span><br><span class="line">		volumes:</span><br><span class="line">			-/var/run/docker.sock:/var/run/docker.sock</span><br><span class="line">networks:</span><br><span class="line">	microservice-net:</span><br><span class="line">volumes:</span><br><span class="line">	microservice-mysql:</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> 在文件中，提供了 6个启动服务，除包含了 microservice-mallmanagement项目自带的 eureka-server、gateway-zuuk order-service 和 user-service 4个子项目外，还包含了 mysql数据库服务和visualizer集群环境下可视化工具服务。这些服务都是通过networks配置了 —个指定的名称为microservice-net的自定义网络（服务部署时会自动创建该网络），</span><br><span class="line">服务之间 可以通过该网络实现通信。需要注意的是，构建服务的镜像名称要与微服务整合时生成的镜像名称一致，否则无法找到 ,微服务项目与Docker的整合配置就已经完成，剩下的就是如何将项目进行打包，并 通过Docker进行部署了 </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">4.[环境搭建以及镜像准备]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1.搭建Docker主机</span><br><span class="line"></span><br><span class="line">   要将微服务项目运行在Docker中，首先必须保证运行环境安装了Docker引擎，这里我们就选用前面第8章中的8.2小节搭建的名为manage&quot;的Docker机器，作为本次微服务部署的主机，同时也是集群环境下的管理节点，</span><br><span class="line">而另两台名为worked和worker2的Docker机器仍作 为集群环境下的工作节点（在实际开发中，Docker Swarm集群可能会涉及更多的工作节点，并 且会设置多个管理节点）</span><br><span class="line">  需要说明的是，此次演示为了方便查看和管理，在managerl服务主机上搭建了本地私有镜像仓库，其仓库服务地址为192.168.197.143:5000,这与前面项目配置和整合文件编写的镜像前缀地址都是一致的，</span><br><span class="line">否则无法推送到指定仓库。关于本地私有仓库的搭建，此处不再做详细说 明，具体内容可以参考第7章中7.4.4小节介绍的Docker Registry本地私有仓库配置。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2.安装应用编译工具JDK</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  (1)下载Linux版本的JDK工具包，本书使用的是jdk-8u144-linux-x64.tar.gz版本，并 在Linux机器上使用tar命令进行解压，具体操作指令如下。</span><br><span class="line">$ sudo tar -zxvf jdk-8ul44-linux-x64.tar,gz</span><br><span class="line">  (2)将执行上述解压指令后产生的解压包移动到自定义目录下（这里将解压包直接移动到了 /usr/lib/jvm @录下，如果不存在，要先创建该目录），具体操作指令如下。</span><br><span class="line">$ sudo mv jdkl.8.0 144/ /usr/lib/jvm</span><br><span class="line">  (3)配置JDK环境变量。修改/etc/profile文件，在profile文件中添加以下配置(注意JDK 解压包名称和版本号)</span><br><span class="line">  #set java environment</span><br><span class="line">   export JAVA_H0ME=/usr/lib/jvm/jdkl.8.0_144/</span><br><span class="line">   export JRE_HOME=$&#123;JAVA_HOME&#125;/j re</span><br><span class="line">   export CLASSPATH=.:$&#123;JAVA_HOME&#125;/1ib:$&#123;JRE_HOME)/1ib</span><br><span class="line">   export PATH=$&#123;JAVA_HOME&#125;/bin:$PATH</span><br><span class="line">   </span><br><span class="line">     完成有关JDK的环境配置后，可以执行source/etc/profile指令使配置立即生效。我们可以 使用java -version命令查看安装后的效果。</span><br><span class="line"></span><br><span class="line">3.安装应用打包工具Maven</span><br><span class="line"></span><br><span class="line">     在前面介绍微服务与Docker整合配置时就已经说明，此次整合部署是通过Maven的install 命令自动执行打包、镜像构建和推送的，所以在此必须先要安装并配置好Maveno其具体配置 过程如下。</span><br><span class="line">(1)下载Linux版本的Maven工具包，本书使用的是apache-maven-3.5.0-bin.tar.gz版 本，并在Linux机器上使用tar命令进行解压，具体操作指令如下：</span><br><span class="line"></span><br><span class="line">$ sudo tar -zxvf apache-maven-3.5.0-bin.tar.gz</span><br><span class="line"></span><br><span class="line">(2)将执行上述解压命令后产生的解压包移动到自定义目录下(这里将解压包直接移动到了 opt目录下)，具体操作指令如下：</span><br><span class="line">$ sudo mv apache-maven-3.5.0/ /opt</span><br><span class="line"></span><br><span class="line">(3)配置Maven环境变量。修改/etc/profile文件，在profile文件中添加以下配置(注意 Maven解压包名称和版本号)：</span><br><span class="line"></span><br><span class="line">    #set maven envirment</span><br><span class="line">    export M2_HOME=/opt/apache-maven-3.5.0/</span><br><span class="line">    export M2=$M2_HOME/bin</span><br><span class="line">    export MAVEN_OPTS=n-Xms2 5 6m -Xmx512mn</span><br><span class="line">    export PATH=$M2:$PATH</span><br><span class="line"></span><br><span class="line">    完成有关Maven的环境配置后，同样可以执行source /etc/profile指令使配置立即生效，然 后通过mvn -v命令查看安装配置后的Maven信息</span><br><span class="line"></span><br><span class="line">4.镜像准备</span><br><span class="line"></span><br><span class="line">     由于之前10.2小节中dockerfile-maven的配置，在完成打包后也会自动构建镜像并推送到指定仓库，但无论是推送到DockerHub还是本地私有镜像仓库，必须先登录认证才可进行推送。</span><br><span class="line">所以为了能够自动打包、构建镜像和推送镜，在使用mvn install命令打包之前，除了需要预 先在dockerfile-maven插件配置中配置&lt;useMavenSettingsForAuth&gt;标签属性值为true外，还 需要在Maven的settings.xml配置文件（参考上一小节基础环境搭建时Maven的安装位置，此 示例中的地址为/opt/apache-maven-3.5.0/conf/settings.xml）中配置服务认证信息，具体配置 内容如下（注意要配置在&lt;servers&gt;标签内）。</span><br><span class="line">    &lt;server&gt;</span><br><span class="line">     &lt;id&gt;192.168.197.143:5000&lt;/id&gt; </span><br><span class="line">	 &lt;username&gt;shitou&lt;/username&gt;</span><br><span class="line">	 &lt;password&gt;123&lt;/password&gt;</span><br><span class="line">    &lt;/server&gt;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">    读者在配置上述服务认证信息时，注意修改自己本地私有仓库的地址id以及登录认证用户 的用户名和密码。</span><br><span class="line">配置完成后，就可以将微服务项目microservice-mallmanagement复制到managerl服 务主机的某个工作目录下，并进入到该项目pom文件所在位置（最外层的pom文件目录）， </span><br><span class="line">然后使用mvn install指令进行打包(首次打包会进行pom依赖文件的下载，所以需要一定的 时间)</span><br><span class="line">     如果出现 HBUILD SUCCESS信息，就表示打包、镜像构建和推送成功。 如果某个过程执行失败，也可以从终端页面查看错误信息。</span><br><span class="line">当确定全部执行成功后，我们还可以实际确认。先通过docker images指令查看镜像列表中 是否有生成的指定镜像，然后再次进入本地私有镜像仓库配置的挂载目录/mnt/registry/docker/ registry/v2/repositories进行确认，查看生成的镜像是否也推送到了本地仓库。在Docker机器上正式打包部署时，项目配置文件中的服务地址将不再是localhost的本地连接，需 要按照第9章介绍微服务项目整合时的配置文件提示进行相应修改。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">5.微服务的手动部署</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  非集群环境下的服务部署就是将整个微服务项目运行在单个Docker主机环境下。这里先在managerl机器上安装DockerCompose编排工具（参考10.1.2小节）,</span><br><span class="line">通过该编排工具执行docker-compose.yml文件进行非集群环境下的服务部。具体部署服务过程如下。</span><br><span class="line"></span><br><span class="line">1.登录私有仓库</span><br><span class="line"></span><br><span class="line">   由于此次部署的微服务所需的镜像都存放在本地私有镜像仓库，并且本地私有仓库配置有用户认证，所以想要通过本地私有仓库的镜像部署服务，</span><br><span class="line">就必须先登录认证，获取镜像的使用权限（DockerHub远程仓库镜像则不需要登录认证）具体操作指令如下。</span><br><span class="line">$ docker login 192.168.197.143:5000</span><br><span class="line"></span><br><span class="line">执行上述指令就可以登录到指定服务地址的Docker Registry本地私有镜像仓库了。此后该 Docker机器就会处于持续认证状态，我们可以使用docker logout 192.168.197.143:5000指令 退出认证。</span><br><span class="line"></span><br><span class="line">2.部署服务</span><br><span class="line"></span><br><span class="line">进入到项目docker-compose.yml文件所在目录下，执行服务部署指令来部署整个微服务 项目，具体指令如下。</span><br><span class="line"></span><br><span class="line">$ docker-compose up</span><br><span class="line"></span><br><span class="line">  使用docker-compose up指令是在前台部署整个服务，终端窗口会打印出所有启动信息。 如果不想看到这些信息，还可以使用docker-compose up -d指令在后台部署服务。</span><br><span class="line">当服务部署完成后，可以通过docker ps指令查看所有服务是否都已正常运行（多个相互依 赖的服务同时部署过程可能需要一定的时间），</span><br><span class="line">  所有的服务都已正常启动。此时，容器中对应的应用也已可以正常访问（后续会介绍具体的测试方式）。当不再需要某个服务时，</span><br><span class="line">可以在项目docker-compose.yml文件所在同级目录下使用结束指令结束整个服务，具体操作指令下</span><br><span class="line"></span><br><span class="line">$ docker-compose down</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">6.使用Jenkins自动部署微服务</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   Jenkins官网提供了多种安装方式，包括基于Java的war包，Linux、MacOS和Windows系统等方式。这里我们选择比较通用的war包方式为例，在集群管理节点managerl机器上安装—Jenkins工具</span><br><span class="line">(由于Jenkins是由java开发的，所以在安装Jenkins之前要确保已</span><br><span class="line">安装了JDK并配置了系统环境)，具体步骤如下。</span><br><span class="line"></span><br><span class="line">1.下载 Jenkins</span><br><span class="line">在浏览器中输入Jenkins官网地址https://jenkins.io/download/访问其下载页面，选中页面 中 Long-term Support ( LTS,长期支持)版本最下方的 Generic java package ( .war),进行 Jenkins的war包下载，如图10-13所示。</span><br><span class="line"></span><br><span class="line">2.启动Jenkins服务</span><br><span class="line">将下载好的jenkins.war放到managerl机器中的某个目录下，直接使用如下指令即可启动 Jenkins 服务。</span><br><span class="line">$ java -jar jenkins.war -一httpPort=49001</span><br><span class="line">执行上述指令后，就会在Linux系统上通过war包的方式启动Jenkins服务。需要注意的是，Jenkins内部默认配置的端口是8080 (这与开发中很多端口有冲突),所以 我们在启动Jenkins服务时，使用一httpPort参数指定了服务启动的端口为49001 </span><br><span class="line"></span><br><span class="line">3.Jenkins初始化安装</span><br><span class="line">  通过浏览器访问地址http://192.168.197.143:49001就可以正式访问Jenkins服务，在首次安装访问Jenkins时，会涉及Jenkins的初始化安装</span><br><span class="line">输入初始化认证密码后，会进入一个Jenkins插件定制安装界面，这也是首次启动访问 Jenkins时会出现的页面，页面中会提供Install suggested plugins （安装建议插件）和Select plugins to install（自行选择插件安装）两种方式，通常情况下，都会选择左侧的Install suggested plugins进行初始化插件安装</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">5.Jenkins集成插件配置</span><br><span class="line"></span><br><span class="line">1,安装Maven插件</span><br><span class="line">     因为我们之前创建的微服务是Maven项目，在使用Jenkins时也需要创建一个Maven项目 进行持续集成，所以这里需要配置Maven插件。</span><br><span class="line">依次单击主页面的“系统管理”今“插件管理”今“可选插件”面板，然后在右侧搜索框输 入&quot;Maven Integration plugin&quot;关键字进行搜索。搜索出结果后，选中该插件，并单击下方的“直 接安装”按钮，即可进行Maven插件安装，其效果如图10-18所示。</span><br><span class="line">2,系统全局插件配置</span><br><span class="line">完成所需插件的安装后，必须在Jenkins ±进行全局插件配置，这样才能让Jenkins与其他 软件关联工作，这里配置的全局插件主要有JDK （项目编译工具）、Git （代码仓库GitHub管理 工具）、Maven （项目打包工具）和Docker （项目部署工具）。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">6.服务自动化部署</span><br><span class="line"></span><br><span class="line">	1.构建新任务</span><br><span class="line">		构建一个maven项目</span><br><span class="line"></span><br><span class="line">    2.源码管理”中选择Git</span><br><span class="line">		并在Repository URL中输入该项目所在 的GitHub源码地址</span><br><span class="line">	3.构建触发器		</span><br><span class="line">		</span><br><span class="line">		Build periodically        表示在某个时间点进行自动任务构建，比如&quot;H 2 * * *&quot;表示每天凌 晨2点开始执行项目构建（不管项目是否更新）</span><br><span class="line">		PollSCM                   表示每隔一段时间会自动检查更新进行任务构建，比如“*/10****”表示每 10分钟开始检查源码，如果有更新就自动执行构建。</span><br><span class="line">		当默认没有进行构建触发器配置时我们可以在对应的任务面板中选择“立即构建”按钮， 随时进行手工触发任务构建。</span><br><span class="line">	4.服务发布配置		</span><br><span class="line">   </span><br><span class="line">        在Post Steps （服务发布配置）页面，选择&quot;Add post-build step&quot;下拉列表中的&quot;Execute shell&quot;选项，并在命令框中输入需要发布服务的shell指令</span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">           docker stack deploy -c docker-compose-swarm.yml --with-registry-auth mallmanagement</span><br><span class="line">   </span><br><span class="line">          docker stack deploy -c docker-compose-swarm.yml 表示使用当前目录下 的docker-compose-swarm.yml展件部署服务到当前主机所在集群中；</span><br><span class="line">		 --with-registry-auth 参数是对该集群下的所有节点进行通知，表示所有节点要到指定的本地私有仓库拉取镜像来启动服务（如果使用的是Docker Hub镜像仓库，此参数可省略）；</span><br><span class="line">		 mallmanagement是自定义的整 个集群服务的总名称。</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+      
+
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="\2019\11\20\Docker介绍\" rel="bookmark">Docker介绍</a></div>
+      
+    </li>
+  
+  </ul>
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Wrecked 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Wrecked 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Docker/" rel="tag"># Docker</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/12/Shell 常用脚本/" rel="next" title="Shell 常用脚本">
+                <i class="fa fa-chevron-left"></i> Shell 常用脚本
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/12/18/正则表达式案例/" rel="prev" title="正则表达式案例">
+                正则表达式案例 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Wrecked">
+            
+              <p class="site-author-name" itemprop="name">Wrecked</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">23</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/zhangChaoWrecked" title="GitHub &rarr; https://github.com/zhangChaoWrecked" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:17691139011@163.com" title="E-Mail &rarr; mailto:17691139011@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="/tobiitachi" title="tobiitachi">WeChat</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.java2s.com" title="http://www.java2s.com" rel="noopener" target="_blank">Java2s</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank"> </a>&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">本博客所有文章除特别声明外。转载请注明出处！</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/reading_progress/reading_progress.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+  
+
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2019/12/18/Docker入门文档/';
+        this.page.identifier = '2019/12/18/Docker入门文档/';
+        this.page.title = 'Docker入门文档';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 15139,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=6.5.0"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=6.5.0"></script>
+
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+
+</body>
+</html>
