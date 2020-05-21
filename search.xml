@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Java 执行Linux Command.md]]></title>
+    <url>%2F2020%2F05%2F21%2FJava%20%E6%89%A7%E8%A1%8CLinux%20Command%2F</url>
+    <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657 import org.springframework.util.StringUtils;import org.springframework.web.bind.annotation.RequestMapping;import org.springframework.web.bind.annotation.RequestMethod;import org.springframework.web.bind.annotation.RestController;import java.io.BufferedInputStream;import java.io.BufferedReader;import java.io.IOException;import java.io.InputStreamReader;@RestControllerpublic class ExecuteController &#123; /** * 执行指定命令 */ @RequestMapping(value = &quot;/executeMult&quot;, method = RequestMethod.GET) public Object executeMult(String command) throws IOException &#123; if (StringUtils.isEmpty(command)) return &quot;Error Command &quot;; String[] strings = new String[3]; strings[0] = &quot;/bin/sh&quot;; strings[1] = &quot;-c&quot;; strings[2] = command; StringBuffer stringBuffer = new StringBuffer(); int exitValue = -1; BufferedReader bufferedReader = null; try &#123; // command process Process process = Runtime.getRuntime().exec(strings); BufferedInputStream bufferedInputStream = new BufferedInputStream(process.getInputStream()); bufferedReader = new BufferedReader(new InputStreamReader(bufferedInputStream)); // command log String line; while ((line = bufferedReader.readLine()) != null) &#123; stringBuffer.append(line); stringBuffer.append(System.getProperty(&quot;line.separator&quot;)); System.out.println(line); &#125; // command exit process.waitFor(); exitValue = process.exitValue(); &#125; catch (Exception e) &#123; e.printStackTrace(); &#125; finally &#123; if (bufferedReader != null) &#123; bufferedReader.close(); &#125; &#125; if (exitValue == 0) &#123; return stringBuffer.toString(); &#125; else &#123; return &quot;command exit value(&quot; + exitValue + &quot;) is failed&quot;; &#125; &#125;&#125;]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[正则表达式案例]]></title>
     <url>%2F2019%2F12%2F18%2F%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%A1%88%E4%BE%8B%2F</url>
     <content type="text"><![CDATA[替换文本格式的数据为 hashmap.put(“a1”,”b1”);1234567a1 b1 23g sdfs正则表达式：([A-Z0-9]+)[ ]+(.*) hashmap.put(&quot;$1&quot;,&quot;$2&quot;)]]></content>
@@ -109,8 +120,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Redis</tag>
         <tag>Linux</tag>
+        <tag>Redis</tag>
         <tag>SpingBoot</tag>
         <tag>阿里云</tag>
       </tags>

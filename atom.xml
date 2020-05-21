@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-12-18T08:11:49.329Z</updated>
+  <updated>2020-05-21T09:09:34.079Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java 执行Linux Command.md</title>
+    <link href="http://yoursite.com/2020/05/21/Java%20%E6%89%A7%E8%A1%8CLinux%20Command/"/>
+    <id>http://yoursite.com/2020/05/21/Java 执行Linux Command/</id>
+    <published>2020-05-21T09:39:31.000Z</published>
+    <updated>2020-05-21T09:09:34.079Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line">import org.springframework.util.StringUtils;</span><br><span class="line">import org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line">import org.springframework.web.bind.annotation.RequestMethod;</span><br><span class="line">import org.springframework.web.bind.annotation.RestController;</span><br><span class="line"></span><br><span class="line">import java.io.BufferedInputStream;</span><br><span class="line">import java.io.BufferedReader;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.io.InputStreamReader;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@RestController</span><br><span class="line">public class ExecuteController &#123;</span><br><span class="line">    /**</span><br><span class="line">     * 执行指定命令</span><br><span class="line">     */</span><br><span class="line">    @RequestMapping(value = &quot;/executeMult&quot;, method = RequestMethod.GET)</span><br><span class="line">    public Object executeMult(String command) throws IOException &#123;</span><br><span class="line">        if (StringUtils.isEmpty(command))</span><br><span class="line">            return &quot;Error Command &quot;;</span><br><span class="line">        String[] strings = new String[3];</span><br><span class="line">        strings[0] = &quot;/bin/sh&quot;;</span><br><span class="line">        strings[1] = &quot;-c&quot;;</span><br><span class="line">        strings[2] = command;</span><br><span class="line">        StringBuffer stringBuffer = new StringBuffer();</span><br><span class="line">        int exitValue = -1;</span><br><span class="line">        BufferedReader bufferedReader = null;</span><br><span class="line">        try &#123;</span><br><span class="line">            // command process</span><br><span class="line">            Process process = Runtime.getRuntime().exec(strings);</span><br><span class="line">            BufferedInputStream bufferedInputStream = new BufferedInputStream(process.getInputStream());</span><br><span class="line">            bufferedReader = new BufferedReader(new InputStreamReader(bufferedInputStream));</span><br><span class="line">            // command log</span><br><span class="line">            String line;</span><br><span class="line">            while ((line = bufferedReader.readLine()) != null) &#123;</span><br><span class="line">                stringBuffer.append(line);</span><br><span class="line">                stringBuffer.append(System.getProperty(&quot;line.separator&quot;));</span><br><span class="line">                System.out.println(line);</span><br><span class="line">            &#125;</span><br><span class="line">            // command exit</span><br><span class="line">            process.waitFor();</span><br><span class="line">            exitValue = process.exitValue();</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; finally &#123;</span><br><span class="line">            if (bufferedReader != null) &#123;</span><br><span class="line">                bufferedReader.close();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if (exitValue == 0) &#123;</span><br><span class="line">            return stringBuffer.toString();</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            return &quot;command exit value(&quot; + exitValue + &quot;) is failed&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="http://yoursite.com/categories/Java/"/>
+    
+    
+      <category term="Java Linux" scheme="http://yoursite.com/tags/Java-Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>正则表达式案例</title>
@@ -269,9 +294,9 @@
       <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
     
     
-      <category term="Redis" scheme="http://yoursite.com/tags/Redis/"/>
-    
       <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+      <category term="Redis" scheme="http://yoursite.com/tags/Redis/"/>
     
       <category term="SpingBoot" scheme="http://yoursite.com/tags/SpingBoot/"/>
     
@@ -507,31 +532,6 @@
     
     
       <category term="Redis" scheme="http://yoursite.com/tags/Redis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>常见问题汇总</title>
-    <link href="http://yoursite.com/2019/06/13/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/"/>
-    <id>http://yoursite.com/2019/06/13/常见问题汇总/</id>
-    <published>2019-06-13T04:39:31.000Z</published>
-    <updated>2019-06-13T07:04:07.797Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><h5 id="cmmand-redis-cli-not-found"><a href="#cmmand-redis-cli-not-found" class="headerlink" title="cmmand redis-cli  not found"></a>cmmand redis-cli  not found</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root@wrecked:~# redis-cli -h 127.0.0.1 -p 6379 -a 123456</span><br><span class="line">Command &apos;redis-cli&apos; not found</span><br><span class="line"></span><br><span class="line">解决办法：cp /home/redis/redis-2.8.17/src/redis-cli /usr/local/bin/</span><br><span class="line">         拷贝redis-cli 到 /usr/local/bin/</span><br><span class="line">         </span><br><span class="line">         </span><br><span class="line">`/usr/bin`下面的都是系统预装的可执行程序，会随着系统升级而改变。</span><br><span class="line">`/usr/local/bin`目录是给用户放置自己的可执行程序的地方，推荐放在这里，不会被系统升级而覆盖同名文件。</span><br></pre></td></tr></table></figure><h5 id="buntu防火墙的开启，关闭，端口的打开，查看"><a href="#buntu防火墙的开启，关闭，端口的打开，查看" class="headerlink" title="buntu防火墙的开启，关闭，端口的打开，查看"></a>buntu防火墙的开启，关闭，端口的打开，查看</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">1.防火墙的打开</span><br><span class="line"></span><br><span class="line">$ ufw enable</span><br><span class="line"></span><br><span class="line">2.防火墙的重启</span><br><span class="line"></span><br><span class="line">$ ufw reload</span><br><span class="line"></span><br><span class="line">3.打开想要的端口（以9000为例）</span><br><span class="line"></span><br><span class="line">$ ufw allow 9000</span><br><span class="line"></span><br><span class="line">4.查看本机端口使用情况</span><br><span class="line"></span><br><span class="line">$ ufw status</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Linux&quot;&gt;&lt;a href=&quot;#Linux&quot; class=&quot;headerlink&quot; title=&quot;Linux&quot;&gt;&lt;/a&gt;Linux&lt;/h2&gt;&lt;h5 id=&quot;cmmand-redis-cli-not-found&quot;&gt;&lt;a href=&quot;#cmmand-redis-cl
-      
-    
-    </summary>
-    
-      <category term="问题" scheme="http://yoursite.com/categories/%E9%97%AE%E9%A2%98/"/>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
   </entry>
   
