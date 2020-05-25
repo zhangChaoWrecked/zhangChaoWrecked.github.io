@@ -274,7 +274,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">24</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">25</span></a>
 
   </li>
         
@@ -293,7 +293,7 @@
       
     
 
-    <a href="/categories" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">13</span></a>
+    <a href="/categories" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">14</span></a>
 
   </li>
         
@@ -312,7 +312,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">31</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">33</span></a>
 
   </li>
 
@@ -386,6 +386,374 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/12/Shell 常用脚本/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wrecked">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wrecked">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/12/12/Shell 常用脚本/" class="post-title-link" itemprop="http://yoursite.com/page/3/index.html">Shell 常用脚本</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-12-12 11:49:08" itemprop="dateCreated datePublished" datetime="2019-12-12T11:49:08+08:00">2019-12-12</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-12-13 10:04:30" itemprop="dateModified" datetime="2019-12-13T10:04:30+08:00">2019-12-13</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Shell/" itemprop="url" rel="index"><span itemprop="name">Shell</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/12/12/Shell 常用脚本/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/12/12/Shell 常用脚本/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h5 id="Shell-脚本-输入参数-并判断是否存在"><a href="#Shell-脚本-输入参数-并判断是否存在" class="headerlink" title="Shell 脚本 输入参数 并判断是否存在"></a>Shell 脚本 输入参数 并判断是否存在</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">server_array[0]=server1</span><br><span class="line">server_array[1]=server2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">font=&quot;\E[34m\033[01m&quot;</span><br><span class="line"></span><br><span class="line">end=&quot;\E[0m&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if [ ! -n &quot;$1&quot; ] ;then</span><br><span class="line">    echo -e &quot;$&#123;font&#125; you have not enter a server name ! such like : sh xxx.sh servername $&#123;end&#125;&quot;</span><br><span class="line">    exit 1;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">flag=0</span><br><span class="line"></span><br><span class="line">for var in $&#123;server_array[@]&#125;;</span><br><span class="line">do</span><br><span class="line">       if [ $var == &quot;$1&quot; ];then</span><br><span class="line">               flag=1 </span><br><span class="line">       fi</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if [ &quot;$flag&quot; -eq 1 ];</span><br><span class="line">then</span><br><span class="line">       </span><br><span class="line"> echo  -e &quot;$&#123;font&#125; $1 $&#123;end&#125;&quot;</span><br><span class="line">else</span><br><span class="line">   echo  -e &quot;$&#123;font&#125; Error Server Name!!!! $&#123;end&#125;&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/20/Docker介绍/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wrecked">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wrecked">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/11/20/Docker介绍/" class="post-title-link" itemprop="http://yoursite.com/page/3/index.html">Docker介绍</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-20 09:39:31 / 修改时间：11:46:58" itemprop="dateCreated datePublished" datetime="2019-11-20T09:39:31+08:00">2019-11-20</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/11/20/Docker介绍/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/11/20/Docker介绍/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Docker-Docs"><a href="#Docker-Docs" class="headerlink" title="Docker Docs"></a><a href="https://docs.docker.com/get-started/" target="_blank" rel="noopener">Docker Docs</a></h3><p><img src="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/docker.png" alt="如图"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Docker是一个开源的应用容器引擎。Docker可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的Linux机器上，也可以实现虚拟化。容器是完全使用沙箱机制相互之间不会有任何接口（类似 iPhone的app）,更重要的是容器性能开销极低。</span><br></pre></td></tr></table></figure>
+<h2 id="Docker的应用场景"><a href="#Docker的应用场景" class="headerlink" title="Docker的应用场景"></a>Docker的应用场景</h2><ol>
+<li>Web 应用的自动化打包和发布。</li>
+<li>自动化测试和持续集成、发布。</li>
+<li>在服务型环境中部署和调整数据库或其他的后台应用。</li>
+<li>从头编译或者扩展现有的 OpenShift 或 Cloud Foundry 平台来搭建自己的 PaaS 环境。</li>
+</ol>
+<h2 id="Docker-的优点"><a href="#Docker-的优点" class="headerlink" title="Docker 的优点"></a>Docker 的优点</h2><p>Docker 是一个用于开发，交付和运行应用程序的开放平台。Docker 使您能够将应用程序与基础架构分开，从而可以快速交付软件。借助 Docker，您可以与管理应用程序相同的方式来管理基础架构。通过利用 Docker 的方法来快速交付，测试和部署代码，您可以大大减少编写代码和在生产环境中运行代码之间的延迟。</p>
+<h4 id="1、快速，一致地交付您的应用程序"><a href="#1、快速，一致地交付您的应用程序" class="headerlink" title="1、快速，一致地交付您的应用程序"></a>1、快速，一致地交付您的应用程序</h4><p>Docker 允许开发人员使用您提供的应用程序或服务的本地容器在标准化环境中工作，从而简化了开发的生命周期。<br>容器非常适合持续集成和持续交付（CI / CD）工作流程，请考虑以下示例方案：<br>您的开发人员在本地编写代码，并使用 Docker 容器与同事共享他们的工作。<br>他们使用 Docker 将其应用程序推送到测试环境中，并执行自动或手动测试。<br>当开发人员发现错误时，他们可以在开发环境中对其进行修复，然后将其重新部署到测试环境中，以进行测试和验证。<br>测试完成后，将修补程序推送给生产环境，就像将更新的镜像推送到生产环境一样简单。</p>
+<h4 id="2、响应式部署和扩展"><a href="#2、响应式部署和扩展" class="headerlink" title="2、响应式部署和扩展"></a>2、响应式部署和扩展</h4><p>Docker 是基于容器的平台，允许高度可移植的工作负载。Docker 容器可以在开发人员的本机上，数据中心的物理或虚拟机上，云服务上或混合环境中运行。<br>Docker 的可移植性和轻量级的特性，还可以使您轻松地完成动态管理的工作负担，并根据业务需求指示，实时扩展或拆除应用程序和服务。</p>
+<h4 id="3、在同一硬件上运行更多工作负载"><a href="#3、在同一硬件上运行更多工作负载" class="headerlink" title="3、在同一硬件上运行更多工作负载"></a>3、在同一硬件上运行更多工作负载</h4><p>Docker 轻巧快速。它为基于虚拟机管理程序的虚拟机提供了可行、经济、高效的替代方案，因此您可以利用更多的计算能力来实现业务目标。Docker 非常适合于高密度环境以及中小型部署，而您可以用更少的资源做更多的事情。</p>
+<h5 id="镜像-Image"><a href="#镜像-Image" class="headerlink" title="镜像(Image)"></a>镜像(Image)</h5><p>就相当于是一个 root 文件系统。比如官方镜像 ubuntu:16.04就包含了完整的一套 Ubuntu16.04 最小系统的 root 文件系统。</p>
+<h5 id="容器-Container"><a href="#容器-Container" class="headerlink" title="容器(Container)"></a>容器(Container)</h5><p>镜像(Image)和容器(Container)的关系，就像是面向对象程序设计中的类和实例一样，镜像是静态的定义，容器是镜像运行时的实体。容器可以被创建、启动、停止、删除、暂停等。</p>
+<h5 id="仓库-Repository"><a href="#仓库-Repository" class="headerlink" title="仓库(Repository)"></a>仓库(Repository)</h5><p>仓库可看着一个代码控制中心，用来保存镜像。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -657,361 +1025,6 @@ root 与 logger 是父子关系，没有特别定义则默认为root，任何一
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/13/Btrace 远程调试/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wrecked">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wrecked">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/11/13/Btrace 远程调试/" class="post-title-link" itemprop="http://yoursite.com/page/3/index.html">Btrace 远程调试</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-11-13 09:39:31 / 修改时间：09:34:08" itemprop="dateCreated datePublished" datetime="2019-11-13T09:39:31+08:00">2019-11-13</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/11/13/Btrace 远程调试/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/11/13/Btrace 远程调试/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://github.com/btraceio/btrace" target="_blank" rel="noopener">Btrace GitHub链接</a></p>
-<h5 id="下载Btrace到本地"><a href="#下载Btrace到本地" class="headerlink" title="下载Btrace到本地"></a>下载Btrace到本地</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$ wget  https://github.com/btraceio/btrace/releases/download/v1.3.11.3/btrace-bin-1.3.11.3.zip</span><br><span class="line"></span><br><span class="line">$ unzip btrace-bin-1.3.11.3.zip -d ./btrace  //解压到指定文件夹</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$ vim /etc/profile</span><br><span class="line">export BTRACE_HOME=/home/btrace; ## btrace安装目录</span><br><span class="line">export PATH=$PATH:$BTRACE_HOME/bin;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$ btrace --version</span><br><span class="line">BTrace v.1.3.11.3 (20181217)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$ jps   //查看Java项目进程Pid  也可以 ps -ef |grep xxx</span><br><span class="line"></span><br><span class="line">13890 Bootstrap</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$ cd /home/btrace/bin</span><br><span class="line"></span><br><span class="line">$ btrace 13890 ../samples/AllMethods.java //btrace &lt;PID&gt; XXX.java  执行命令</span><br></pre></td></tr></table></figure>
-<p>属性注解<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@TLS标注的属性可以在追踪脚本的方法中通讯</span><br></pre></td></tr></table></figure></p>
-<h5 id="方法注解"><a href="#方法注解" class="headerlink" title="方法注解"></a>方法注解</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@OnMethod:指定该方法在什么情况下被执行，clazz属性指定要跟踪的类的全限定类名，也可以用正则表达式，</span><br><span class="line">    “/类名的Pattern/”匹配，如/javax\\.swing\\..*/；用”+类名”追踪所有子类，</span><br><span class="line">    如+java.lang.Runnable；用”@xxx”追踪用该注解注解过的类，</span><br><span class="line">    如@javax.jws.WebService。method属性指定要追踪的方法名称，也可以用正则表达式。</span><br><span class="line">    location属性用@Location来指定该方法在目标方法执行前(后、异常、某行、某个方法调用)被执行。</span><br><span class="line">@OnTimer:定时执行该方法。</span><br><span class="line">@OnExit:当脚本运行Sys.exit(code)时执行该方法。</span><br><span class="line">@OnError:当脚本运行抛出异常时执行该方法。</span><br><span class="line">@OnEvent:脚本运行时Ctrl+C可以发送事件。</span><br><span class="line">@OnLowMemory:指定一个内存阀值，低于阀值值执行该方法。</span><br><span class="line">@OnProbe:指定一个xml文件来描述在什么时候执行该方法。</span><br></pre></td></tr></table></figure>
-<h5 id="方法参数注解"><a href="#方法参数注解" class="headerlink" title="方法参数注解"></a>方法参数注解</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@Self:指目标对象本身。</span><br><span class="line">@Retrun:指目标程序方法返回值(需要配合Kind.RETURN)。</span><br><span class="line">@ProbeClassName:指目标类名。</span><br><span class="line">@ProbeMethodName:指目标方法名。</span><br><span class="line">@targetInstance:指@Location指定的clazz和method的目标(需要配合Kind.CALL)。</span><br><span class="line">@targetMethodOrField:指@Location指定的clazz和method的目标的方法或字段(需要配合Kind.CALL)。</span><br><span class="line">@Duration:指目标方法执行时间，单位是纳秒(需要需要配合Kind.RETURN或Kind.ERROR一起使用）。</span><br><span class="line">AnyType:获取对应请求的参数，泛指任意类型。</span><br></pre></td></tr></table></figure>
-<h5 id="追踪时机参数"><a href="#追踪时机参数" class="headerlink" title="追踪时机参数"></a>追踪时机参数</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Kind.Entry:开始进入目标方法时，默认值?。</span><br><span class="line">Kind.Return:目标方法返回时。</span><br><span class="line">Kind.Error:异常没被捕获被抛出目标方法之外时?。</span><br><span class="line">Kind.Throw:异常抛出时?。</span><br><span class="line">Kind.Catch:异常被捕获时。</span><br><span class="line">Kind.Call:被调用时。</span><br><span class="line">Kind.Line:执行到某行时。</span><br></pre></td></tr></table></figure>
-<h4 id="Btrace-实例Demo"><a href="#Btrace-实例Demo" class="headerlink" title="Btrace 实例Demo"></a>Btrace 实例Demo</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import com.sun.btrace.annotations.*;</span><br><span class="line">import com.sun.btrace.services.impl.Printer;</span><br><span class="line">import com.sun.btrace.AnyType;</span><br><span class="line">import com.sun.btrace.BTraceUtils;</span><br><span class="line"></span><br><span class="line">import java.lang.reflect.Field;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 拦截时机</span><br><span class="line"> * 不写Location,默认就是刚进入函数的时候(Kind.ENTRY)</span><br><span class="line"> * 异常抛出(Throw),</span><br><span class="line"> * 异常被捕获(Catch),</span><br><span class="line"> * 异常没被捕获被抛出函数之外(Error),主要用于对某些异常情况的跟踪。</span><br><span class="line"> * clazz  类名</span><br><span class="line"> * method 方法名</span><br><span class="line"> */</span><br><span class="line">@BTrace</span><br><span class="line">public class DappDemo &#123;</span><br><span class="line">    @Injected(ServiceType.RUNTIME)</span><br><span class="line">    private static Printer printer;</span><br><span class="line">    @TLS</span><br><span class="line">    static long beginTime;</span><br><span class="line"></span><br><span class="line">    @OnMethod(clazz = &quot;com.xxx&quot;, method = &quot;xxx&quot;)</span><br><span class="line">    public static void getTime() &#123;</span><br><span class="line">        beginTime = BTraceUtils.timeMillis();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @OnMethod(clazz = &quot;com.xxx&quot;, method = &quot;xxx&quot;, location = @Location(value = Kind.RETURN))</span><br><span class="line">    public static void btraceDemo(@Self Object self,Integer chain, @ProbeClassName String probeClass, @ProbeMethodName String probeMethod,  @Return AnyType result) &#123;</span><br><span class="line">        //打印耗时</span><br><span class="line">        printer.println(&quot;      耗时---&gt;[&quot; + (BTraceUtils.timeMillis() - beginTime) + &quot;]&quot; + &quot; ms&quot;);</span><br><span class="line">        //打印类名</span><br><span class="line">        printer.println(&quot; ClassName---&gt;[&quot; + probeClass + &quot;]&quot;);</span><br><span class="line">        //打印方法名</span><br><span class="line">        printer.println(&quot;MethodName---&gt;[&quot; + probeMethod + &quot;]&quot;);</span><br><span class="line">        //打印入参</span><br><span class="line">        printer.println(&quot;     Param---&gt;chain: [&quot; + chain + &quot;]&quot;);</span><br><span class="line"></span><br><span class="line">        printer.println(&quot;    Result---&gt;[&quot; + result);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        printer.println(&quot;当前Name属性值: &quot; +BTraceUtils.get(BTraceUtils.field(BTraceUtils.classForName(&quot;com.XXX&quot;,BTraceUtils.contextClassLoader()), name(属性昵称), result));</span><br><span class="line">        //打印耗时</span><br><span class="line">        printer.println(&quot;      ==============&quot;);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-       
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/08/Navicat Premium 12永久激活/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wrecked">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wrecked">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/11/08/Navicat Premium 12永久激活/" class="post-title-link" itemprop="http://yoursite.com/page/3/index.html">Navicat Premium 12永久激活</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-11-08 17:39:31 / 修改时间：09:52:43" itemprop="dateCreated datePublished" datetime="2019-11-08T17:39:31+08:00">2019-11-08</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Mysql/" itemprop="url" rel="index"><span itemprop="name">Mysql</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/11/08/Navicat Premium 12永久激活/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/11/08/Navicat Premium 12永久激活/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="一、下载Navicat-Premium-12并安装-官网地址"><a href="#一、下载Navicat-Premium-12并安装-官网地址" class="headerlink" title="一、下载Navicat Premium 12并安装  官网地址"></a>一、下载Navicat Premium 12并安装  <a href="https://www.navicat.com.cn/download/navicat-premium" target="_blank" rel="noopener">官网地址</a></h4><h4 id="二、点击注册机下载"><a href="#二、点击注册机下载" class="headerlink" title="二、点击注册机下载"></a>二、<a href="https://pan.baidu.com/s/16L-w29NV3BPTRn3RgbkY1w" target="_blank" rel="noopener">点击注册机下载</a></h4><h4 id="三、激活Navicat-Premium-12"><a href="#三、激活Navicat-Premium-12" class="headerlink" title="三、激活Navicat Premium 12"></a>三、激活Navicat Premium 12</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1、以管理员身份运行注册机</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2、打开注册机后，在1) Patch，勾选Backup、Host和Navicat v12，然后点击Patch按钮：</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/1.png" alt="如图"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3.找到Navicat Premium 12安装路径下的navicat.exe，选中并点击打开。</span><br><span class="line">此时出现如下弹窗，提示navicat.exe - x64 -&gt; Cracked.，提示已破解（别高兴，还没结束）。若提示libcc.dll或navicat.exe出错，检查是否未关闭Navicat Premium，或到安装目录下将libcc.dll和navicat.exe删除，并将libcc.dll.BAK或navicat.exe.BAK去掉.BAK后缀名。否则卸载已安装的Navicat Premium并清理文件残留和注册表残留：</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/2.png" alt="如图"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4. Keygen / Offline Activation，点击Generate，将自动生成SerialKeygen(注册码)</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/3.png" alt="如图"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5.打开Navicat Premium 12，点击菜单栏的帮助，选择注册，在注册窗口键处填入上一步生成的Serial Keygen（即注册码），然后点击激活：</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/4.png" alt="如图"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">6.点击手动激活：</span><br><span class="line">将Navicat手动激活窗口的请求码框中内容复制到注册机Request Code框中，点击Activation Code下面的Generate按钮（若此处出现错误，要么你未完全按照教程来，要么你所安装的版本高于注册机所支持的版本）：</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/5.png" alt="如图"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">7.将注册机Activation Code处生成的激活码内容复制到Navicat手动激活窗口的激活码框中（或点击Activation Code处下面的Copy按钮，这样会自动粘贴到Navicat手动激活窗口的激活码框中），然后点击激活按钮：</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/6.png" alt="如图"><br><img src="https://raw.githubusercontent.com/zhangChaoWrecked/pictures/master/7.png" alt="如图"></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-       
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1061,7 +1074,7 @@ root 与 logger 是父子关系，没有特别定义则默认为root，任何一
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">31</span>
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1100,7 +1113,9 @@ root 与 logger 是父子关系，没有特别定义则默认为root，任何一
                     
                       
                     
-                    <span class="site-state-item-count">13</span>
+                      
+                    
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1161,7 +1176,9 @@ root 与 logger 是父子关系，没有特别定义则默认为root，任何一
                     
                       
                     
-                    <span class="site-state-item-count">24</span>
+                      
+                    
+                    <span class="site-state-item-count">25</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
